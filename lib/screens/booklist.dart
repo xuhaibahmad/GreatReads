@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+import 'package:goodreads_clone/views/search_view.dart';
 import 'package:goodreads_clone/bloc/book_list/booklist_bloc.dart';
 import 'package:goodreads_clone/di/injection.dart';
 import 'package:goodreads_clone/models/viewmodels/books_list_viewmodel.dart';
@@ -65,8 +65,9 @@ class _BookListScreenState extends State<BookListScreen> {
     return Container(
       padding: EdgeInsets.all(16),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          buildSearchInput(),
+          SearchView(),
           SizedBox(height: 24),
           buildLabel(),
           SizedBox(height: 16),
@@ -76,16 +77,13 @@ class _BookListScreenState extends State<BookListScreen> {
     );
   }
 
-  Align buildLabel() {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Text(
-        "Trending Books",
-        style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-          color: Colors.black54,
-        ),
+  Widget buildLabel() {
+    return Text(
+      "Trending Books",
+      style: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: Colors.black54,
       ),
     );
   }
@@ -98,9 +96,9 @@ class _BookListScreenState extends State<BookListScreen> {
         itemBuilder: (BuildContext context, int index) {
           final item = viewModel.books[index];
           return Container(
-            padding: EdgeInsets.all(8),
             width: 150,
             height: 200,
+            padding: EdgeInsets.symmetric(horizontal: 6),
             child: Column(
               children: [
                 Card(
@@ -111,6 +109,7 @@ class _BookListScreenState extends State<BookListScreen> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(12.0),
                     child: Image(
+                      width: 150,
                       height: 200,
                       fit: BoxFit.fill,
                       image: NetworkImage(item.listImage),
@@ -143,25 +142,6 @@ class _BookListScreenState extends State<BookListScreen> {
             ),
           );
         },
-      ),
-    );
-  }
-
-  Widget buildSearchInput() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      decoration: BoxDecoration(
-        color: Colors.grey[100],
-        borderRadius: BorderRadius.circular(12.0),
-      ),
-      child: TextField(
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          contentPadding: EdgeInsets.only(right: 8),
-          hintText: "Search",
-          icon: Icon(FlutterIcons.search_mdi),
-        ),
-        style: TextStyle(fontSize: 16),
       ),
     );
   }
