@@ -16,10 +16,8 @@ class NyTimesApi {
 
   Future<BookListResponse> getBooks() async {
     final url = "$BASE_URL/lists/overview.json?api-key=$apiKey";
-    print("Url: $url");
     final response = await http.get(url);
     if (response.statusCode == 200) {
-      print("[Response]:\n${response.body}");
       return BookListResponse.fromJson(json.decode(response.body));
     } else {
       throw Exception();
