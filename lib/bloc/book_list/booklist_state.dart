@@ -15,14 +15,12 @@ class BookListLoadingState extends BookListState {
 }
 
 class BookListLoadedState extends BookListState {
-  final BookListViewModel books;
+  final BookListViewModel viewModel;
 
-  BookListLoadedState(this.books);
+  BookListLoadedState(this.viewModel);
 
   @override
-  List<Object> get props => [
-        books,
-      ];
+  List<Object> get props => [viewModel];
 }
 
 class BookListErrorState extends BookListState {

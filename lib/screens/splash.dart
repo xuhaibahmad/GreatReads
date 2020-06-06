@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
       final goodReadsApiKey = secrets[GOODREADS_API_KEY];
       nyTimesApi.setApiKey(nyTimesApiKey);
       goodReadsApi.setApiKey(goodReadsApiKey);
-      ExtendedNavigator.of(context).pushNamed(Routes.bookListPage);
+      ExtendedNavigator.of(context).pushReplacementNamed(Routes.bookListPage);
     });
   }
 

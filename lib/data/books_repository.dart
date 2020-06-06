@@ -1,7 +1,7 @@
 import 'package:goodreads_clone/data/goodreads_api.dart';
 import 'package:goodreads_clone/data/nytimes_api.dart';
+import 'package:goodreads_clone/models/books_list_response.dart';
 import 'package:goodreads_clone/models/errors.dart';
-import 'package:goodreads_clone/models/nytimes_books_response.dart';
 import 'package:injectable/injectable.dart';
 
 @singleton
@@ -11,7 +11,7 @@ class BooksRepository {
 
   BooksRepository(this.goodReadsApi, this.nyTimesApi);
 
-  Future<BooksResponse> getBooks() async {
+  Future<BookListResponse> getBooks() async {
     try {
       return nyTimesApi.getBooks();
     } catch (e) {
