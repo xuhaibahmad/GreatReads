@@ -1,0 +1,1 @@
+class BookListError extends Error {}

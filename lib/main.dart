@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       home: ExtendedNavigator<Router>(
         router: Router(),
       ),
-      initialRoute: Routes.homePage,
+      initialRoute: Routes.splashPage,
     );
   }
 }

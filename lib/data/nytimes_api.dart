@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:goodreads_clone/models/nytimes_books_response.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
 
@@ -11,8 +14,13 @@ class NyTimesApi {
     this.apiKey = key;
   }
 
-  getBooks() async {
-    final result = await http.get("$BASE_URL/lists/names.json");
-    print(result);
+  Future<BooksResponse> getBooks() async {
+    final url = "$BASE_URL/lists/overview.json?api-key=$apiKey";
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      return BooksResponse.fromJson(json.decode(response.body));
+    } else {
+      throw Exception();
+    }
   }
 }

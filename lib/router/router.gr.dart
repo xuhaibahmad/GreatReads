@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:goodreads_clone/screens/splash.dart';
-import 'package:goodreads_clone/screens/home.dart';
+import 'package:goodreads_clone/screens/booklist.dart';
 
 abstract class Routes {
   static const splashPage = '/';
-  static const homePage = '/home-page';
+  static const bookListPage = '/book-list-page';
   static const all = {
     splashPage,
-    homePage,
+    bookListPage,
   };
 }
 
@@ -41,13 +41,15 @@ class Router extends RouterBase {
           builder: (context) => SplashScreen(key: typedArgs.key),
           settings: settings,
         );
-      case Routes.homePage:
-        if (hasInvalidArgs<HomeScreenArguments>(args)) {
-          return misTypedArgsRoute<HomeScreenArguments>(args);
+      case Routes.bookListPage:
+        if (hasInvalidArgs<BookListScreenArguments>(args)) {
+          return misTypedArgsRoute<BookListScreenArguments>(args);
         }
-        final typedArgs = args as HomeScreenArguments ?? HomeScreenArguments();
+        final typedArgs =
+            args as BookListScreenArguments ?? BookListScreenArguments();
         return MaterialPageRoute<dynamic>(
-          builder: (context) => HomeScreen(key: typedArgs.key),
+          builder: (context) =>
+              BookListScreen(key: typedArgs.key).wrappedRoute(context),
           settings: settings,
         );
       default:
@@ -66,8 +68,8 @@ class SplashScreenArguments {
   SplashScreenArguments({this.key});
 }
 
-//HomeScreen arguments holder class
-class HomeScreenArguments {
+//BookListScreen arguments holder class
+class BookListScreenArguments {
   final Key key;
-  HomeScreenArguments({this.key});
+  BookListScreenArguments({this.key});
 }

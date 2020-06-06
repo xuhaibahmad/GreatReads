@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
       final goodReadsApiKey = secrets[GOODREADS_API_KEY];
       nyTimesApi.setApiKey(nyTimesApiKey);
       goodReadsApi.setApiKey(goodReadsApiKey);
-      ExtendedNavigator.of(context).pushNamed(Routes.homePage);
+      ExtendedNavigator.of(context).pushNamed(Routes.bookListPage);
     });
   }
 
@@ -47,6 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
       body: Container(
         child: Center(
+          // TODO: Improve UI
           child: Text("GreatReads"),
         ),
       ),
