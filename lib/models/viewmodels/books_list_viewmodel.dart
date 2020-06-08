@@ -1,17 +1,15 @@
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:goodreads_clone/models/books_list_response.dart';
 
-class BookListViewModel extends Equatable {
-  final List<BookListItem> books;
+part 'books_list_viewmodel.freezed.dart';
 
-  const BookListViewModel({this.books});
+@freezed
+abstract class BookListViewModel with _$BookListViewModel {
+  factory BookListViewModel({List<BookListItem> books}) = _BookListViewModel;
 
   factory BookListViewModel.fromBookResponse(BookListResponse response) {
     return BookListViewModel(
       books: response.results.lists,
     );
   }
-
-  @override
-  List<Object> get props => [books];
 }

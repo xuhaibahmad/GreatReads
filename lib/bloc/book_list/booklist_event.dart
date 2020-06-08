@@ -1,10 +1,7 @@
 part of 'booklist_bloc.dart';
 
-abstract class BookListEvent extends Equatable {
+abstract class BookListEvent {
   const BookListEvent();
 }
 
-class GetBookListEvent extends BookListEvent {
-  @override
-  List<Object> get props => [];
-}
+class GetBookListEvent extends BookListEvent {}

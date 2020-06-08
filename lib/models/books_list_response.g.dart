@@ -6,8 +6,8 @@ part of 'books_list_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-BookListResponse _$BookListResponseFromJson(Map<String, dynamic> json) {
-  return BookListResponse(
+_$_BookListResponse _$_$_BookListResponseFromJson(Map<String, dynamic> json) {
+  return _$_BookListResponse(
     status: json['status'] as String,
     copyright: json['copyright'] as String,
     numResults: json['num_results'] as int,
@@ -17,7 +17,8 @@ BookListResponse _$BookListResponseFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BookListResponseToJson(BookListResponse instance) =>
+Map<String, dynamic> _$_$_BookListResponseToJson(
+        _$_BookListResponse instance) =>
     <String, dynamic>{
       'status': instance.status,
       'copyright': instance.copyright,
@@ -25,8 +26,8 @@ Map<String, dynamic> _$BookListResponseToJson(BookListResponse instance) =>
       'results': instance.results,
     };
 
-BookListResults _$BookListResultsFromJson(Map<String, dynamic> json) {
-  return BookListResults(
+_$_BookListResults _$_$_BookListResultsFromJson(Map<String, dynamic> json) {
+  return _$_BookListResults(
     bestsellersDate: json['bestsellers_date'] == null
         ? null
         : DateTime.parse(json['bestsellers_date'] as String),
@@ -45,7 +46,7 @@ BookListResults _$BookListResultsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BookListResultsToJson(BookListResults instance) =>
+Map<String, dynamic> _$_$_BookListResultsToJson(_$_BookListResults instance) =>
     <String, dynamic>{
       'bestsellers_date': instance.bestsellersDate?.toIso8601String(),
       'published_date': instance.publishedDate?.toIso8601String(),
@@ -56,8 +57,8 @@ Map<String, dynamic> _$BookListResultsToJson(BookListResults instance) =>
       'lists': instance.lists,
     };
 
-BookListItem _$BookListItemFromJson(Map<String, dynamic> json) {
-  return BookListItem(
+_$_BookListItem _$_$_BookListItemFromJson(Map<String, dynamic> json) {
+  return _$_BookListItem(
     listId: json['list_id'] as int,
     listName: json['list_name'] as String,
     listNameEncoded: json['list_name_encoded'] as String,
@@ -73,7 +74,7 @@ BookListItem _$BookListItemFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BookListItemToJson(BookListItem instance) {
+Map<String, dynamic> _$_$_BookListItemToJson(_$_BookListItem instance) {
   final val = <String, dynamic>{
     'list_id': instance.listId,
     'list_name': instance.listName,
@@ -132,8 +133,8 @@ const _$UpdatedEnumMap = {
   Updated.MONTHLY: 'MONTHLY',
 };
 
-Book _$BookFromJson(Map<String, dynamic> json) {
-  return Book(
+_$_Book _$_$_BookFromJson(Map<String, dynamic> json) {
+  return _$_Book(
     ageGroup: json['age_group'] as String,
     amazonProductUrl: json['amazon_product_url'] as String,
     articleChapterLink: json['article_chapter_link'] as String,
@@ -168,7 +169,7 @@ Book _$BookFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BookToJson(Book instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_BookToJson(_$_Book instance) => <String, dynamic>{
       'age_group': instance.ageGroup,
       'amazon_product_url': instance.amazonProductUrl,
       'article_chapter_link': instance.articleChapterLink,
@@ -195,14 +196,14 @@ Map<String, dynamic> _$BookToJson(Book instance) => <String, dynamic>{
       'buy_links': instance.buyLinks,
     };
 
-BuyLink _$BuyLinkFromJson(Map<String, dynamic> json) {
-  return BuyLink(
+_$_BuyLink _$_$_BuyLinkFromJson(Map<String, dynamic> json) {
+  return _$_BuyLink(
     name: json['name'] as String,
     url: json['url'] as String,
   );
 }
 
-Map<String, dynamic> _$BuyLinkToJson(BuyLink instance) {
+Map<String, dynamic> _$_$_BuyLinkToJson(_$_BuyLink instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

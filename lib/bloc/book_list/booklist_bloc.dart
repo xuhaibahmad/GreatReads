@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 import 'package:goodreads_clone/data/books_repository.dart';
 import 'package:goodreads_clone/models/errors.dart';
 import 'package:goodreads_clone/models/viewmodels/books_list_viewmodel.dart';
