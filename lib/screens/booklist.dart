@@ -97,4 +97,10 @@ class _BookListScreenState extends State<BookListScreen> {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+    bloc.close();
+  }
 }

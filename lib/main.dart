@@ -5,6 +5,7 @@ import 'package:goodreads_clone/router/router.gr.dart';
 import 'di/injection.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   configureInjection();
   runApp(MyApp());
 }
