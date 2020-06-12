@@ -13,11 +13,10 @@ import 'package:get_it/get_it.dart';
 
 Future<void> $initGetIt(GetIt g, {String environment}) async {
   final secretsModule = _$SecretsModule();
-  final string = await secretsModule.nyTimesApiKey;
-  g.registerFactory<String>(() => string, instanceName: 'NYTimesApiKey');
-  final string1 = await secretsModule.goodReadsApiKey;
-  g.registerFactory<String>(() => string1, instanceName: 'GoodreadsApiKey');
-  g.registerFactoryAsync<String>(() => secretsModule.getSecrets(g<String>()));
+  g.registerFactory<String>(() => secretsModule.nyTimesApiKey,
+      instanceName: 'NYTimesApiKey');
+  g.registerFactory<String>(() => secretsModule.goodReadsApiKey,
+      instanceName: 'GoodreadsApiKey');
 
   //Eager singletons must be registered in the right order
   g.registerSingleton<GoodReadsApi>(GoodReadsApi());
