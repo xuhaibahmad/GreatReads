@@ -2,8 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:goodreads_clone/screens/currently_reading.dart';
 import 'package:goodreads_clone/views/bottom_nav_view.dart';
 import 'package:goodreads_clone/views/library_view.dart';
+import 'package:goodreads_clone/views/partial_bottom_sheet.dart';
 import 'package:goodreads_clone/views/search_view.dart';
 import 'package:goodreads_clone/bloc/book_list/booklist_bloc.dart';
 import 'package:goodreads_clone/di/injection.dart';
@@ -86,15 +88,21 @@ class _BookListScreenState extends State<BookListScreen> {
   Widget buildError() => ErrorView();
 
   Widget buildBookList(BookListLoadedState state) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SearchView(),
-          SizedBox(height: 24),
-          LibraryView(viewModel: state.viewModel),
-        ],
-      ),
+    return Stack(
+      children: <Widget>[
+        Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SearchView(),
+              SizedBox(height: 12),
+              LibraryView(viewModel: state.viewModel),
+              SizedBox(height: 80),
+            ],
+          ),
+        ),
+        CurrentlyReadingSheet(),
+      ],
     );
   }
 

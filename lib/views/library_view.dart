@@ -63,8 +63,8 @@ class LibraryView extends StatelessWidget {
 
   Widget buildBookListItem(Book book) {
     return Container(
-      width: 150,
-      height: 200,
+      width: 120,
+      height: 150,
       padding: EdgeInsets.symmetric(horizontal: 6),
       child: Column(
         children: [
@@ -76,8 +76,8 @@ class LibraryView extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12.0),
               child: Image(
-                width: 150,
-                height: 200,
+                width: 120,
+                height: 150,
                 fit: BoxFit.fill,
                 image: NetworkImage(book.bookImage),
               ),

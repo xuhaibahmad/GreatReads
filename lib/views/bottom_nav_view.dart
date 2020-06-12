@@ -58,8 +58,8 @@ class _BottomNavViewState extends State<BottomNavView> {
         color: Colors.transparent,
         child: ClipRRect(
           borderRadius: BorderRadius.only(
-            topRight: Radius.circular(40),
-            topLeft: Radius.circular(40),
+            topRight: Radius.circular(32),
+            topLeft: Radius.circular(32),
           ),
           child: BottomNavigationBar(
             items: getNavItems(),

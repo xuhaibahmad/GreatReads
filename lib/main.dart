@@ -3,11 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:goodreads_clone/router/router.gr.dart';
 
 import 'di/injection.dart';
+import 'package:flutter/services.dart';
 
-void main() {
+main() {
   WidgetsFlutterBinding.ensureInitialized();
   configureInjection();
+  applySystemColors();
   runApp(MyApp());
+}
+
+applySystemColors() {
+  final theme = SystemUiOverlayStyle.dark.copyWith(
+    systemNavigationBarColor: Colors.grey[50],
+    statusBarColor: Colors.white12,
+    systemNavigationBarIconBrightness: Brightness.dark,
+  );
+  SystemChrome.setSystemUIOverlayStyle(theme);
 }
 
 class MyApp extends StatelessWidget {
