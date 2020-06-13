@@ -38,6 +38,7 @@ dependencies:
   freezed_annotation: ^0.7.1
   flutter_hooks: ^0.7.0
   chopper: ^3.0.2
+  percent_indicator: ^2.1.4
 
 dev_dependencies:
   flutter_test:

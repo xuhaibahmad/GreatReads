@@ -44,7 +44,7 @@ class LibraryView extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(left: 8),
             child: SizedBox(
-              height: 280,
+              height: 240,
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: item.books.length,
@@ -64,7 +64,7 @@ class LibraryView extends StatelessWidget {
   Widget buildBookListItem(Book book) {
     return Container(
       width: 120,
-      height: 150,
+      height: 140,
       padding: EdgeInsets.symmetric(horizontal: 6),
       child: Column(
         children: [
@@ -77,7 +77,7 @@ class LibraryView extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.0),
               child: Image(
                 width: 120,
-                height: 150,
+                height: 140,
                 fit: BoxFit.fill,
                 image: NetworkImage(book.bookImage),
               ),

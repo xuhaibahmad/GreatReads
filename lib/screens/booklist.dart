@@ -5,7 +5,6 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:goodreads_clone/screens/currently_reading.dart';
 import 'package:goodreads_clone/views/bottom_nav_view.dart';
 import 'package:goodreads_clone/views/library_view.dart';
-import 'package:goodreads_clone/views/partial_bottom_sheet.dart';
 import 'package:goodreads_clone/views/search_view.dart';
 import 'package:goodreads_clone/bloc/book_list/booklist_bloc.dart';
 import 'package:goodreads_clone/di/injection.dart';
@@ -101,7 +100,9 @@ class _BookListScreenState extends State<BookListScreen> {
             ],
           ),
         ),
-        CurrentlyReadingSheet(),
+        CurrentlyReadingSheet(
+          book: state.viewModel.books.first.books.first,
+        ),
       ],
     );
   }
