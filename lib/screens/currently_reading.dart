@@ -18,7 +18,7 @@ class CurrentlyReadingSheet extends StatelessWidget {
       initialChildSize: 0.45,
       minChildSize: 0.25,
       maxChildSize: 0.45,
-      builder: (BuildContext context, ScrollController scrollController) {
+      builder: (context, scrollController) {
         return SingleChildScrollView(
           controller: scrollController,
           child: Container(
@@ -34,25 +34,20 @@ class CurrentlyReadingSheet extends StatelessWidget {
                 color: Colors.teal,
                 height: 300,
                 width: double.infinity,
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).viewInsets.bottom,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        "Currently Reading",
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                        ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Currently Reading",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
                       ),
-                      SizedBox(height: 16.0),
-                      buildCurrentReadItem(),
-                    ],
-                  ),
+                    ),
+                    SizedBox(height: 16.0),
+                    buildCurrentReadItem(),
+                  ],
                 ),
               ),
             ),

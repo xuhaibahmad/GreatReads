@@ -11,53 +11,47 @@ class LibraryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-        child: ListView.builder(
-          shrinkWrap: true,
-          itemCount: viewModel.books.length,
-          itemBuilder: (BuildContext context, int index) {
-            final item = viewModel.books[index];
-            return buildCategoryListItem(item);
-          },
-        ),
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: viewModel.books.length,
+        itemBuilder: (BuildContext context, int index) {
+          final item = viewModel.books[index];
+          return buildCategoryListItem(item);
+        },
       ),
     );
   }
 
-  Widget buildCategoryListItem(BookListItem item) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(left: 16),
-            child: Text(
-              item.displayName,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: Colors.black54,
-              ),
+  Widget buildCategoryListItem(Category category) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(left: 16),
+          child: Text(
+            category.displayName,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: Colors.black54,
             ),
           ),
-          SizedBox(height: 16),
-          Container(
+        ),
+        SizedBox(height: 16),
+        SizedBox(
+          height: 240,
+          child: ListView.builder(
             padding: EdgeInsets.only(left: 8),
-            child: SizedBox(
-              height: 240,
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: item.books.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  final childItem = item.books[index];
-                  return buildBookListItem(childItem);
-                },
-              ),
-            ),
+            shrinkWrap: true,
+            itemCount: category.books.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              final book = category.books[index];
+              return buildBookListItem(book);
+            },
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

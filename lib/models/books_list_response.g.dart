@@ -41,7 +41,7 @@ _$_BookListResults _$_$_BookListResultsFromJson(Map<String, dynamic> json) {
     nextPublishedDate: json['next_published_date'] as String,
     lists: (json['lists'] as List)
         ?.map((e) =>
-            e == null ? null : BookListItem.fromJson(e as Map<String, dynamic>))
+            e == null ? null : Category.fromJson(e as Map<String, dynamic>))
         ?.toList(),
   );
 }

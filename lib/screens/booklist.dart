@@ -1,9 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:goodreads_clone/screens/currently_reading.dart';
-import 'package:goodreads_clone/views/bottom_nav_view.dart';
 import 'package:goodreads_clone/views/library_view.dart';
 import 'package:goodreads_clone/views/search_view.dart';
 import 'package:goodreads_clone/bloc/book_list/booklist_bloc.dart';
@@ -45,39 +43,16 @@ class _BookListScreenState extends State<BookListScreen> {
       // Using stack instead of the bottomNavigationView from the scaffold
       // due to the shape of BottomNavigationView and transparency behind.
       // Reference: https://stackoverflow.com/a/56585903/2444874
-      body: Stack(
-        children: [
-          BlocBuilder<BookListBloc, BookListState>(
-            builder: (context, state) {
-              if (state is BookListLoadedState) {
-                return buildBookList(state);
-              } else if (state is BookListErrorState) {
-                return buildError();
-              } else {
-                return buildLoading();
-              }
-            },
-          ),
-          BottomNavView(
-            items: [
-              BottomNavItem(
-                icon: FlutterIcons.compass_ent,
-                selectedIcon: FlutterIcons.compass_mco,
-                label: "Explore",
-              ),
-              BottomNavItem(
-                  icon: FlutterIcons.book_ant,
-                  //selectedIcon: FlutterIcons.book_mco,
-                  selectedIcon: FlutterIcons.book_mco,
-                  label: "Reading"),
-              BottomNavItem(
-                icon: FlutterIcons.bookmark_border_mdi,
-                selectedIcon: FlutterIcons.bookmark_mdi,
-                label: "Bookmarks",
-              ),
-            ],
-          ),
-        ],
+      body: BlocBuilder<BookListBloc, BookListState>(
+        builder: (context, state) {
+          if (state is BookListLoadedState) {
+            return buildBookList(state);
+          } else if (state is BookListErrorState) {
+            return buildError();
+          } else {
+            return buildLoading();
+          }
+        },
       ),
     );
   }
@@ -96,11 +71,12 @@ class _BookListScreenState extends State<BookListScreen> {
               SearchView(),
               SizedBox(height: 12),
               LibraryView(viewModel: state.viewModel),
-              SizedBox(height: 80),
+              SizedBox(height: 120),
             ],
           ),
         ),
         CurrentlyReadingSheet(
+          // TODO: Replace with actual entry
           book: state.viewModel.books.first.books.first,
         ),
       ],

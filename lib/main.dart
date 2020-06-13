@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:goodreads_clone/router/router.gr.dart';
+import 'package:goodreads_clone/views/bottom_nav_view.dart';
 
 import 'di/injection.dart';
 import 'package:flutter/services.dart';
@@ -29,8 +31,32 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.amber,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ExtendedNavigator<Router>(
-        router: Router(),
+      home: Stack(
+        children: [
+          ExtendedNavigator<Router>(
+            router: Router(),
+          ),
+          BottomNavView(
+            items: [
+              BottomNavItem(
+                icon: FlutterIcons.compass_ent,
+                selectedIcon: FlutterIcons.compass_mco,
+                label: "Explore",
+              ),
+              BottomNavItem(
+                icon: FlutterIcons.book_ant,
+                //selectedIcon: FlutterIcons.book_mco,
+                selectedIcon: FlutterIcons.book_mco,
+                label: "Reading",
+              ),
+              BottomNavItem(
+                icon: FlutterIcons.bookmark_border_mdi,
+                selectedIcon: FlutterIcons.bookmark_mdi,
+                label: "Bookmarks",
+              ),
+            ],
+          ),
+        ],
       ),
       initialRoute: Routes.splashPage,
     );

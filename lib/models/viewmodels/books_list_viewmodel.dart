@@ -5,7 +5,7 @@ part 'books_list_viewmodel.freezed.dart';
 
 @freezed
 abstract class BookListViewModel with _$BookListViewModel {
-  factory BookListViewModel({List<BookListItem> books}) = _BookListViewModel;
+  factory BookListViewModel({List<Category> books}) = _BookListViewModel;
 
   factory BookListViewModel.fromBookResponse(BookListResponse response) {
     return BookListViewModel(

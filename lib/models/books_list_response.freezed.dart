@@ -243,7 +243,7 @@ class _$BookListResultsTearOff {
       @JsonKey(name: 'next_published_date')
           String nextPublishedDate,
       @JsonKey(name: 'lists')
-          List<BookListItem> lists}) {
+          List<Category> lists}) {
     return _BookListResults(
       bestsellersDate: bestsellersDate,
       publishedDate: publishedDate,
@@ -270,7 +270,7 @@ mixin _$BookListResults {
   @JsonKey(name: 'next_published_date')
   String get nextPublishedDate;
   @JsonKey(name: 'lists')
-  List<BookListItem> get lists;
+  List<Category> get lists;
 
   Map<String, dynamic> toJson();
   $BookListResultsCopyWith<BookListResults> get copyWith;
@@ -292,7 +292,7 @@ abstract class $BookListResultsCopyWith<$Res> {
       @JsonKey(name: 'next_published_date')
           String nextPublishedDate,
       @JsonKey(name: 'lists')
-          List<BookListItem> lists});
+          List<Category> lists});
 }
 
 class _$BookListResultsCopyWithImpl<$Res>
@@ -328,7 +328,7 @@ class _$BookListResultsCopyWithImpl<$Res>
       nextPublishedDate: nextPublishedDate == freezed
           ? _value.nextPublishedDate
           : nextPublishedDate as String,
-      lists: lists == freezed ? _value.lists : lists as List<BookListItem>,
+      lists: lists == freezed ? _value.lists : lists as List<Category>,
     ));
   }
 }
@@ -351,7 +351,7 @@ abstract class _$BookListResultsCopyWith<$Res>
       @JsonKey(name: 'next_published_date')
           String nextPublishedDate,
       @JsonKey(name: 'lists')
-          List<BookListItem> lists});
+          List<Category> lists});
 }
 
 class __$BookListResultsCopyWithImpl<$Res>
@@ -389,7 +389,7 @@ class __$BookListResultsCopyWithImpl<$Res>
       nextPublishedDate: nextPublishedDate == freezed
           ? _value.nextPublishedDate
           : nextPublishedDate as String,
-      lists: lists == freezed ? _value.lists : lists as List<BookListItem>,
+      lists: lists == freezed ? _value.lists : lists as List<Category>,
     ));
   }
 }
@@ -430,7 +430,7 @@ class _$_BookListResults implements _BookListResults {
   final String nextPublishedDate;
   @override
   @JsonKey(name: 'lists')
-  final List<BookListItem> lists;
+  final List<Category> lists;
 
   @override
   String toString() {
@@ -495,7 +495,7 @@ abstract class _BookListResults implements BookListResults {
       @JsonKey(name: 'next_published_date')
           String nextPublishedDate,
       @JsonKey(name: 'lists')
-          List<BookListItem> lists}) = _$_BookListResults;
+          List<Category> lists}) = _$_BookListResults;
 
   factory _BookListResults.fromJson(Map<String, dynamic> json) =
       _$_BookListResults.fromJson;
@@ -517,17 +517,17 @@ abstract class _BookListResults implements BookListResults {
   String get nextPublishedDate;
   @override
   @JsonKey(name: 'lists')
-  List<BookListItem> get lists;
+  List<Category> get lists;
   @override
   _$BookListResultsCopyWith<_BookListResults> get copyWith;
 }
 
-BookListItem _$BookListItemFromJson(Map<String, dynamic> json) {
+Category _$CategoryFromJson(Map<String, dynamic> json) {
   return _BookListItem.fromJson(json);
 }
 
-class _$BookListItemTearOff {
-  const _$BookListItemTearOff();
+class _$CategoryTearOff {
+  const _$CategoryTearOff();
 
   _BookListItem call(
       {@JsonKey(name: 'list_id') int listId,
@@ -554,9 +554,9 @@ class _$BookListItemTearOff {
 }
 
 // ignore: unused_element
-const $BookListItem = _$BookListItemTearOff();
+const $Category = _$CategoryTearOff();
 
-mixin _$BookListItem {
+mixin _$Category {
   @JsonKey(name: 'list_id')
   int get listId;
   @JsonKey(name: 'list_name')
@@ -577,13 +577,12 @@ mixin _$BookListItem {
   List<Book> get books;
 
   Map<String, dynamic> toJson();
-  $BookListItemCopyWith<BookListItem> get copyWith;
+  $CategoryCopyWith<Category> get copyWith;
 }
 
-abstract class $BookListItemCopyWith<$Res> {
-  factory $BookListItemCopyWith(
-          BookListItem value, $Res Function(BookListItem) then) =
-      _$BookListItemCopyWithImpl<$Res>;
+abstract class $CategoryCopyWith<$Res> {
+  factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
+      _$CategoryCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'list_id') int listId,
       @JsonKey(name: 'list_name') String listName,
@@ -596,12 +595,12 @@ abstract class $BookListItemCopyWith<$Res> {
       @JsonKey(name: 'books') List<Book> books});
 }
 
-class _$BookListItemCopyWithImpl<$Res> implements $BookListItemCopyWith<$Res> {
-  _$BookListItemCopyWithImpl(this._value, this._then);
+class _$CategoryCopyWithImpl<$Res> implements $CategoryCopyWith<$Res> {
+  _$CategoryCopyWithImpl(this._value, this._then);
 
-  final BookListItem _value;
+  final Category _value;
   // ignore: unused_field
-  final $Res Function(BookListItem) _then;
+  final $Res Function(Category) _then;
 
   @override
   $Res call({
@@ -636,8 +635,7 @@ class _$BookListItemCopyWithImpl<$Res> implements $BookListItemCopyWith<$Res> {
   }
 }
 
-abstract class _$BookListItemCopyWith<$Res>
-    implements $BookListItemCopyWith<$Res> {
+abstract class _$BookListItemCopyWith<$Res> implements $CategoryCopyWith<$Res> {
   factory _$BookListItemCopyWith(
           _BookListItem value, $Res Function(_BookListItem) then) =
       __$BookListItemCopyWithImpl<$Res>;
@@ -654,7 +652,7 @@ abstract class _$BookListItemCopyWith<$Res>
       @JsonKey(name: 'books') List<Book> books});
 }
 
-class __$BookListItemCopyWithImpl<$Res> extends _$BookListItemCopyWithImpl<$Res>
+class __$BookListItemCopyWithImpl<$Res> extends _$CategoryCopyWithImpl<$Res>
     implements _$BookListItemCopyWith<$Res> {
   __$BookListItemCopyWithImpl(
       _BookListItem _value, $Res Function(_BookListItem) _then)
@@ -742,7 +740,7 @@ class _$_BookListItem implements _BookListItem {
 
   @override
   String toString() {
-    return 'BookListItem(listId: $listId, listName: $listName, listNameEncoded: $listNameEncoded, displayName: $displayName, updated: $updated, listImage: $listImage, listImageWidth: $listImageWidth, listImageHeight: $listImageHeight, books: $books)';
+    return 'Category(listId: $listId, listName: $listName, listNameEncoded: $listNameEncoded, displayName: $displayName, updated: $updated, listImage: $listImage, listImageWidth: $listImageWidth, listImageHeight: $listImageHeight, books: $books)';
   }
 
   @override
@@ -799,7 +797,7 @@ class _$_BookListItem implements _BookListItem {
   }
 }
 
-abstract class _BookListItem implements BookListItem {
+abstract class _BookListItem implements Category {
   factory _BookListItem(
       {@JsonKey(name: 'list_id') int listId,
       @JsonKey(name: 'list_name') String listName,

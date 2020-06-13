@@ -28,7 +28,7 @@ abstract class BookListResults with _$BookListResults {
         String publishedDateDescription,
     @JsonKey(name: "previous_published_date") DateTime previousPublishedDate,
     @JsonKey(name: "next_published_date") String nextPublishedDate,
-    @JsonKey(name: "lists") List<BookListItem> lists,
+    @JsonKey(name: "lists") List<Category> lists,
   }) = _BookListResults;
 
   factory BookListResults.fromJson(Map<String, dynamic> json) =>
@@ -36,9 +36,9 @@ abstract class BookListResults with _$BookListResults {
 }
 
 @freezed
-abstract class BookListItem with _$BookListItem {
+abstract class Category with _$Category {
   @JsonSerializable()
-  factory BookListItem({
+  factory Category({
     @JsonKey(name: "list_id") int listId,
     @JsonKey(name: "list_name") String listName,
     @JsonKey(name: "list_name_encoded") String listNameEncoded,
@@ -50,8 +50,8 @@ abstract class BookListItem with _$BookListItem {
     @JsonKey(name: "books") List<Book> books,
   }) = _BookListItem;
 
-  factory BookListItem.fromJson(Map<String, dynamic> json) =>
-      _$BookListItemFromJson(json);
+  factory Category.fromJson(Map<String, dynamic> json) =>
+      _$CategoryFromJson(json);
 }
 
 @freezed
