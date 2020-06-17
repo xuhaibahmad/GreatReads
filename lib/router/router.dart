@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route_annotations.dart';
 import 'package:goodreads_clone/screens/booklist.dart';
+import 'package:goodreads_clone/screens/bookmarks.dart';
 import 'package:goodreads_clone/screens/current_readings.dart';
 import 'package:goodreads_clone/screens/splash.dart';
 
@@ -11,4 +12,6 @@ class $Router {
   BookListScreen bookListPage;
   @MaterialRoute()
   CurrentReadingsScreen currentReadingsPage;
+  @MaterialRoute()
+  BookmarksScreen bookmarksPage;
 }

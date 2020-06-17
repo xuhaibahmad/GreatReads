@@ -10,15 +10,18 @@ import 'package:auto_route/auto_route.dart';
 import 'package:goodreads_clone/screens/splash.dart';
 import 'package:goodreads_clone/screens/booklist.dart';
 import 'package:goodreads_clone/screens/current_readings.dart';
+import 'package:goodreads_clone/screens/bookmarks.dart';
 
 abstract class Routes {
   static const splashPage = '/';
   static const bookListPage = '/book-list-page';
   static const currentReadingsPage = '/current-readings-page';
+  static const bookmarksPage = '/bookmarks-page';
   static const all = {
     splashPage,
     bookListPage,
     currentReadingsPage,
+    bookmarksPage,
   };
 }
 
@@ -66,6 +69,17 @@ class Router extends RouterBase {
               CurrentReadingsScreen(key: typedArgs.key).wrappedRoute(context),
           settings: settings,
         );
+      case Routes.bookmarksPage:
+        if (hasInvalidArgs<BookmarksScreenArguments>(args)) {
+          return misTypedArgsRoute<BookmarksScreenArguments>(args);
+        }
+        final typedArgs =
+            args as BookmarksScreenArguments ?? BookmarksScreenArguments();
+        return MaterialPageRoute<dynamic>(
+          builder: (context) =>
+              BookmarksScreen(key: typedArgs.key).wrappedRoute(context),
+          settings: settings,
+        );
       default:
         return unknownRoutePage(settings.name);
     }
@@ -92,4 +106,10 @@ class BookListScreenArguments {
 class CurrentReadingsScreenArguments {
   final Key key;
   CurrentReadingsScreenArguments({this.key});
+}
+
+//BookmarksScreen arguments holder class
+class BookmarksScreenArguments {
+  final Key key;
+  BookmarksScreenArguments({this.key});
 }

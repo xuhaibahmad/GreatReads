@@ -95,10 +95,11 @@ class GreatreadsApp extends StatelessWidget {
   }
 
   navigateTo(int index) {
-    print("Selected: $index");
     String route = "";
     if (index == 1) {
       route = Routes.currentReadingsPage;
+    } else if (index == 2) {
+      route = Routes.bookmarksPage;
     } else {
       route = Routes.bookListPage;
     }
