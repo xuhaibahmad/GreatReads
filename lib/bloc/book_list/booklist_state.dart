@@ -1,8 +1,6 @@
 part of 'booklist_bloc.dart';
 
-abstract class BookListState {
-  const BookListState();
-}
+abstract class BookListState {}
 
 class BookListInitialState extends BookListState {}
 

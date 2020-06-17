@@ -4,13 +4,15 @@ import 'package:bloc/bloc.dart';
 import 'package:goodreads_clone/data/books_repository.dart';
 import 'package:goodreads_clone/models/errors.dart';
 import 'package:goodreads_clone/models/viewmodels/books_list/books_list_viewmodel.dart';
+import 'package:goodreads_clone/utils/mixins/auto_reset_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 part 'booklist_event.dart';
 part 'booklist_state.dart';
 
-@singleton
-class BookListBloc extends Bloc<BookListEvent, BookListState> {
+@lazySingleton
+class BookListBloc extends Bloc<BookListEvent, BookListState>
+    with AutoResetLazySingleton<BookListEvent, BookListState> {
   final BooksRepository repository;
 
   BookListBloc(this.repository);

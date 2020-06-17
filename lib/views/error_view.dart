@@ -11,13 +11,12 @@ class ErrorView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 100),
       child: Padding(
         padding: EdgeInsets.all(24.0),
         child: Column(
           children: [
             SvgPicture.asset(
-              "assets/071-meteor.svg",
+              "assets/error.svg",
               width: 300,
               height: 300,
             ),
@@ -37,24 +36,16 @@ class ErrorView extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: Text(
-                "Hmm... It looks like either you are not connected to the internet or the selected location is incorrect.",
+                "Hmm... It looks like either you are not connected to the internet or something else went wrong.",
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.black38,
                   fontWeight: FontWeight.w400,
                 ),
+                textAlign: TextAlign.justify,
               ),
             ),
-            SizedBox(height: 60),
-            SizedBox(
-              width: double.infinity,
-              child: RaisedButton(
-                onPressed: () => onPressed(),
-                color: Colors.lightBlue,
-                textColor: Colors.white,
-                child: Text("CHANGE LOCATION"),
-              ),
-            ),
+            SizedBox(height: 120),
           ],
         ),
       ),

@@ -9,13 +9,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:goodreads_clone/screens/splash.dart';
 import 'package:goodreads_clone/screens/booklist.dart';
+import 'package:goodreads_clone/screens/current_readings.dart';
 
 abstract class Routes {
   static const splashPage = '/';
   static const bookListPage = '/book-list-page';
+  static const currentReadingsPage = '/current-readings-page';
   static const all = {
     splashPage,
     bookListPage,
+    currentReadingsPage,
   };
 }
 
@@ -52,6 +55,17 @@ class Router extends RouterBase {
               BookListScreen(key: typedArgs.key).wrappedRoute(context),
           settings: settings,
         );
+      case Routes.currentReadingsPage:
+        if (hasInvalidArgs<CurrentReadingsScreenArguments>(args)) {
+          return misTypedArgsRoute<CurrentReadingsScreenArguments>(args);
+        }
+        final typedArgs = args as CurrentReadingsScreenArguments ??
+            CurrentReadingsScreenArguments();
+        return MaterialPageRoute<dynamic>(
+          builder: (context) =>
+              CurrentReadingsScreen(key: typedArgs.key).wrappedRoute(context),
+          settings: settings,
+        );
       default:
         return unknownRoutePage(settings.name);
     }
@@ -72,4 +86,10 @@ class SplashScreenArguments {
 class BookListScreenArguments {
   final Key key;
   BookListScreenArguments({this.key});
+}
+
+//CurrentReadingsScreen arguments holder class
+class CurrentReadingsScreenArguments {
+  final Key key;
+  CurrentReadingsScreenArguments({this.key});
 }

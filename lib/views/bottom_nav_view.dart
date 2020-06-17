@@ -14,18 +14,27 @@ class BottomNavItem {
 
 class BottomNavView extends StatefulWidget {
   final List<BottomNavItem> items;
+  final Function(int) onItemTapListener;
 
-  BottomNavView({Key key, this.items}) : super(key: key);
+  BottomNavView({
+    Key key,
+    this.items,
+    this.onItemTapListener,
+  }) : super(key: key);
 
   @override
-  _BottomNavViewState createState() => _BottomNavViewState(this.items);
+  _BottomNavViewState createState() => _BottomNavViewState(
+        this.items,
+        this.onItemTapListener,
+      );
 }
 
 class _BottomNavViewState extends State<BottomNavView> {
   final List<BottomNavItem> items;
+  final Function(int) onItemTapListener;
   int _selectedIndex = 0;
 
-  _BottomNavViewState(this.items);
+  _BottomNavViewState(this.items, this.onItemTapListener);
 
   List<BottomNavigationBarItem> getNavItems() {
     final navItems = <BottomNavigationBarItem>[];
@@ -41,7 +50,8 @@ class _BottomNavViewState extends State<BottomNavView> {
     return navItems;
   }
 
-  void _onItemTapped(int index) {
+  _onItemTapped(int index) {
+    this.onItemTapListener.call(index);
     setState(() {
       _selectedIndex = index;
     });
