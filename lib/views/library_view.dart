@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:goodreads_clone/models/books_list_response.dart';
-import 'package:goodreads_clone/models/viewmodels/books_list_viewmodel.dart';
+import 'package:goodreads_clone/models/api_responses/books_list/books_list_response.dart';
+import 'package:goodreads_clone/models/viewmodels/books_list/books_list_viewmodel.dart';
 import 'package:goodreads_clone/utils/string_ext.dart';
 
 class LibraryView extends StatelessWidget {

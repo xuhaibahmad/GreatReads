@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:goodreads_clone/router/router.gr.dart';
 import 'package:goodreads_clone/views/bottom_nav_view.dart';
-
+import 'package:logging/logging.dart';
 import 'di/injection.dart';
+import 'package:flutter/foundation.dart' as Foundation;
 import 'package:flutter/services.dart';
 
 main() {
@@ -21,6 +22,15 @@ applySystemColors() {
     systemNavigationBarIconBrightness: Brightness.dark,
   );
   SystemChrome.setSystemUIOverlayStyle(theme);
+}
+
+void setupLogging() {
+  if (!Foundation.kReleaseMode) {
+    Logger.root.level = Level.ALL;
+    Logger.root.onRecord.listen((rec) {
+      print('[API] ${rec.level.name}: ${rec.time}: ${rec.message}');
+    });
+  }
 }
 
 class MyApp extends StatelessWidget {

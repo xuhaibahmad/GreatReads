@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:goodreads_clone/models/books_list_response.dart';
+import 'package:goodreads_clone/models/api_responses/books_list/books_list_response.dart';
 import 'package:goodreads_clone/views/rating_bar.dart';
 import 'package:goodreads_clone/utils/string_ext.dart';
 import 'package:percent_indicator/percent_indicator.dart';
