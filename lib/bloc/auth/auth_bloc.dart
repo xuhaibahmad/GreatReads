@@ -11,7 +11,8 @@ part 'auth_state.dart';
 
 @singleton
 @preResolve
-class AuthBloc extends Bloc<AuthEvent, AuthState> {
+class AuthBloc extends Bloc<AuthEvent, AuthState>
+    with AutoResetLazySingleton<AuthEvent, AuthState> {
   final AppRepository repository;
 
   AuthBloc(this.repository);

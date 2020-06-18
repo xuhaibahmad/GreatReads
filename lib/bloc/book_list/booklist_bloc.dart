@@ -15,7 +15,7 @@ class BookListBloc extends Bloc<BookListEvent, BookListState>
     with AutoResetLazySingleton<BookListEvent, BookListState> {
   final BooksRepository repository;
 
-  BookListBloc(this.repository);
+  BookListBloc({this.repository});
 
   @override
   BookListState get initialState => BookListInitialState();

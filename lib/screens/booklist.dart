@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:goodreads_clone/bloc/app/app_bloc.dart';
 import 'package:goodreads_clone/views/currently_reading_view.dart';
 import 'package:goodreads_clone/views/library_view.dart';
 import 'package:goodreads_clone/views/search_view.dart';
@@ -23,12 +24,16 @@ class BookListScreen extends StatefulWidget implements AutoRouteWrapper {
 }
 
 class _BookListScreenState extends State<BookListScreen> {
-  BookListBloc bloc;
+  final menuItems = {'Logout'};
+  AppBloc appBloc;
+  BookListBloc booklistBloc;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    bloc ??= BlocProvider.of<BookListBloc>(context)..add(GetBookListEvent());
+    appBloc ??= BlocProvider.of<AppBloc>(context);
+    booklistBloc ??= BlocProvider.of<BookListBloc>(context)
+      ..add(GetBookListEvent());
   }
 
   @override
@@ -39,6 +44,25 @@ class _BookListScreenState extends State<BookListScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
+        actions: <Widget>[
+          Visibility(
+            // Implemented but not necessary right now
+            visible: false,
+            child: PopupMenuButton<String>(
+              onSelected: onMenuItemClick,
+              itemBuilder: (context) {
+                return menuItems
+                    .map(
+                      (choice) => PopupMenuItem(
+                        value: choice,
+                        child: Text(choice),
+                      ),
+                    )
+                    .toList();
+              },
+            ),
+          ),
+        ],
       ),
       // Using stack instead of the bottomNavigationView from the scaffold
       // due to the shape of BottomNavigationView and transparency behind.
@@ -83,9 +107,17 @@ class _BookListScreenState extends State<BookListScreen> {
     );
   }
 
+  onMenuItemClick(String value) {
+    switch (value) {
+      case 'Logout':
+        appBloc.add(LogOutEvent());
+        break;
+    }
+  }
+
   @override
   void dispose() {
     super.dispose();
-    bloc.close();
+    booklistBloc.close();
   }
 }

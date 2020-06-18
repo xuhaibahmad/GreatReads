@@ -8,7 +8,12 @@ abstract class AppState {
 }
 
 class AppInitialState extends AppState {
-  AppInitialState() : super(true);
+  final bool isLoggedIn;
+  AppInitialState(this.isLoggedIn) : super(false);
+}
+
+class AppInitializedState extends AppState {
+  AppInitializedState() : super(true);
 }
 
 class SectionChangedState extends AppState {

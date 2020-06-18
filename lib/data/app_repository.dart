@@ -10,17 +10,25 @@ class AppRepository {
 
   AppRepository(this.prefs);
 
-  @factoryMethod
-  static Future<AppRepository> create() async {
-    final prefs = await SharedPreferences.getInstance();
-    return AppRepository(prefs);
+  String get userId {
+    return prefs.getString(USER_ID) ?? "";
+  }
+
+  bool get isLoggedIn {
+    return userId.isNotEmpty;
   }
 
   updateUserId(String userId) async {
     prefs.setString(USER_ID, userId);
   }
 
-  String get userId {
-    return prefs.getString(USER_ID) ?? "";
+  Future<bool> logOut() {
+    return prefs.clear();
+  }
+
+  @factoryMethod
+  static Future<AppRepository> create() async {
+    final prefs = await SharedPreferences.getInstance();
+    return AppRepository(prefs);
   }
 }

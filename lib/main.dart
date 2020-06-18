@@ -16,7 +16,7 @@ main() async {
   setupLogging();
   // More of hack to make sure there is enough time for the
   // dependencies to initialze before being used
-  await new Future.delayed(Duration(seconds: 1));
+  await new Future.delayed(Duration(milliseconds: 100));
   applySystemColors();
   runApp(
     BlocProvider<AppBloc>(
@@ -46,32 +46,45 @@ setupLogging() {
 
 class GreatreadsApp extends StatelessWidget {
   final navigatorKey = GlobalKey<ExtendedNavigatorState>();
+
   @override
   Widget build(BuildContext context) {
+    AppBloc bloc = BlocProvider.of<AppBloc>(context);
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.amber,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: BlocBuilder<AppBloc, AppState>(
-        bloc: BlocProvider.of<AppBloc>(context),
-        builder: (context, state) {
-          return Stack(
-            children: [
-              ExtendedNavigator<Router>(
-                router: Router(),
-                key: navigatorKey,
-              ),
-              Visibility(
-                visible: state.isBottomNavVisible,
-                child: buildBottomNavView(),
-              ),
-            ],
-          );
-        },
+      home: BlocListener<AppBloc, AppState>(
+        listener: (context, state) => onAppStateChanged(bloc, state),
+        child: BlocBuilder<AppBloc, AppState>(
+          bloc: BlocProvider.of<AppBloc>(context),
+          builder: (context, state) {
+            return Stack(
+              children: [
+                ExtendedNavigator<Router>(
+                  router: Router(),
+                  key: navigatorKey,
+                ),
+                Visibility(
+                  visible: state.isBottomNavVisible,
+                  child: buildBottomNavView(),
+                ),
+              ],
+            );
+          },
+        ),
       ),
       initialRoute: Routes.splashPage,
     );
+  }
+
+  onAppStateChanged(AppBloc bloc, AppState state) {
+    if (state is AppInitialState) {
+      navigatorKey.currentState.pushReplacementNamed(Routes.splashPage);
+    } else if (state is AppInitializedState) {
+      navigatorKey.currentState.pushReplacementNamed(Routes.bookListPage);
+    }
   }
 
   BottomNavView buildBottomNavView() {

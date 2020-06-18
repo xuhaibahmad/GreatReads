@@ -4,10 +4,10 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-import 'package:goodreads_clone/bloc/app/app_bloc.dart';
 import 'package:goodreads_clone/data/app_repository.dart';
 import 'package:goodreads_clone/bloc/auth/auth_bloc.dart';
 import 'package:goodreads_clone/data/greatreads_api.dart';
+import 'package:goodreads_clone/bloc/app/app_bloc.dart';
 import 'package:goodreads_clone/data/books_repository.dart';
 import 'package:goodreads_clone/bloc/current_readings/current_readings_bloc.dart';
 import 'package:goodreads_clone/bloc/book_list/booklist_bloc.dart';
@@ -15,11 +15,11 @@ import 'package:goodreads_clone/bloc/bookmarks/bookmarks_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 Future<void> $initGetIt(GetIt g, {String environment}) async {
-  g.registerLazySingleton<AppBloc>(() => AppBloc());
+  g.registerLazySingleton<AppBloc>(() => AppBloc(g<AppRepository>()));
   g.registerLazySingleton<CurrentReadingsBloc>(
       () => CurrentReadingsBloc(g<AppRepository>(), g<BooksRepository>()));
   g.registerLazySingleton<BookListBloc>(
-      () => BookListBloc(g<BooksRepository>()));
+      () => BookListBloc(repository: g<BooksRepository>()));
   g.registerLazySingleton<BookmarksBloc>(
       () => BookmarksBloc(g<BooksRepository>()));
 

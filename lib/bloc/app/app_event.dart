@@ -8,3 +8,7 @@ class BottomNavSelectionEvent extends AppEvent {
 
   BottomNavSelectionEvent({this.index = 0});
 }
+
+class LogOutEvent extends AppEvent {}
+
+class AppAuthenticatedEvent extends AppEvent {}
