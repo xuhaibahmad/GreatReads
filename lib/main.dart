@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:goodreads_clone/bloc/app_bloc/app_bloc.dart';
+import 'package:goodreads_clone/bloc/app/app_bloc.dart';
 import 'package:goodreads_clone/router/router.gr.dart';
 import 'package:goodreads_clone/views/bottom_nav_view.dart';
 import 'package:logging/logging.dart';
@@ -10,9 +10,13 @@ import 'di/injection.dart';
 import 'package:flutter/foundation.dart' as Foundation;
 import 'package:flutter/services.dart';
 
-main() {
+main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureInjection();
+  setupLogging();
+  // More of hack to make sure there is enough time for the
+  // dependencies to initialze before being used
+  await new Future.delayed(Duration(seconds: 1));
   applySystemColors();
   runApp(
     BlocProvider<AppBloc>(
@@ -31,7 +35,7 @@ applySystemColors() {
   SystemChrome.setSystemUIOverlayStyle(theme);
 }
 
-void setupLogging() {
+setupLogging() {
   if (!Foundation.kReleaseMode) {
     Logger.root.level = Level.ALL;
     Logger.root.onRecord.listen((rec) {

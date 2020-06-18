@@ -27,7 +27,7 @@ class BookListBloc extends Bloc<BookListEvent, BookListState>
     if (event is GetBookListEvent) {
       yield BookListLoadingState();
       try {
-        final response = await repository.getBooks();
+        final response = await repository.getFeaturedBooks();
         final books = BookListViewModel.fromBookResponse(response);
         yield BookListLoadedState(books);
       } on BookListError catch (_) {

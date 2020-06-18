@@ -44,7 +44,8 @@ class Router extends RouterBase {
         final typedArgs =
             args as SplashScreenArguments ?? SplashScreenArguments();
         return MaterialPageRoute<dynamic>(
-          builder: (context) => SplashScreen(key: typedArgs.key),
+          builder: (context) =>
+              SplashScreen(key: typedArgs.key).wrappedRoute(context),
           settings: settings,
         );
       case Routes.bookListPage:

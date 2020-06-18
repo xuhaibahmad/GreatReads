@@ -12,7 +12,7 @@ T _$identity<T>(T value) => value;
 class _$CurrentReadingsViewModelTearOff {
   const _$CurrentReadingsViewModelTearOff();
 
-  _CurrentReadingsViewModel call({List<Category> books}) {
+  _CurrentReadingsViewModel call({List<Book> books}) {
     return _CurrentReadingsViewModel(
       books: books,
     );
@@ -23,7 +23,7 @@ class _$CurrentReadingsViewModelTearOff {
 const $CurrentReadingsViewModel = _$CurrentReadingsViewModelTearOff();
 
 mixin _$CurrentReadingsViewModel {
-  List<Category> get books;
+  List<Book> get books;
 
   $CurrentReadingsViewModelCopyWith<CurrentReadingsViewModel> get copyWith;
 }
@@ -32,7 +32,7 @@ abstract class $CurrentReadingsViewModelCopyWith<$Res> {
   factory $CurrentReadingsViewModelCopyWith(CurrentReadingsViewModel value,
           $Res Function(CurrentReadingsViewModel) then) =
       _$CurrentReadingsViewModelCopyWithImpl<$Res>;
-  $Res call({List<Category> books});
+  $Res call({List<Book> books});
 }
 
 class _$CurrentReadingsViewModelCopyWithImpl<$Res>
@@ -48,7 +48,7 @@ class _$CurrentReadingsViewModelCopyWithImpl<$Res>
     Object books = freezed,
   }) {
     return _then(_value.copyWith(
-      books: books == freezed ? _value.books : books as List<Category>,
+      books: books == freezed ? _value.books : books as List<Book>,
     ));
   }
 }
@@ -59,7 +59,7 @@ abstract class _$CurrentReadingsViewModelCopyWith<$Res>
           $Res Function(_CurrentReadingsViewModel) then) =
       __$CurrentReadingsViewModelCopyWithImpl<$Res>;
   @override
-  $Res call({List<Category> books});
+  $Res call({List<Book> books});
 }
 
 class __$CurrentReadingsViewModelCopyWithImpl<$Res>
@@ -78,7 +78,7 @@ class __$CurrentReadingsViewModelCopyWithImpl<$Res>
     Object books = freezed,
   }) {
     return _then(_CurrentReadingsViewModel(
-      books: books == freezed ? _value.books : books as List<Category>,
+      books: books == freezed ? _value.books : books as List<Book>,
     ));
   }
 }
@@ -87,7 +87,7 @@ class _$_CurrentReadingsViewModel implements _CurrentReadingsViewModel {
   _$_CurrentReadingsViewModel({this.books});
 
   @override
-  final List<Category> books;
+  final List<Book> books;
 
   @override
   String toString() {
@@ -113,11 +113,11 @@ class _$_CurrentReadingsViewModel implements _CurrentReadingsViewModel {
 }
 
 abstract class _CurrentReadingsViewModel implements CurrentReadingsViewModel {
-  factory _CurrentReadingsViewModel({List<Category> books}) =
+  factory _CurrentReadingsViewModel({List<Book> books}) =
       _$_CurrentReadingsViewModel;
 
   @override
-  List<Category> get books;
+  List<Book> get books;
   @override
   _$CurrentReadingsViewModelCopyWith<_CurrentReadingsViewModel> get copyWith;
 }

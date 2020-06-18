@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:goodreads_clone/data/app_repository.dart';
 import 'package:goodreads_clone/data/books_repository.dart';
 import 'package:goodreads_clone/models/errors.dart';
 import 'package:goodreads_clone/models/viewmodels/current_readings/current_readings_viewmodel.dart';
@@ -15,9 +16,10 @@ part 'current_readings_state.dart';
 class CurrentReadingsBloc
     extends Bloc<CurrentReadingsEvent, CurrentReadingsState>
     with AutoResetLazySingleton<CurrentReadingsEvent, CurrentReadingsState> {
-  final BooksRepository repository;
+  final AppRepository appRepository;
+  final BooksRepository booksRepository;
 
-  CurrentReadingsBloc(this.repository);
+  CurrentReadingsBloc(this.appRepository, this.booksRepository);
 
   @override
   CurrentReadingsState get initialState => CurrentReadingsInitialState();
@@ -29,10 +31,9 @@ class CurrentReadingsBloc
     if (event is GetCurrentReadingsEvent) {
       yield CurrentReadingsLoadingState();
       try {
-        //final response = await repository.getBooks();
-        //final books = CurrentReadingsViewModel.fromBookResponse(response);
-        await new Future.delayed(const Duration(seconds: 3), () => "1");
-        final viewModel = CurrentReadingsViewModel(books: []);
+        final userId = appRepository.userId;
+        final response = await booksRepository.getCurrentlyReadingBooks(userId);
+        final viewModel = CurrentReadingsViewModel.fromBookResponse(response);
         yield CurrentReadingsLoadedState(viewModel);
       } on CurrentReadingsError catch (_) {
         yield CurrentReadingsErrorState();

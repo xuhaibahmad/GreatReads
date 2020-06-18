@@ -67,7 +67,6 @@ class CurrentlyReadingSheet extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Flexible(child: buildPreview()),
-              SizedBox(width: 16),
               buildProgressView(),
             ],
           ),

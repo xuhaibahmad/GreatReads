@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'package:chopper/chopper.dart';
 import 'package:goodreads_clone/data/greatreads_api.dart';
 import 'package:goodreads_clone/models/api_responses/books_list/books_list_response.dart';
+import 'package:goodreads_clone/models/api_responses/current_readings/current_readings_response.dart';
 import 'package:goodreads_clone/models/errors.dart';
 import 'package:injectable/injectable.dart';
 import 'package:intl/intl.dart';
@@ -11,18 +12,34 @@ import 'package:intl/intl.dart';
 class BooksRepository {
   final GreatreadsApi greatreadsApi;
 
-  final memCache = HashMap<String, BookListResponse>();
+  final featuredBooksMemCache = HashMap<String, BookListResponse>();
+  final currentReadingBooksMemCache = HashMap<String, CurrentReadingResponse>();
   final _today = DateFormat(DateFormat.ABBR_MONTH_DAY).format(DateTime.now());
 
   BooksRepository({this.greatreadsApi});
 
-  Future<BookListResponse> getBooks() async {
+  Future<BookListResponse> getFeaturedBooks() async {
     try {
-      final Response<BookListResponse> response = memCache.containsKey(_today)
-          ? memCache[_today]
-          : await greatreadsApi.getBooks();
+      final Response<BookListResponse> response =
+          featuredBooksMemCache.containsKey(_today)
+              ? featuredBooksMemCache[_today]
+              : await greatreadsApi.getFeaturedBooks();
       final result = response.body;
-      memCache[_today] = result;
+      featuredBooksMemCache[_today] = result;
+      return result;
+    } catch (e) {
+      return Future.error(BookListError());
+    }
+  }
+
+  Future<CurrentReadingResponse> getCurrentlyReadingBooks(String userId) async {
+    try {
+      final Response<CurrentReadingResponse> response =
+          currentReadingBooksMemCache.containsKey(_today)
+              ? currentReadingBooksMemCache[_today]
+              : await greatreadsApi.getCurrentlyReadingBooks(userId);
+      final result = response.body;
+      currentReadingBooksMemCache[_today] = result;
       return result;
     } catch (e) {
       return Future.error(BookListError());
