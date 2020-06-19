@@ -12,9 +12,10 @@ T _$identity<T>(T value) => value;
 class _$ProfileViewModelTearOff {
   const _$ProfileViewModelTearOff();
 
-  _ProfileViewModel call({List<Category> books}) {
+  _ProfileViewModel call({String name, String imageUrl}) {
     return _ProfileViewModel(
-      books: books,
+      name: name,
+      imageUrl: imageUrl,
     );
   }
 }
@@ -23,7 +24,8 @@ class _$ProfileViewModelTearOff {
 const $ProfileViewModel = _$ProfileViewModelTearOff();
 
 mixin _$ProfileViewModel {
-  List<Category> get books;
+  String get name;
+  String get imageUrl;
 
   $ProfileViewModelCopyWith<ProfileViewModel> get copyWith;
 }
@@ -32,7 +34,7 @@ abstract class $ProfileViewModelCopyWith<$Res> {
   factory $ProfileViewModelCopyWith(
           ProfileViewModel value, $Res Function(ProfileViewModel) then) =
       _$ProfileViewModelCopyWithImpl<$Res>;
-  $Res call({List<Category> books});
+  $Res call({String name, String imageUrl});
 }
 
 class _$ProfileViewModelCopyWithImpl<$Res>
@@ -45,10 +47,12 @@ class _$ProfileViewModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object books = freezed,
+    Object name = freezed,
+    Object imageUrl = freezed,
   }) {
     return _then(_value.copyWith(
-      books: books == freezed ? _value.books : books as List<Category>,
+      name: name == freezed ? _value.name : name as String,
+      imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as String,
     ));
   }
 }
@@ -59,7 +63,7 @@ abstract class _$ProfileViewModelCopyWith<$Res>
           _ProfileViewModel value, $Res Function(_ProfileViewModel) then) =
       __$ProfileViewModelCopyWithImpl<$Res>;
   @override
-  $Res call({List<Category> books});
+  $Res call({String name, String imageUrl});
 }
 
 class __$ProfileViewModelCopyWithImpl<$Res>
@@ -74,36 +78,45 @@ class __$ProfileViewModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object books = freezed,
+    Object name = freezed,
+    Object imageUrl = freezed,
   }) {
     return _then(_ProfileViewModel(
-      books: books == freezed ? _value.books : books as List<Category>,
+      name: name == freezed ? _value.name : name as String,
+      imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as String,
     ));
   }
 }
 
 class _$_ProfileViewModel implements _ProfileViewModel {
-  _$_ProfileViewModel({this.books});
+  _$_ProfileViewModel({this.name, this.imageUrl});
 
   @override
-  final List<Category> books;
+  final String name;
+  @override
+  final String imageUrl;
 
   @override
   String toString() {
-    return 'ProfileViewModel(books: $books)';
+    return 'ProfileViewModel(name: $name, imageUrl: $imageUrl)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ProfileViewModel &&
-            (identical(other.books, books) ||
-                const DeepCollectionEquality().equals(other.books, books)));
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.imageUrl, imageUrl) ||
+                const DeepCollectionEquality()
+                    .equals(other.imageUrl, imageUrl)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(books);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(imageUrl);
 
   @override
   _$ProfileViewModelCopyWith<_ProfileViewModel> get copyWith =>
@@ -111,10 +124,13 @@ class _$_ProfileViewModel implements _ProfileViewModel {
 }
 
 abstract class _ProfileViewModel implements ProfileViewModel {
-  factory _ProfileViewModel({List<Category> books}) = _$_ProfileViewModel;
+  factory _ProfileViewModel({String name, String imageUrl}) =
+      _$_ProfileViewModel;
 
   @override
-  List<Category> get books;
+  String get name;
+  @override
+  String get imageUrl;
   @override
   _$ProfileViewModelCopyWith<_ProfileViewModel> get copyWith;
 }

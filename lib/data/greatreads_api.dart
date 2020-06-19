@@ -1,6 +1,7 @@
 import 'package:chopper/chopper.dart';
 import 'package:goodreads_clone/models/api_responses/books_list/books_list_response.dart';
 import 'package:goodreads_clone/models/api_responses/current_readings/current_readings_response.dart';
+import 'package:goodreads_clone/models/api_responses/profile_response/profile_response.dart';
 import 'package:goodreads_clone/utils/chopper_json_converter.dart';
 import 'package:injectable/injectable.dart';
 
@@ -19,6 +20,9 @@ abstract class GreatreadsApi extends ChopperService {
   Future<Response<CurrentReadingResponse>> getCurrentlyReadingBooks(
       @Query() String userId);
 
+  @Get(path: "/user")
+  Future<Response<ProfileResponse>> getUserProfile(@Query() String userId);
+
   @factoryMethod
   static Future<GreatreadsApi> create() async {
     final client = ChopperClient(
@@ -26,6 +30,7 @@ abstract class GreatreadsApi extends ChopperService {
       converter: JsonToTypeConverter({
         BookListResponse: (json) => BookListResponse.fromJson(json),
         CurrentReadingResponse: (json) => CurrentReadingResponse.fromJson(json),
+        ProfileResponse: (json) => ProfileResponse.fromJson(json),
       }),
       interceptors: [HttpLoggingInterceptor()],
     );

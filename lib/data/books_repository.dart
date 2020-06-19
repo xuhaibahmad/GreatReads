@@ -4,6 +4,7 @@ import 'package:chopper/chopper.dart';
 import 'package:goodreads_clone/data/greatreads_api.dart';
 import 'package:goodreads_clone/models/api_responses/books_list/books_list_response.dart';
 import 'package:goodreads_clone/models/api_responses/current_readings/current_readings_response.dart';
+import 'package:goodreads_clone/models/api_responses/profile_response/profile_response.dart';
 import 'package:goodreads_clone/models/errors.dart';
 import 'package:injectable/injectable.dart';
 import 'package:intl/intl.dart';
@@ -14,6 +15,7 @@ class BooksRepository {
 
   final featuredBooksMemCache = HashMap<String, BookListResponse>();
   final currentReadingBooksMemCache = HashMap<String, CurrentReadingResponse>();
+  final userProfileMemCache = HashMap<String, ProfileResponse>();
   final _today = DateFormat(DateFormat.ABBR_MONTH_DAY).format(DateTime.now());
 
   BooksRepository({this.greatreadsApi});
@@ -43,6 +45,20 @@ class BooksRepository {
       return result;
     } catch (e) {
       return Future.error(BookListError());
+    }
+  }
+
+  Future<ProfileResponse> getUserProfile(String userId) async {
+    try {
+      final Response<ProfileResponse> response =
+          userProfileMemCache.containsKey(_today)
+              ? userProfileMemCache[_today]
+              : await greatreadsApi.getUserProfile(userId);
+      final result = response.body;
+      userProfileMemCache[_today] = result;
+      return result;
+    } catch (e) {
+      return Future.error(ProfileError());
     }
   }
 }

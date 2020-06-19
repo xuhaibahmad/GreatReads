@@ -18,7 +18,8 @@ Future<void> $initGetIt(GetIt g, {String environment}) async {
   g.registerLazySingleton<AppBloc>(() => AppBloc(g<AppRepository>()));
   g.registerLazySingleton<CurrentReadingsBloc>(
       () => CurrentReadingsBloc(g<AppRepository>(), g<BooksRepository>()));
-  g.registerLazySingleton<ProfileBloc>(() => ProfileBloc(g<BooksRepository>()));
+  g.registerLazySingleton<ProfileBloc>(
+      () => ProfileBloc(g<AppRepository>(), g<BooksRepository>()));
   g.registerLazySingleton<BookListBloc>(
       () => BookListBloc(repository: g<BooksRepository>()));
 

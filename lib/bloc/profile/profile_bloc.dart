@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:goodreads_clone/data/app_repository.dart';
 import 'package:goodreads_clone/data/books_repository.dart';
 import 'package:goodreads_clone/models/errors.dart';
 import 'package:goodreads_clone/models/viewmodels/profile/profile_viewmodel.dart';
@@ -14,9 +15,10 @@ part 'profile_state.dart';
 @lazySingleton
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     with AutoResetLazySingleton<ProfileEvent, ProfileState> {
-  final BooksRepository repository;
+  final AppRepository appRepository;
+  final BooksRepository booksRepository;
 
-  ProfileBloc(this.repository);
+  ProfileBloc(this.appRepository, this.booksRepository);
 
   @override
   ProfileState get initialState => ProfileInitialState();
@@ -28,10 +30,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     if (event is GetProfileEvent) {
       yield ProfileLoadingState();
       try {
-        //final response = await repository.getBooks();
-        //final books = CurrentReadingsViewModel.fromBookResponse(response);
-        await new Future.delayed(const Duration(seconds: 3), () => "1");
-        final viewModel = ProfileViewModel(books: []);
+        final userId = appRepository.userId;
+        final response = await booksRepository.getUserProfile(userId);
+        final viewModel = ProfileViewModel.fromProfileResponse(response);
         yield ProfileLoadedState(viewModel);
       } on ProfileError catch (_) {
         yield ProfileErrorState();

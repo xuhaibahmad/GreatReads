@@ -60,7 +60,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("Profile: ${state.viewModel.books.length}"),
+          Text("Profile: ${state.viewModel.name}"),
+          Text("Url: ${state.viewModel.imageUrl}"),
           SizedBox(height: 120),
         ],
       ),

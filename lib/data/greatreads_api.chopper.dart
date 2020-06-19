@@ -32,4 +32,12 @@ class _$GreatreadsApi extends GreatreadsApi {
     return client
         .send<CurrentReadingResponse, CurrentReadingResponse>($request);
   }
+
+  @override
+  Future<Response<ProfileResponse>> getUserProfile(String userId) {
+    final $url = 'https://greatreads-api.herokuapp.com/user';
+    final $params = <String, dynamic>{'userId': userId};
+    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
+    return client.send<ProfileResponse, ProfileResponse>($request);
+  }
 }
