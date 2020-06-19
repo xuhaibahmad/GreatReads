@@ -10,18 +10,18 @@ import 'package:auto_route/auto_route.dart';
 import 'package:goodreads_clone/screens/splash.dart';
 import 'package:goodreads_clone/screens/booklist.dart';
 import 'package:goodreads_clone/screens/current_readings.dart';
-import 'package:goodreads_clone/screens/bookmarks.dart';
+import 'package:goodreads_clone/screens/profile.dart';
 
 abstract class Routes {
   static const splashPage = '/';
   static const bookListPage = '/book-list-page';
   static const currentReadingsPage = '/current-readings-page';
-  static const bookmarksPage = '/bookmarks-page';
+  static const profilePage = '/profile-page';
   static const all = {
     splashPage,
     bookListPage,
     currentReadingsPage,
-    bookmarksPage,
+    profilePage,
   };
 }
 
@@ -70,15 +70,15 @@ class Router extends RouterBase {
               CurrentReadingsScreen(key: typedArgs.key).wrappedRoute(context),
           settings: settings,
         );
-      case Routes.bookmarksPage:
-        if (hasInvalidArgs<BookmarksScreenArguments>(args)) {
-          return misTypedArgsRoute<BookmarksScreenArguments>(args);
+      case Routes.profilePage:
+        if (hasInvalidArgs<ProfileScreenArguments>(args)) {
+          return misTypedArgsRoute<ProfileScreenArguments>(args);
         }
         final typedArgs =
-            args as BookmarksScreenArguments ?? BookmarksScreenArguments();
+            args as ProfileScreenArguments ?? ProfileScreenArguments();
         return MaterialPageRoute<dynamic>(
           builder: (context) =>
-              BookmarksScreen(key: typedArgs.key).wrappedRoute(context),
+              ProfileScreen(key: typedArgs.key).wrappedRoute(context),
           settings: settings,
         );
       default:
@@ -109,8 +109,8 @@ class CurrentReadingsScreenArguments {
   CurrentReadingsScreenArguments({this.key});
 }
 
-//BookmarksScreen arguments holder class
-class BookmarksScreenArguments {
+//ProfileScreen arguments holder class
+class ProfileScreenArguments {
   final Key key;
-  BookmarksScreenArguments({this.key});
+  ProfileScreenArguments({this.key});
 }

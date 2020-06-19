@@ -98,14 +98,13 @@ class GreatreadsApp extends StatelessWidget {
         ),
         BottomNavItem(
           icon: FlutterIcons.book_ant,
-          //selectedIcon: FlutterIcons.book_mco,
           selectedIcon: FlutterIcons.book_mco,
           label: "Reading",
         ),
         BottomNavItem(
-          icon: FlutterIcons.bookmark_border_mdi,
-          selectedIcon: FlutterIcons.bookmark_mdi,
-          label: "Bookmarks",
+          icon: FlutterIcons.account_circle_outline_mco,
+          selectedIcon: FlutterIcons.account_circle_mdi,
+          label: "Profile",
         ),
       ],
     );
@@ -116,7 +115,7 @@ class GreatreadsApp extends StatelessWidget {
     if (index == 1) {
       route = Routes.currentReadingsPage;
     } else if (index == 2) {
-      route = Routes.bookmarksPage;
+      route = Routes.profilePage;
     } else {
       route = Routes.bookListPage;
     }

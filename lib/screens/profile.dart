@@ -1,31 +1,31 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:goodreads_clone/bloc/bookmarks/bookmarks_bloc.dart';
+import 'package:goodreads_clone/bloc/profile/profile_bloc.dart';
 import 'package:goodreads_clone/di/injection.dart';
 import 'package:goodreads_clone/views/error_view.dart';
 import 'package:goodreads_clone/views/progress_view.dart';
 
-class BookmarksScreen extends StatefulWidget implements AutoRouteWrapper {
-  const BookmarksScreen({Key key}) : super(key: key);
+class ProfileScreen extends StatefulWidget implements AutoRouteWrapper {
+  const ProfileScreen({Key key}) : super(key: key);
 
   @override
-  _BookmarksScreenState createState() => _BookmarksScreenState();
+  _ProfileScreenState createState() => _ProfileScreenState();
 
   @override
   Widget wrappedRoute(BuildContext context) => BlocProvider(
-        create: (context) => getIt<BookmarksBloc>(),
+        create: (context) => getIt<ProfileBloc>(),
         child: this,
       );
 }
 
-class _BookmarksScreenState extends State<BookmarksScreen> {
-  BookmarksBloc bloc;
+class _ProfileScreenState extends State<ProfileScreen> {
+  ProfileBloc bloc;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    bloc ??= BlocProvider.of<BookmarksBloc>(context)..add(GetBookmarksEvent());
+    bloc ??= BlocProvider.of<ProfileBloc>(context)..add(GetProfileEvent());
   }
 
   @override
@@ -37,11 +37,11 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
-      body: BlocBuilder<BookmarksBloc, BookmarksState>(
+      body: BlocBuilder<ProfileBloc, ProfileState>(
         builder: (context, state) {
-          if (state is BookmarksLoadedState) {
-            return buildBookmarks(state);
-          } else if (state is BookmarksErrorState) {
+          if (state is ProfileLoadedState) {
+            return buildProfile(state);
+          } else if (state is ProfileErrorState) {
             return buildError();
           } else {
             return buildLoading();
@@ -55,12 +55,12 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
 
   Widget buildError() => ErrorView();
 
-  Widget buildBookmarks(BookmarksLoadedState state) {
+  Widget buildProfile(ProfileLoadedState state) {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("Bookmarks: ${state.viewModel.books.length}"),
+          Text("Profile: ${state.viewModel.books.length}"),
           SizedBox(height: 120),
         ],
       ),
