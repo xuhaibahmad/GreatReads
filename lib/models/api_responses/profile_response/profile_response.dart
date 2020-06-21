@@ -94,6 +94,7 @@ abstract class Update with _$Update {
     @JsonKey(name: "action_text") ImageUrl actionText,
     @JsonKey(name: "link") String link,
     @JsonKey(name: "image_url") String imageUrl,
+    @JsonKey(name: "thumbnail") String thumbnail,
     @JsonKey(name: "actor") Actor actor,
     @JsonKey(name: "updated_at") String updatedAt,
     @JsonKey(name: "object") Status object,

@@ -55,6 +55,7 @@ class GreatreadsApp extends StatelessWidget {
         primarySwatch: Colors.amber,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      debugShowCheckedModeBanner: false,
       home: BlocListener<AppBloc, AppState>(
         listener: (context, state) => onAppStateChanged(bloc, state),
         child: BlocBuilder<AppBloc, AppState>(

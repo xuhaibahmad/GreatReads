@@ -144,6 +144,7 @@ _$_Update _$_$_UpdateFromJson(Map<String, dynamic> json) {
         : ImageUrl.fromJson(json['action_text'] as Map<String, dynamic>),
     link: json['link'] as String,
     imageUrl: json['image_url'] as String,
+    thumbnail: json['thumbnail'] as String,
     actor: json['actor'] == null
         ? null
         : Actor.fromJson(json['actor'] as Map<String, dynamic>),
@@ -164,6 +165,7 @@ Map<String, dynamic> _$_$_UpdateToJson(_$_Update instance) => <String, dynamic>{
       'action_text': instance.actionText,
       'link': instance.link,
       'image_url': instance.imageUrl,
+      'thumbnail': instance.thumbnail,
       'actor': instance.actor,
       'updated_at': instance.updatedAt,
       'object': instance.object,

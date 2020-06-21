@@ -1343,6 +1343,7 @@ class _$UpdateTearOff {
       {@JsonKey(name: 'action_text') ImageUrl actionText,
       @JsonKey(name: 'link') String link,
       @JsonKey(name: 'image_url') String imageUrl,
+      @JsonKey(name: 'thumbnail') String thumbnail,
       @JsonKey(name: 'actor') Actor actor,
       @JsonKey(name: 'updated_at') String updatedAt,
       @JsonKey(name: 'object') Status object,
@@ -1352,6 +1353,7 @@ class _$UpdateTearOff {
       actionText: actionText,
       link: link,
       imageUrl: imageUrl,
+      thumbnail: thumbnail,
       actor: actor,
       updatedAt: updatedAt,
       object: object,
@@ -1371,6 +1373,8 @@ mixin _$Update {
   String get link;
   @JsonKey(name: 'image_url')
   String get imageUrl;
+  @JsonKey(name: 'thumbnail')
+  String get thumbnail;
   @JsonKey(name: 'actor')
   Actor get actor;
   @JsonKey(name: 'updated_at')
@@ -1393,6 +1397,7 @@ abstract class $UpdateCopyWith<$Res> {
       {@JsonKey(name: 'action_text') ImageUrl actionText,
       @JsonKey(name: 'link') String link,
       @JsonKey(name: 'image_url') String imageUrl,
+      @JsonKey(name: 'thumbnail') String thumbnail,
       @JsonKey(name: 'actor') Actor actor,
       @JsonKey(name: 'updated_at') String updatedAt,
       @JsonKey(name: 'object') Status object,
@@ -1418,6 +1423,7 @@ class _$UpdateCopyWithImpl<$Res> implements $UpdateCopyWith<$Res> {
     Object actionText = freezed,
     Object link = freezed,
     Object imageUrl = freezed,
+    Object thumbnail = freezed,
     Object actor = freezed,
     Object updatedAt = freezed,
     Object object = freezed,
@@ -1429,6 +1435,7 @@ class _$UpdateCopyWithImpl<$Res> implements $UpdateCopyWith<$Res> {
           actionText == freezed ? _value.actionText : actionText as ImageUrl,
       link: link == freezed ? _value.link : link as String,
       imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as String,
+      thumbnail: thumbnail == freezed ? _value.thumbnail : thumbnail as String,
       actor: actor == freezed ? _value.actor : actor as Actor,
       updatedAt: updatedAt == freezed ? _value.updatedAt : updatedAt as String,
       object: object == freezed ? _value.object : object as Status,
@@ -1496,6 +1503,7 @@ abstract class _$UpdateCopyWith<$Res> implements $UpdateCopyWith<$Res> {
       {@JsonKey(name: 'action_text') ImageUrl actionText,
       @JsonKey(name: 'link') String link,
       @JsonKey(name: 'image_url') String imageUrl,
+      @JsonKey(name: 'thumbnail') String thumbnail,
       @JsonKey(name: 'actor') Actor actor,
       @JsonKey(name: 'updated_at') String updatedAt,
       @JsonKey(name: 'object') Status object,
@@ -1527,6 +1535,7 @@ class __$UpdateCopyWithImpl<$Res> extends _$UpdateCopyWithImpl<$Res>
     Object actionText = freezed,
     Object link = freezed,
     Object imageUrl = freezed,
+    Object thumbnail = freezed,
     Object actor = freezed,
     Object updatedAt = freezed,
     Object object = freezed,
@@ -1538,6 +1547,7 @@ class __$UpdateCopyWithImpl<$Res> extends _$UpdateCopyWithImpl<$Res>
           actionText == freezed ? _value.actionText : actionText as ImageUrl,
       link: link == freezed ? _value.link : link as String,
       imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as String,
+      thumbnail: thumbnail == freezed ? _value.thumbnail : thumbnail as String,
       actor: actor == freezed ? _value.actor : actor as Actor,
       updatedAt: updatedAt == freezed ? _value.updatedAt : updatedAt as String,
       object: object == freezed ? _value.object : object as Status,
@@ -1553,6 +1563,7 @@ class _$_Update implements _Update {
       {@JsonKey(name: 'action_text') this.actionText,
       @JsonKey(name: 'link') this.link,
       @JsonKey(name: 'image_url') this.imageUrl,
+      @JsonKey(name: 'thumbnail') this.thumbnail,
       @JsonKey(name: 'actor') this.actor,
       @JsonKey(name: 'updated_at') this.updatedAt,
       @JsonKey(name: 'object') this.object,
@@ -1572,6 +1583,9 @@ class _$_Update implements _Update {
   @JsonKey(name: 'image_url')
   final String imageUrl;
   @override
+  @JsonKey(name: 'thumbnail')
+  final String thumbnail;
+  @override
   @JsonKey(name: 'actor')
   final Actor actor;
   @override
@@ -1589,7 +1603,7 @@ class _$_Update implements _Update {
 
   @override
   String toString() {
-    return 'Update(actionText: $actionText, link: $link, imageUrl: $imageUrl, actor: $actor, updatedAt: $updatedAt, object: $object, action: $action, body: $body)';
+    return 'Update(actionText: $actionText, link: $link, imageUrl: $imageUrl, thumbnail: $thumbnail, actor: $actor, updatedAt: $updatedAt, object: $object, action: $action, body: $body)';
   }
 
   @override
@@ -1604,6 +1618,9 @@ class _$_Update implements _Update {
             (identical(other.imageUrl, imageUrl) ||
                 const DeepCollectionEquality()
                     .equals(other.imageUrl, imageUrl)) &&
+            (identical(other.thumbnail, thumbnail) ||
+                const DeepCollectionEquality()
+                    .equals(other.thumbnail, thumbnail)) &&
             (identical(other.actor, actor) ||
                 const DeepCollectionEquality().equals(other.actor, actor)) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -1623,6 +1640,7 @@ class _$_Update implements _Update {
       const DeepCollectionEquality().hash(actionText) ^
       const DeepCollectionEquality().hash(link) ^
       const DeepCollectionEquality().hash(imageUrl) ^
+      const DeepCollectionEquality().hash(thumbnail) ^
       const DeepCollectionEquality().hash(actor) ^
       const DeepCollectionEquality().hash(updatedAt) ^
       const DeepCollectionEquality().hash(object) ^
@@ -1644,6 +1662,7 @@ abstract class _Update implements Update {
       {@JsonKey(name: 'action_text') ImageUrl actionText,
       @JsonKey(name: 'link') String link,
       @JsonKey(name: 'image_url') String imageUrl,
+      @JsonKey(name: 'thumbnail') String thumbnail,
       @JsonKey(name: 'actor') Actor actor,
       @JsonKey(name: 'updated_at') String updatedAt,
       @JsonKey(name: 'object') Status object,
@@ -1661,6 +1680,9 @@ abstract class _Update implements Update {
   @override
   @JsonKey(name: 'image_url')
   String get imageUrl;
+  @override
+  @JsonKey(name: 'thumbnail')
+  String get thumbnail;
   @override
   @JsonKey(name: 'actor')
   Actor get actor;
