@@ -1,5 +1,5 @@
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:goodreads_clone/utils/hex_color_ext.dart';
 import 'package:goodreads_clone/utils/string_ext.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -44,11 +44,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-      ),
+      backgroundColor: HexColor.fromHex("#FBFBFB"),
       body: BlocBuilder<ProfileBloc, ProfileState>(
         builder: (context, state) {
           if (state is ProfileLoadedState) {
@@ -74,6 +70,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            SizedBox(height: 90),
             ClipOvalShadow(
               shadow: Shadow(
                 color: Colors.blueGrey[100],
@@ -114,10 +111,55 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             SizedBox(height: 24),
             buildReadingStatsView(viewModel),
+            SizedBox(height: 24),
             buildUpdatesView(viewModel),
-            buildFriendsView(viewModel),
-            SizedBox(height: 120),
           ],
+        ),
+      ),
+    );
+  }
+
+  Container buildUpdatesView(ProfileViewModel viewModel) {
+    return Container(
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(32),
+          topLeft: Radius.circular(32),
+        ),
+        child: Container(
+          padding: EdgeInsets.all(28),
+          color: Colors.teal,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                "Recent Updates",
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              ListView.builder(
+                primary: false,
+                shrinkWrap: true,
+                padding: EdgeInsets.only(top: 8),
+                itemCount: viewModel.updates.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final update = viewModel.updates[index];
+                  return Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
+                    elevation: 8,
+                    margin: EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+                    child: buildUpdateItemView(update),
+                  );
+                },
+              ),
+              SizedBox(height: 100),
+            ],
+          ),
         ),
       ),
     );
@@ -127,108 +169,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Column(
       children: <Widget>[
         Divider(color: Colors.grey),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            buildInfoFigureView("Reading", viewModel.currentlyReadingCount),
-            buildInfoFigureView("Read", viewModel.friendsCount),
-            buildInfoFigureView("To Read", viewModel.toReadCount),
-            buildInfoFigureView("Favorites", viewModel.favoritesCount),
-          ],
+        Container(
+          padding: EdgeInsets.all(8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              buildInfoFigureView("Reading", viewModel.currentlyReadingCount),
+              buildInfoFigureView("Read", viewModel.friendsCount),
+              buildInfoFigureView("To Read", viewModel.toReadCount),
+              buildInfoFigureView("Favorites", viewModel.favoritesCount),
+            ],
+          ),
         ),
         Divider(color: Colors.grey),
       ],
-    );
-  }
-
-  Widget buildFriendsView(ProfileViewModel viewModel) {
-    // TODO: Fetch actual friends list
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      elevation: 8,
-      margin: EdgeInsets.all(8),
-      child: Container(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              "Friends",
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                color: Colors.black54,
-              ),
-            ),
-            SizedBox(height: 4),
-            SizedBox(
-              height: 60,
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: 10,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 4.0, vertical: 8),
-                    child: ClipOval(
-                      child: Image(
-                        width: 48,
-                        height: 48,
-                        fit: BoxFit.fill,
-                        image: NetworkImage(viewModel.imageUrl),
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget buildUpdatesView(ProfileViewModel viewModel) {
-    return Container(
-      margin: EdgeInsets.all(8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text(
-              "Recent Updates",
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                color: Colors.black54,
-              ),
-            ),
-          ),
-          ListView.builder(
-            primary: false,
-            shrinkWrap: true,
-            itemCount: viewModel.updates.length,
-            itemBuilder: (BuildContext context, int index) {
-              final update = viewModel.updates[index];
-              return Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                elevation: 8,
-                margin: EdgeInsets.all(8),
-                child: buildUpdateItemView(update),
-              );
-            },
-          ),
-        ],
-      ),
     );
   }
 

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goodreads_clone/bloc/app/app_bloc.dart';
+import 'package:goodreads_clone/utils/hex_color_ext.dart';
 import 'package:goodreads_clone/views/currently_reading_view.dart';
 import 'package:goodreads_clone/views/library_view.dart';
 import 'package:goodreads_clone/views/search_view.dart';
@@ -40,7 +41,7 @@ class _BookListScreenState extends State<BookListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
+      backgroundColor: HexColor.fromHex("#FBFBFB"),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,

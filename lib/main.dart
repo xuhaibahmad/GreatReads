@@ -28,7 +28,7 @@ main() async {
 
 applySystemColors() {
   final theme = SystemUiOverlayStyle.dark.copyWith(
-    systemNavigationBarColor: Colors.grey[50],
+    systemNavigationBarColor: Colors.white,
     statusBarColor: Colors.white12,
     systemNavigationBarIconBrightness: Brightness.dark,
   );

@@ -72,6 +72,7 @@ class _BottomNavViewState extends State<BottomNavView> {
             topLeft: Radius.circular(32),
           ),
           child: BottomNavigationBar(
+            backgroundColor: Colors.white,
             items: getNavItems(),
             currentIndex: _selectedIndex,
             selectedItemColor: Colors.amber[800],
