@@ -1,32 +1,31 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:goodreads_clone/bloc/current_readings/current_readings_bloc.dart';
+import 'package:goodreads_clone/bloc/my_books/my_books_bloc.dart';
 import 'package:goodreads_clone/di/injection.dart';
 import 'package:goodreads_clone/views/error_view.dart';
 import 'package:goodreads_clone/views/progress_view.dart';
 
-class CurrentReadingsScreen extends StatefulWidget implements AutoRouteWrapper {
-  const CurrentReadingsScreen({Key key}) : super(key: key);
+class MyBooksScreen extends StatefulWidget implements AutoRouteWrapper {
+  const MyBooksScreen({Key key}) : super(key: key);
 
   @override
-  _CurrentReadingsScreenState createState() => _CurrentReadingsScreenState();
+  _MyBooksScreenState createState() => _MyBooksScreenState();
 
   @override
   Widget wrappedRoute(BuildContext context) => BlocProvider(
-        create: (context) => getIt<CurrentReadingsBloc>(),
+        create: (context) => getIt<MyBooksBloc>(),
         child: this,
       );
 }
 
-class _CurrentReadingsScreenState extends State<CurrentReadingsScreen> {
-  CurrentReadingsBloc bloc;
+class _MyBooksScreenState extends State<MyBooksScreen> {
+  MyBooksBloc bloc;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    bloc ??= BlocProvider.of<CurrentReadingsBloc>(context)
-      ..add(GetCurrentReadingsEvent());
+    bloc ??= BlocProvider.of<MyBooksBloc>(context)..add(GetMyBooksEvent());
   }
 
   @override
@@ -38,11 +37,11 @@ class _CurrentReadingsScreenState extends State<CurrentReadingsScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
-      body: BlocBuilder<CurrentReadingsBloc, CurrentReadingsState>(
+      body: BlocBuilder<MyBooksBloc, MyBooksState>(
         builder: (context, state) {
-          if (state is CurrentReadingsLoadedState) {
+          if (state is MyBooksLoadedState) {
             return buildCurrentReadings(state);
-          } else if (state is CurrentReadingsErrorState) {
+          } else if (state is MyBooksErrorState) {
             return buildError();
           } else {
             return buildLoading();
@@ -56,7 +55,7 @@ class _CurrentReadingsScreenState extends State<CurrentReadingsScreen> {
 
   Widget buildError() => ErrorView();
 
-  Widget buildCurrentReadings(CurrentReadingsLoadedState state) {
+  Widget buildCurrentReadings(MyBooksLoadedState state) {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

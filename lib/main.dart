@@ -100,7 +100,7 @@ class GreatreadsApp extends StatelessWidget {
         BottomNavItem(
           icon: FlutterIcons.book_ant,
           selectedIcon: FlutterIcons.book_mco,
-          label: "Reading",
+          label: "My Books",
         ),
         BottomNavItem(
           icon: FlutterIcons.account_circle_outline_mco,

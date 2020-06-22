@@ -1,25 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
 
-part of 'current_readings_response.dart';
+part of 'my_books_response.dart';
 
 // **************************************************************************
 // FreezedGenerator
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-CurrentReadingResponse _$CurrentReadingResponseFromJson(
-    Map<String, dynamic> json) {
-  return _CurrentReadingResponse.fromJson(json);
+MyBooksResponse _$MyBooksResponseFromJson(Map<String, dynamic> json) {
+  return _MyBooksResponse.fromJson(json);
 }
 
-class _$CurrentReadingResponseTearOff {
-  const _$CurrentReadingResponseTearOff();
+class _$MyBooksResponseTearOff {
+  const _$MyBooksResponseTearOff();
 
-  _CurrentReadingResponse call(
+  _MyBooksResponse call(
       {@JsonKey(name: 'success') bool success,
       @JsonKey(name: 'result') Result result}) {
-    return _CurrentReadingResponse(
+    return _MyBooksResponse(
       success: success,
       result: result,
     );
@@ -27,34 +26,36 @@ class _$CurrentReadingResponseTearOff {
 }
 
 // ignore: unused_element
-const $CurrentReadingResponse = _$CurrentReadingResponseTearOff();
+const $MyBooksResponse = _$MyBooksResponseTearOff();
 
-mixin _$CurrentReadingResponse {
+mixin _$MyBooksResponse {
   @JsonKey(name: 'success')
   bool get success;
   @JsonKey(name: 'result')
   Result get result;
 
   Map<String, dynamic> toJson();
-  $CurrentReadingResponseCopyWith<CurrentReadingResponse> get copyWith;
+  $MyBooksResponseCopyWith<MyBooksResponse> get copyWith;
 }
 
-abstract class $CurrentReadingResponseCopyWith<$Res> {
-  factory $CurrentReadingResponseCopyWith(CurrentReadingResponse value,
-          $Res Function(CurrentReadingResponse) then) =
-      _$CurrentReadingResponseCopyWithImpl<$Res>;
+abstract class $MyBooksResponseCopyWith<$Res> {
+  factory $MyBooksResponseCopyWith(
+          MyBooksResponse value, $Res Function(MyBooksResponse) then) =
+      _$MyBooksResponseCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'success') bool success,
       @JsonKey(name: 'result') Result result});
+
+  $ResultCopyWith<$Res> get result;
 }
 
-class _$CurrentReadingResponseCopyWithImpl<$Res>
-    implements $CurrentReadingResponseCopyWith<$Res> {
-  _$CurrentReadingResponseCopyWithImpl(this._value, this._then);
+class _$MyBooksResponseCopyWithImpl<$Res>
+    implements $MyBooksResponseCopyWith<$Res> {
+  _$MyBooksResponseCopyWithImpl(this._value, this._then);
 
-  final CurrentReadingResponse _value;
+  final MyBooksResponse _value;
   // ignore: unused_field
-  final $Res Function(CurrentReadingResponse) _then;
+  final $Res Function(MyBooksResponse) _then;
 
   @override
   $Res call({
@@ -66,35 +67,48 @@ class _$CurrentReadingResponseCopyWithImpl<$Res>
       result: result == freezed ? _value.result : result as Result,
     ));
   }
+
+  @override
+  $ResultCopyWith<$Res> get result {
+    if (_value.result == null) {
+      return null;
+    }
+    return $ResultCopyWith<$Res>(_value.result, (value) {
+      return _then(_value.copyWith(result: value));
+    });
+  }
 }
 
-abstract class _$CurrentReadingResponseCopyWith<$Res>
-    implements $CurrentReadingResponseCopyWith<$Res> {
-  factory _$CurrentReadingResponseCopyWith(_CurrentReadingResponse value,
-          $Res Function(_CurrentReadingResponse) then) =
-      __$CurrentReadingResponseCopyWithImpl<$Res>;
+abstract class _$MyBooksResponseCopyWith<$Res>
+    implements $MyBooksResponseCopyWith<$Res> {
+  factory _$MyBooksResponseCopyWith(
+          _MyBooksResponse value, $Res Function(_MyBooksResponse) then) =
+      __$MyBooksResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'success') bool success,
       @JsonKey(name: 'result') Result result});
-}
-
-class __$CurrentReadingResponseCopyWithImpl<$Res>
-    extends _$CurrentReadingResponseCopyWithImpl<$Res>
-    implements _$CurrentReadingResponseCopyWith<$Res> {
-  __$CurrentReadingResponseCopyWithImpl(_CurrentReadingResponse _value,
-      $Res Function(_CurrentReadingResponse) _then)
-      : super(_value, (v) => _then(v as _CurrentReadingResponse));
 
   @override
-  _CurrentReadingResponse get _value => super._value as _CurrentReadingResponse;
+  $ResultCopyWith<$Res> get result;
+}
+
+class __$MyBooksResponseCopyWithImpl<$Res>
+    extends _$MyBooksResponseCopyWithImpl<$Res>
+    implements _$MyBooksResponseCopyWith<$Res> {
+  __$MyBooksResponseCopyWithImpl(
+      _MyBooksResponse _value, $Res Function(_MyBooksResponse) _then)
+      : super(_value, (v) => _then(v as _MyBooksResponse));
+
+  @override
+  _MyBooksResponse get _value => super._value as _MyBooksResponse;
 
   @override
   $Res call({
     Object success = freezed,
     Object result = freezed,
   }) {
-    return _then(_CurrentReadingResponse(
+    return _then(_MyBooksResponse(
       success: success == freezed ? _value.success : success as bool,
       result: result == freezed ? _value.result : result as Result,
     ));
@@ -102,13 +116,13 @@ class __$CurrentReadingResponseCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-class _$_CurrentReadingResponse implements _CurrentReadingResponse {
-  _$_CurrentReadingResponse(
+class _$_MyBooksResponse implements _MyBooksResponse {
+  _$_MyBooksResponse(
       {@JsonKey(name: 'success') this.success,
       @JsonKey(name: 'result') this.result});
 
-  factory _$_CurrentReadingResponse.fromJson(Map<String, dynamic> json) =>
-      _$_$_CurrentReadingResponseFromJson(json);
+  factory _$_MyBooksResponse.fromJson(Map<String, dynamic> json) =>
+      _$_$_MyBooksResponseFromJson(json);
 
   @override
   @JsonKey(name: 'success')
@@ -119,13 +133,13 @@ class _$_CurrentReadingResponse implements _CurrentReadingResponse {
 
   @override
   String toString() {
-    return 'CurrentReadingResponse(success: $success, result: $result)';
+    return 'MyBooksResponse(success: $success, result: $result)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CurrentReadingResponse &&
+        (other is _MyBooksResponse &&
             (identical(other.success, success) ||
                 const DeepCollectionEquality()
                     .equals(other.success, success)) &&
@@ -140,23 +154,22 @@ class _$_CurrentReadingResponse implements _CurrentReadingResponse {
       const DeepCollectionEquality().hash(result);
 
   @override
-  _$CurrentReadingResponseCopyWith<_CurrentReadingResponse> get copyWith =>
-      __$CurrentReadingResponseCopyWithImpl<_CurrentReadingResponse>(
-          this, _$identity);
+  _$MyBooksResponseCopyWith<_MyBooksResponse> get copyWith =>
+      __$MyBooksResponseCopyWithImpl<_MyBooksResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_CurrentReadingResponseToJson(this);
+    return _$_$_MyBooksResponseToJson(this);
   }
 }
 
-abstract class _CurrentReadingResponse implements CurrentReadingResponse {
-  factory _CurrentReadingResponse(
+abstract class _MyBooksResponse implements MyBooksResponse {
+  factory _MyBooksResponse(
       {@JsonKey(name: 'success') bool success,
-      @JsonKey(name: 'result') Result result}) = _$_CurrentReadingResponse;
+      @JsonKey(name: 'result') Result result}) = _$_MyBooksResponse;
 
-  factory _CurrentReadingResponse.fromJson(Map<String, dynamic> json) =
-      _$_CurrentReadingResponse.fromJson;
+  factory _MyBooksResponse.fromJson(Map<String, dynamic> json) =
+      _$_MyBooksResponse.fromJson;
 
   @override
   @JsonKey(name: 'success')
@@ -165,7 +178,7 @@ abstract class _CurrentReadingResponse implements CurrentReadingResponse {
   @JsonKey(name: 'result')
   Result get result;
   @override
-  _$CurrentReadingResponseCopyWith<_CurrentReadingResponse> get copyWith;
+  _$MyBooksResponseCopyWith<_MyBooksResponse> get copyWith;
 }
 
 Result _$ResultFromJson(Map<String, dynamic> json) {
@@ -698,6 +711,8 @@ abstract class $BookCopyWith<$Res> {
       @JsonKey(name: 'published') String published,
       @JsonKey(name: 'work') Work work});
 
+  $IdCopyWith<$Res> get id;
+  $IdCopyWith<$Res> get textReviewsCount;
   $AuthorsCopyWith<$Res> get authors;
   $WorkCopyWith<$Res> get work;
 }
@@ -786,6 +801,26 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
   }
 
   @override
+  $IdCopyWith<$Res> get id {
+    if (_value.id == null) {
+      return null;
+    }
+    return $IdCopyWith<$Res>(_value.id, (value) {
+      return _then(_value.copyWith(id: value));
+    });
+  }
+
+  @override
+  $IdCopyWith<$Res> get textReviewsCount {
+    if (_value.textReviewsCount == null) {
+      return null;
+    }
+    return $IdCopyWith<$Res>(_value.textReviewsCount, (value) {
+      return _then(_value.copyWith(textReviewsCount: value));
+    });
+  }
+
+  @override
   $AuthorsCopyWith<$Res> get authors {
     if (_value.authors == null) {
       return null;
@@ -836,6 +871,10 @@ abstract class _$BookCopyWith<$Res> implements $BookCopyWith<$Res> {
       @JsonKey(name: 'published') String published,
       @JsonKey(name: 'work') Work work});
 
+  @override
+  $IdCopyWith<$Res> get id;
+  @override
+  $IdCopyWith<$Res> get textReviewsCount;
   @override
   $AuthorsCopyWith<$Res> get authors;
   @override

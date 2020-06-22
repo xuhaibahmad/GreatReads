@@ -1,14 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'current_readings_response.dart';
+part of 'my_books_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CurrentReadingResponse _$_$_CurrentReadingResponseFromJson(
-    Map<String, dynamic> json) {
-  return _$_CurrentReadingResponse(
+_$_MyBooksResponse _$_$_MyBooksResponseFromJson(Map<String, dynamic> json) {
+  return _$_MyBooksResponse(
     success: json['success'] as bool,
     result: json['result'] == null
         ? null
@@ -16,8 +15,7 @@ _$_CurrentReadingResponse _$_$_CurrentReadingResponseFromJson(
   );
 }
 
-Map<String, dynamic> _$_$_CurrentReadingResponseToJson(
-        _$_CurrentReadingResponse instance) =>
+Map<String, dynamic> _$_$_MyBooksResponseToJson(_$_MyBooksResponse instance) =>
     <String, dynamic>{
       'success': instance.success,
       'result': instance.result,

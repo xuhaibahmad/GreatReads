@@ -9,7 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:goodreads_clone/screens/splash.dart';
 import 'package:goodreads_clone/screens/booklist.dart';
-import 'package:goodreads_clone/screens/current_readings.dart';
+import 'package:goodreads_clone/screens/my_books.dart';
 import 'package:goodreads_clone/screens/profile.dart';
 
 abstract class Routes {
@@ -60,14 +60,14 @@ class Router extends RouterBase {
           settings: settings,
         );
       case Routes.currentReadingsPage:
-        if (hasInvalidArgs<CurrentReadingsScreenArguments>(args)) {
-          return misTypedArgsRoute<CurrentReadingsScreenArguments>(args);
+        if (hasInvalidArgs<MyBooksScreenArguments>(args)) {
+          return misTypedArgsRoute<MyBooksScreenArguments>(args);
         }
-        final typedArgs = args as CurrentReadingsScreenArguments ??
-            CurrentReadingsScreenArguments();
+        final typedArgs =
+            args as MyBooksScreenArguments ?? MyBooksScreenArguments();
         return MaterialPageRoute<dynamic>(
           builder: (context) =>
-              CurrentReadingsScreen(key: typedArgs.key).wrappedRoute(context),
+              MyBooksScreen(key: typedArgs.key).wrappedRoute(context),
           settings: settings,
         );
       case Routes.profilePage:
@@ -103,10 +103,10 @@ class BookListScreenArguments {
   BookListScreenArguments({this.key});
 }
 
-//CurrentReadingsScreen arguments holder class
-class CurrentReadingsScreenArguments {
+//MyBooksScreen arguments holder class
+class MyBooksScreenArguments {
   final Key key;
-  CurrentReadingsScreenArguments({this.key});
+  MyBooksScreenArguments({this.key});
 }
 
 //ProfileScreen arguments holder class

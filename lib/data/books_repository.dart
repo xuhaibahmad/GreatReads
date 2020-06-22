@@ -3,7 +3,7 @@ import 'dart:collection';
 import 'package:chopper/chopper.dart';
 import 'package:goodreads_clone/data/greatreads_api.dart';
 import 'package:goodreads_clone/models/api_responses/books_list/books_list_response.dart';
-import 'package:goodreads_clone/models/api_responses/current_readings/current_readings_response.dart';
+import 'package:goodreads_clone/models/api_responses/my_books/my_books_response.dart';
 import 'package:goodreads_clone/models/api_responses/profile_response/profile_response.dart';
 import 'package:goodreads_clone/models/errors.dart';
 import 'package:injectable/injectable.dart';
@@ -14,7 +14,7 @@ class BooksRepository {
   final GreatreadsApi greatreadsApi;
 
   final featuredBooksMemCache = HashMap<String, BookListResponse>();
-  final currentReadingBooksMemCache = HashMap<String, CurrentReadingResponse>();
+  final currentReadingBooksMemCache = HashMap<String, MyBooksResponse>();
   final userProfileMemCache = HashMap<String, ProfileResponse>();
   final _today = DateFormat(DateFormat.ABBR_MONTH_DAY).format(DateTime.now());
 
@@ -34,9 +34,9 @@ class BooksRepository {
     }
   }
 
-  Future<CurrentReadingResponse> getCurrentlyReadingBooks(String userId) async {
+  Future<MyBooksResponse> getCurrentlyReadingBooks(String userId) async {
     try {
-      final Response<CurrentReadingResponse> response =
+      final Response<MyBooksResponse> response =
           currentReadingBooksMemCache.containsKey(_today)
               ? currentReadingBooksMemCache[_today]
               : await greatreadsApi.getCurrentlyReadingBooks(userId);

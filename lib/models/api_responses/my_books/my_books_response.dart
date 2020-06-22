@@ -1,18 +1,18 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'current_readings_response.freezed.dart';
-part 'current_readings_response.g.dart';
+part 'my_books_response.freezed.dart';
+part 'my_books_response.g.dart';
 
 @freezed
-abstract class CurrentReadingResponse with _$CurrentReadingResponse {
+abstract class MyBooksResponse with _$MyBooksResponse {
   @JsonSerializable()
-  factory CurrentReadingResponse({
+  factory MyBooksResponse({
     @JsonKey(name: "success") bool success,
     @JsonKey(name: "result") Result result,
-  }) = _CurrentReadingResponse;
+  }) = _MyBooksResponse;
 
-  factory CurrentReadingResponse.fromJson(Map<String, dynamic> json) =>
-      _$CurrentReadingResponseFromJson(json);
+  factory MyBooksResponse.fromJson(Map<String, dynamic> json) =>
+      _$MyBooksResponseFromJson(json);
 }
 
 @freezed
