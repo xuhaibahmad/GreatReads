@@ -443,7 +443,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   void dispose() {
-    super.dispose();
     bloc.close();
+    super.dispose();
   }
 }

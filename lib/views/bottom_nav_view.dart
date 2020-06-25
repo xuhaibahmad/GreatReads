@@ -51,6 +51,7 @@ class _BottomNavViewState extends State<BottomNavView> {
   }
 
   _onItemTapped(int index) {
+    if (index == _selectedIndex) return;
     this.onItemTapListener.call(index);
     setState(() {
       _selectedIndex = index;

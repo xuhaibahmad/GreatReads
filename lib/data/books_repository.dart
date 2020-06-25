@@ -22,10 +22,10 @@ class BooksRepository {
 
   Future<BookListResponse> getFeaturedBooks() async {
     try {
-      final Response<BookListResponse> response =
-          featuredBooksMemCache.containsKey(_today)
-              ? featuredBooksMemCache[_today]
-              : await greatreadsApi.getFeaturedBooks();
+      if (featuredBooksMemCache.containsKey(_today)) {
+        return featuredBooksMemCache[_today];
+      }
+      final response = await greatreadsApi.getFeaturedBooks();
       final result = response.body;
       featuredBooksMemCache[_today] = result;
       return result;
@@ -36,10 +36,10 @@ class BooksRepository {
 
   Future<MyBooksResponse> getUserBooks(String userId) async {
     try {
-      final Response<MyBooksResponse> response =
-          userBooksMemCache.containsKey(_today)
-              ? userBooksMemCache[_today]
-              : await greatreadsApi.getUserBooks(userId);
+      if (userBooksMemCache.containsKey(_today)) {
+        return userBooksMemCache[_today];
+      }
+      final response = await greatreadsApi.getUserBooks(userId);
       final result = response.body;
       userBooksMemCache[_today] = result;
       return result;
@@ -50,10 +50,10 @@ class BooksRepository {
 
   Future<ProfileResponse> getUserProfile(String userId) async {
     try {
-      final Response<ProfileResponse> response =
-          userProfileMemCache.containsKey(_today)
-              ? userProfileMemCache[_today]
-              : await greatreadsApi.getUserProfile(userId);
+      if (userProfileMemCache.containsKey(_today)) {
+        return userProfileMemCache[_today];
+      }
+      final response = await greatreadsApi.getUserProfile(userId);
       final result = response.body;
       userProfileMemCache[_today] = result;
       return result;

@@ -92,4 +92,11 @@ class _SplashScreenState extends State<SplashScreen> {
       },
     );
   }
+
+  @override
+  void dispose() {
+    appBloc.close();
+    authBloc.close();
+    super.dispose();
+  }
 }

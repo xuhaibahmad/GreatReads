@@ -120,8 +120,8 @@ class _BookListScreenState extends State<BookListScreen> {
 
   @override
   void dispose() {
-    super.dispose();
     booklistBloc.close();
+    super.dispose();
   }
 
   // Viewmodel generation

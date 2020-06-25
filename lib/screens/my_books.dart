@@ -73,8 +73,8 @@ class _MyBooksScreenState extends State<MyBooksScreen> {
 
   @override
   void dispose() {
-    super.dispose();
     bloc.close();
+    super.dispose();
   }
 
   // Viewmodel generation
