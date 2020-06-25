@@ -12,7 +12,7 @@ T _$identity<T>(T value) => value;
 class _$MyBooksViewModelTearOff {
   const _$MyBooksViewModelTearOff();
 
-  _MyBooksViewModel call({List<UserShelf> shelves}) {
+  _MyBooksViewModel call({List<Shelf> shelves}) {
     return _MyBooksViewModel(
       shelves: shelves,
     );
@@ -23,7 +23,7 @@ class _$MyBooksViewModelTearOff {
 const $MyBooksViewModel = _$MyBooksViewModelTearOff();
 
 mixin _$MyBooksViewModel {
-  List<UserShelf> get shelves;
+  List<Shelf> get shelves;
 
   $MyBooksViewModelCopyWith<MyBooksViewModel> get copyWith;
 }
@@ -32,7 +32,7 @@ abstract class $MyBooksViewModelCopyWith<$Res> {
   factory $MyBooksViewModelCopyWith(
           MyBooksViewModel value, $Res Function(MyBooksViewModel) then) =
       _$MyBooksViewModelCopyWithImpl<$Res>;
-  $Res call({List<UserShelf> shelves});
+  $Res call({List<Shelf> shelves});
 }
 
 class _$MyBooksViewModelCopyWithImpl<$Res>
@@ -48,7 +48,7 @@ class _$MyBooksViewModelCopyWithImpl<$Res>
     Object shelves = freezed,
   }) {
     return _then(_value.copyWith(
-      shelves: shelves == freezed ? _value.shelves : shelves as List<UserShelf>,
+      shelves: shelves == freezed ? _value.shelves : shelves as List<Shelf>,
     ));
   }
 }
@@ -59,7 +59,7 @@ abstract class _$MyBooksViewModelCopyWith<$Res>
           _MyBooksViewModel value, $Res Function(_MyBooksViewModel) then) =
       __$MyBooksViewModelCopyWithImpl<$Res>;
   @override
-  $Res call({List<UserShelf> shelves});
+  $Res call({List<Shelf> shelves});
 }
 
 class __$MyBooksViewModelCopyWithImpl<$Res>
@@ -77,7 +77,7 @@ class __$MyBooksViewModelCopyWithImpl<$Res>
     Object shelves = freezed,
   }) {
     return _then(_MyBooksViewModel(
-      shelves: shelves == freezed ? _value.shelves : shelves as List<UserShelf>,
+      shelves: shelves == freezed ? _value.shelves : shelves as List<Shelf>,
     ));
   }
 }
@@ -86,7 +86,7 @@ class _$_MyBooksViewModel implements _MyBooksViewModel {
   _$_MyBooksViewModel({this.shelves});
 
   @override
-  final List<UserShelf> shelves;
+  final List<Shelf> shelves;
 
   @override
   String toString() {
@@ -111,10 +111,10 @@ class _$_MyBooksViewModel implements _MyBooksViewModel {
 }
 
 abstract class _MyBooksViewModel implements MyBooksViewModel {
-  factory _MyBooksViewModel({List<UserShelf> shelves}) = _$_MyBooksViewModel;
+  factory _MyBooksViewModel({List<Shelf> shelves}) = _$_MyBooksViewModel;
 
   @override
-  List<UserShelf> get shelves;
+  List<Shelf> get shelves;
   @override
   _$MyBooksViewModelCopyWith<_MyBooksViewModel> get copyWith;
 }

@@ -20,16 +20,16 @@ abstract class MyBooksResponse with _$MyBooksResponse {
 abstract class Result with _$Result {
   @JsonSerializable()
   factory Result({
-    @JsonKey(name: "user_shelf") List<UserShelf> userShelf,
+    @JsonKey(name: "user_shelf") List<Shelf> shelves,
   }) = _Result;
 
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
 }
 
 @freezed
-abstract class UserShelf with _$UserShelf {
+abstract class Shelf with _$Shelf {
   @JsonSerializable()
-  factory UserShelf({
+  factory Shelf({
     @JsonKey(name: "id") String id,
     @JsonKey(name: "name") String name,
     @JsonKey(name: "book_count") String bookCount,
@@ -38,9 +38,8 @@ abstract class UserShelf with _$UserShelf {
     @JsonKey(name: "featured") String featured,
     @JsonKey(name: "recommend_for") String recommendFor,
     @JsonKey(name: "books") List<BookElement> books,
-  }) = _UserShelf;
-  factory UserShelf.fromJson(Map<String, dynamic> json) =>
-      _$UserShelfFromJson(json);
+  }) = _Shelf;
+  factory Shelf.fromJson(Map<String, dynamic> json) => _$ShelfFromJson(json);
 }
 
 @freezed
@@ -48,7 +47,7 @@ abstract class BookElement with _$BookElement {
   @JsonSerializable()
   factory BookElement({
     @JsonKey(name: "id") String id,
-    @JsonKey(name: "book") BookBook book,
+    @JsonKey(name: "book") Book book,
     @JsonKey(name: "rating") String rating,
     @JsonKey(name: "votes") String votes,
     @JsonKey(name: "spoiler_flag") String spoilerFlag,
@@ -59,10 +58,10 @@ abstract class BookElement with _$BookElement {
     @JsonKey(name: "date_added") String dateAdded,
     @JsonKey(name: "date_updated") String dateUpdated,
     @JsonKey(name: "read_count") String readCount,
-    @JsonKey(name: "body") Body body,
+    @JsonKey(name: "body") Link body,
     @JsonKey(name: "comments_count") String commentsCount,
-    @JsonKey(name: "url") Body url,
-    @JsonKey(name: "link") Body link,
+    @JsonKey(name: "url") Link url,
+    @JsonKey(name: "link") Link link,
     @JsonKey(name: "owned") String owned,
   }) = _BookElement;
   factory BookElement.fromJson(Map<String, dynamic> json) =>
@@ -70,18 +69,18 @@ abstract class BookElement with _$BookElement {
 }
 
 @freezed
-abstract class Body with _$Body {
+abstract class Link with _$Link {
   @JsonSerializable()
-  factory Body({
+  factory Link({
     @JsonKey(name: "_cdata") String cdata,
-  }) = _Body;
-  factory Body.fromJson(Map<String, dynamic> json) => _$BodyFromJson(json);
+  }) = _Link;
+  factory Link.fromJson(Map<String, dynamic> json) => _$LinkFromJson(json);
 }
 
 @freezed
-abstract class BookBook with _$BookBook {
+abstract class Book with _$Book {
   @JsonSerializable()
-  factory BookBook({
+  factory Book({
     @JsonKey(name: "id") String id,
     @JsonKey(name: "isbn") dynamic isbn,
     @JsonKey(name: "isbn13") dynamic isbn13,
@@ -105,9 +104,8 @@ abstract class BookBook with _$BookBook {
     @JsonKey(name: "authors") Authors authors,
     @JsonKey(name: "published") dynamic published,
     @JsonKey(name: "work") Work work,
-  }) = _BookBook;
-  factory BookBook.fromJson(Map<String, dynamic> json) =>
-      _$BookBookFromJson(json);
+  }) = _Book;
+  factory Book.fromJson(Map<String, dynamic> json) => _$BookFromJson(json);
 }
 
 @freezed
@@ -127,9 +125,9 @@ abstract class Author with _$Author {
     @JsonKey(name: "id") String id,
     @JsonKey(name: "name") String name,
     @JsonKey(name: "role") dynamic role,
-    @JsonKey(name: "image_url") Body imageUrl,
-    @JsonKey(name: "small_image_url") Body smallImageUrl,
-    @JsonKey(name: "link") Body link,
+    @JsonKey(name: "image_url") Link imageUrl,
+    @JsonKey(name: "small_image_url") Link smallImageUrl,
+    @JsonKey(name: "link") Link link,
     @JsonKey(name: "average_rating") String averageRating,
     @JsonKey(name: "ratings_count") String ratingsCount,
     @JsonKey(name: "text_reviews_count") String textReviewsCount,

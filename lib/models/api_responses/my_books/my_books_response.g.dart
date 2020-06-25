@@ -25,19 +25,19 @@ Map<String, dynamic> _$_$_MyBooksResponseResponseToJson(
 
 _$_Result _$_$_ResultFromJson(Map<String, dynamic> json) {
   return _$_Result(
-    userShelf: (json['user_shelf'] as List)
-        ?.map((e) =>
-            e == null ? null : UserShelf.fromJson(e as Map<String, dynamic>))
+    shelves: (json['user_shelf'] as List)
+        ?.map(
+            (e) => e == null ? null : Shelf.fromJson(e as Map<String, dynamic>))
         ?.toList(),
   );
 }
 
 Map<String, dynamic> _$_$_ResultToJson(_$_Result instance) => <String, dynamic>{
-      'user_shelf': instance.userShelf,
+      'user_shelf': instance.shelves,
     };
 
-_$_UserShelf _$_$_UserShelfFromJson(Map<String, dynamic> json) {
-  return _$_UserShelf(
+_$_Shelf _$_$_ShelfFromJson(Map<String, dynamic> json) {
+  return _$_Shelf(
     id: json['id'] as String,
     name: json['name'] as String,
     bookCount: json['book_count'] as String,
@@ -52,8 +52,7 @@ _$_UserShelf _$_$_UserShelfFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$_$_UserShelfToJson(_$_UserShelf instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$_$_ShelfToJson(_$_Shelf instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'book_count': instance.bookCount,
@@ -69,7 +68,7 @@ _$_BookElement _$_$_BookElementFromJson(Map<String, dynamic> json) {
     id: json['id'] as String,
     book: json['book'] == null
         ? null
-        : BookBook.fromJson(json['book'] as Map<String, dynamic>),
+        : Book.fromJson(json['book'] as Map<String, dynamic>),
     rating: json['rating'] as String,
     votes: json['votes'] as String,
     spoilerFlag: json['spoiler_flag'] as String,
@@ -84,14 +83,14 @@ _$_BookElement _$_$_BookElementFromJson(Map<String, dynamic> json) {
     readCount: json['read_count'] as String,
     body: json['body'] == null
         ? null
-        : Body.fromJson(json['body'] as Map<String, dynamic>),
+        : Link.fromJson(json['body'] as Map<String, dynamic>),
     commentsCount: json['comments_count'] as String,
     url: json['url'] == null
         ? null
-        : Body.fromJson(json['url'] as Map<String, dynamic>),
+        : Link.fromJson(json['url'] as Map<String, dynamic>),
     link: json['link'] == null
         ? null
-        : Body.fromJson(json['link'] as Map<String, dynamic>),
+        : Link.fromJson(json['link'] as Map<String, dynamic>),
     owned: json['owned'] as String,
   );
 }
@@ -117,18 +116,18 @@ Map<String, dynamic> _$_$_BookElementToJson(_$_BookElement instance) =>
       'owned': instance.owned,
     };
 
-_$_Body _$_$_BodyFromJson(Map<String, dynamic> json) {
-  return _$_Body(
+_$_Link _$_$_LinkFromJson(Map<String, dynamic> json) {
+  return _$_Link(
     cdata: json['_cdata'] as String,
   );
 }
 
-Map<String, dynamic> _$_$_BodyToJson(_$_Body instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_LinkToJson(_$_Link instance) => <String, dynamic>{
       '_cdata': instance.cdata,
     };
 
-_$_BookBook _$_$_BookBookFromJson(Map<String, dynamic> json) {
-  return _$_BookBook(
+_$_Book _$_$_BookFromJson(Map<String, dynamic> json) {
+  return _$_Book(
     id: json['id'] as String,
     isbn: json['isbn'],
     isbn13: json['isbn13'],
@@ -159,8 +158,7 @@ _$_BookBook _$_$_BookBookFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$_$_BookBookToJson(_$_BookBook instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$_$_BookToJson(_$_Book instance) => <String, dynamic>{
       'id': instance.id,
       'isbn': instance.isbn,
       'isbn13': instance.isbn13,
@@ -206,13 +204,13 @@ _$_Author _$_$_AuthorFromJson(Map<String, dynamic> json) {
     role: json['role'],
     imageUrl: json['image_url'] == null
         ? null
-        : Body.fromJson(json['image_url'] as Map<String, dynamic>),
+        : Link.fromJson(json['image_url'] as Map<String, dynamic>),
     smallImageUrl: json['small_image_url'] == null
         ? null
-        : Body.fromJson(json['small_image_url'] as Map<String, dynamic>),
+        : Link.fromJson(json['small_image_url'] as Map<String, dynamic>),
     link: json['link'] == null
         ? null
-        : Body.fromJson(json['link'] as Map<String, dynamic>),
+        : Link.fromJson(json['link'] as Map<String, dynamic>),
     averageRating: json['average_rating'] as String,
     ratingsCount: json['ratings_count'] as String,
     textReviewsCount: json['text_reviews_count'] as String,
