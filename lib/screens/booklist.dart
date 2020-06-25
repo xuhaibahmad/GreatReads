@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goodreads_clone/bloc/app/app_bloc.dart';
+import 'package:goodreads_clone/models/api_responses/books_list/books_list_response.dart';
+import 'package:goodreads_clone/models/viewmodels/books_list/books_list_viewmodel.dart';
 import 'package:goodreads_clone/utils/hex_color_ext.dart';
 import 'package:goodreads_clone/views/currently_reading_view.dart';
 import 'package:goodreads_clone/views/library_view.dart';
@@ -95,7 +97,7 @@ class _BookListScreenState extends State<BookListScreen> {
             children: <Widget>[
               SearchView(),
               SizedBox(height: 12),
-              LibraryView(viewModel: state.viewModel),
+              LibraryView(viewModel: createLibraryViewModel(state.viewModel)),
               SizedBox(height: 120),
             ],
           ),
@@ -120,5 +122,28 @@ class _BookListScreenState extends State<BookListScreen> {
   void dispose() {
     super.dispose();
     booklistBloc.close();
+  }
+
+  // Viewmodel generation
+
+  LibraryViewModel createLibraryViewModel(BookListViewModel model) {
+    return LibraryViewModel(
+      categories: model.books.map((it) => createLibraryCategory(it)).toList(),
+    );
+  }
+
+  LibraryCategory createLibraryCategory(Category bookCategory) {
+    return LibraryCategory(
+      name: bookCategory.displayName,
+      items: bookCategory.books.map((it) => createLibraryItem(it)).toList(),
+    );
+  }
+
+  LibraryItem createLibraryItem(Book book) {
+    return LibraryItem(
+      imageUrl: book.bookImage,
+      title: book.title,
+      subtitle: book.author,
+    );
   }
 }

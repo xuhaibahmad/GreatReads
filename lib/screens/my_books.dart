@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goodreads_clone/bloc/my_books/my_books_bloc.dart';
 import 'package:goodreads_clone/di/injection.dart';
+import 'package:goodreads_clone/models/api_responses/my_books/my_books_response.dart';
+import 'package:goodreads_clone/models/viewmodels/my_books/my_books_viewmodel.dart';
 import 'package:goodreads_clone/views/error_view.dart';
+import 'package:goodreads_clone/views/library_view.dart';
 import 'package:goodreads_clone/views/progress_view.dart';
 
 class MyBooksScreen extends StatefulWidget implements AutoRouteWrapper {
@@ -60,7 +63,7 @@ class _MyBooksScreenState extends State<MyBooksScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("Categories: ${state.viewModel.shelves.length}"),
+          LibraryView(viewModel: createLibraryViewModel(state.viewModel)),
           SizedBox(height: 120),
         ],
       ),
@@ -71,5 +74,30 @@ class _MyBooksScreenState extends State<MyBooksScreen> {
   void dispose() {
     super.dispose();
     bloc.close();
+  }
+
+  // Viewmodel generation
+
+  LibraryViewModel createLibraryViewModel(MyBooksViewModel model) {
+    // TODO: Add an addition "More" item at the end of the list
+    // if the number of items equals the maximum per page counts (i.e. 20)
+    return LibraryViewModel(
+      categories: model.shelves.map((it) => createLibraryCategory(it)).toList(),
+    );
+  }
+
+  LibraryCategory createLibraryCategory(Shelf shelf) {
+    return LibraryCategory(
+      name: shelf.name.replaceAll("-", " "),
+      items: shelf.books.map((it) => createBook(it.book)).toList(),
+    );
+  }
+
+  LibraryItem createBook(Book book) {
+    return LibraryItem(
+      imageUrl: book.imageUrl,
+      title: book.title,
+      subtitle: book.authors.author.name,
+    );
   }
 }

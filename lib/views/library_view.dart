@@ -1,10 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:goodreads_clone/models/api_responses/books_list/books_list_response.dart';
-import 'package:goodreads_clone/models/viewmodels/books_list/books_list_viewmodel.dart';
 import 'package:goodreads_clone/utils/string_ext.dart';
 
+class LibraryViewModel {
+  final List<LibraryCategory> categories;
+
+  LibraryViewModel({this.categories});
+}
+
+class LibraryCategory {
+  final String name;
+  final List<LibraryItem> items;
+
+  LibraryCategory({this.name, this.items});
+}
+
+class LibraryItem {
+  final String imageUrl;
+  final String title;
+  final String subtitle;
+
+  LibraryItem({this.imageUrl, this.title, this.subtitle});
+}
+
 class LibraryView extends StatelessWidget {
-  final BookListViewModel viewModel;
+  final LibraryViewModel viewModel;
 
   const LibraryView({Key key, this.viewModel}) : super(key: key);
 
@@ -13,23 +32,23 @@ class LibraryView extends StatelessWidget {
     return Expanded(
       child: ListView.builder(
         shrinkWrap: true,
-        itemCount: viewModel.books.length,
+        itemCount: viewModel.categories.length,
         itemBuilder: (BuildContext context, int index) {
-          final item = viewModel.books[index];
+          final item = viewModel.categories[index];
           return buildCategoryListItem(item);
         },
       ),
     );
   }
 
-  Widget buildCategoryListItem(Category category) {
+  Widget buildCategoryListItem(LibraryCategory category) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
           padding: EdgeInsets.only(left: 16),
           child: Text(
-            category.displayName,
+            category.name.capitalizeWords(),
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
@@ -43,10 +62,10 @@ class LibraryView extends StatelessWidget {
           child: ListView.builder(
             padding: EdgeInsets.only(left: 8),
             shrinkWrap: true,
-            itemCount: category.books.length,
+            itemCount: category.items.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index) {
-              final book = category.books[index];
+              final book = category.items[index];
               return buildBookListItem(book);
             },
           ),
@@ -55,7 +74,7 @@ class LibraryView extends StatelessWidget {
     );
   }
 
-  Widget buildBookListItem(Book book) {
+  Widget buildBookListItem(LibraryItem item) {
     return Container(
       width: 120,
       height: 140,
@@ -73,13 +92,13 @@ class LibraryView extends StatelessWidget {
                 width: 120,
                 height: 140,
                 fit: BoxFit.fill,
-                image: NetworkImage(book.bookImage),
+                image: NetworkImage(item.imageUrl),
               ),
             ),
           ),
           SizedBox(height: 12),
           Text(
-            book.author,
+            item.subtitle,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
@@ -90,7 +109,7 @@ class LibraryView extends StatelessWidget {
           ),
           SizedBox(height: 2),
           Text(
-            book.title.capitalizeWords(),
+            item.title.capitalizeWords(),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
