@@ -6,8 +6,9 @@ part of 'my_books_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MyBooksResponse _$_$_MyBooksResponseFromJson(Map<String, dynamic> json) {
-  return _$_MyBooksResponse(
+_$_MyBooksResponseResponse _$_$_MyBooksResponseResponseFromJson(
+    Map<String, dynamic> json) {
+  return _$_MyBooksResponseResponse(
     success: json['success'] as bool,
     result: json['result'] == null
         ? null
@@ -15,7 +16,8 @@ _$_MyBooksResponse _$_$_MyBooksResponseFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$_$_MyBooksResponseToJson(_$_MyBooksResponse instance) =>
+Map<String, dynamic> _$_$_MyBooksResponseResponseToJson(
+        _$_MyBooksResponseResponse instance) =>
     <String, dynamic>{
       'success': instance.success,
       'result': instance.result,
@@ -23,98 +25,161 @@ Map<String, dynamic> _$_$_MyBooksResponseToJson(_$_MyBooksResponse instance) =>
 
 _$_Result _$_$_ResultFromJson(Map<String, dynamic> json) {
   return _$_Result(
-    books: json['books'] == null
-        ? null
-        : BooksViewModel.fromJson(json['books'] as Map<String, dynamic>),
-  );
-}
-
-Map<String, dynamic> _$_$_ResultToJson(_$_Result instance) => <String, dynamic>{
-      'books': instance.books,
-    };
-
-_$_BooksViewModel _$_$_BooksViewModelFromJson(Map<String, dynamic> json) {
-  return _$_BooksViewModel(
-    start: json['start'] as String,
-    end: json['end'] as String,
-    total: json['total'] as String,
-    numpages: json['numpages'] as String,
-    currentpage: json['currentpage'] as String,
-    book: (json['book'] as List)
-        ?.map(
-            (e) => e == null ? null : Book.fromJson(e as Map<String, dynamic>))
+    userShelf: (json['user_shelf'] as List)
+        ?.map((e) =>
+            e == null ? null : UserShelf.fromJson(e as Map<String, dynamic>))
         ?.toList(),
   );
 }
 
-Map<String, dynamic> _$_$_BooksViewModelToJson(_$_BooksViewModel instance) =>
-    <String, dynamic>{
-      'start': instance.start,
-      'end': instance.end,
-      'total': instance.total,
-      'numpages': instance.numpages,
-      'currentpage': instance.currentpage,
-      'book': instance.book,
+Map<String, dynamic> _$_$_ResultToJson(_$_Result instance) => <String, dynamic>{
+      'user_shelf': instance.userShelf,
     };
 
-_$_Book _$_$_BookFromJson(Map<String, dynamic> json) {
-  return _$_Book(
-    id: json['id'] == null
+_$_UserShelf _$_$_UserShelfFromJson(Map<String, dynamic> json) {
+  return _$_UserShelf(
+    id: json['id'] as String,
+    name: json['name'] as String,
+    bookCount: json['book_count'] as String,
+    exclusiveFlag: json['exclusive_flag'] as String,
+    order: json['order'],
+    featured: json['featured'] as String,
+    recommendFor: json['recommend_for'] as String,
+    books: (json['books'] as List)
+        ?.map((e) =>
+            e == null ? null : BookElement.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
+  );
+}
+
+Map<String, dynamic> _$_$_UserShelfToJson(_$_UserShelf instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'book_count': instance.bookCount,
+      'exclusive_flag': instance.exclusiveFlag,
+      'order': instance.order,
+      'featured': instance.featured,
+      'recommend_for': instance.recommendFor,
+      'books': instance.books,
+    };
+
+_$_BookElement _$_$_BookElementFromJson(Map<String, dynamic> json) {
+  return _$_BookElement(
+    id: json['id'] as String,
+    book: json['book'] == null
         ? null
-        : Id.fromJson(json['id'] as Map<String, dynamic>),
-    isbn: json['isbn'] as String,
-    isbn13: json['isbn13'] as String,
-    textReviewsCount: json['textReviewsCount'] == null
+        : BookBook.fromJson(json['book'] as Map<String, dynamic>),
+    rating: json['rating'] as String,
+    votes: json['votes'] as String,
+    spoilerFlag: json['spoiler_flag'] as String,
+    spoilersState: json['spoilers_state'] as String,
+    shelves: json['shelves'] == null
         ? null
-        : Id.fromJson(json['textReviewsCount'] as Map<String, dynamic>),
+        : Shelves.fromJson(json['shelves'] as Map<String, dynamic>),
+    startedAt: json['started_at'],
+    readAt: json['read_at'],
+    dateAdded: json['date_added'] as String,
+    dateUpdated: json['date_updated'] as String,
+    readCount: json['read_count'] as String,
+    body: json['body'] == null
+        ? null
+        : Body.fromJson(json['body'] as Map<String, dynamic>),
+    commentsCount: json['comments_count'] as String,
+    url: json['url'] == null
+        ? null
+        : Body.fromJson(json['url'] as Map<String, dynamic>),
+    link: json['link'] == null
+        ? null
+        : Body.fromJson(json['link'] as Map<String, dynamic>),
+    owned: json['owned'] as String,
+  );
+}
+
+Map<String, dynamic> _$_$_BookElementToJson(_$_BookElement instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'book': instance.book,
+      'rating': instance.rating,
+      'votes': instance.votes,
+      'spoiler_flag': instance.spoilerFlag,
+      'spoilers_state': instance.spoilersState,
+      'shelves': instance.shelves,
+      'started_at': instance.startedAt,
+      'read_at': instance.readAt,
+      'date_added': instance.dateAdded,
+      'date_updated': instance.dateUpdated,
+      'read_count': instance.readCount,
+      'body': instance.body,
+      'comments_count': instance.commentsCount,
+      'url': instance.url,
+      'link': instance.link,
+      'owned': instance.owned,
+    };
+
+_$_Body _$_$_BodyFromJson(Map<String, dynamic> json) {
+  return _$_Body(
+    cdata: json['_cdata'] as String,
+  );
+}
+
+Map<String, dynamic> _$_$_BodyToJson(_$_Body instance) => <String, dynamic>{
+      '_cdata': instance.cdata,
+    };
+
+_$_BookBook _$_$_BookBookFromJson(Map<String, dynamic> json) {
+  return _$_BookBook(
+    id: json['id'] as String,
+    isbn: json['isbn'],
+    isbn13: json['isbn13'],
+    textReviewsCount: json['text_reviews_count'] as String,
     uri: json['uri'] as String,
     title: json['title'] as String,
-    titleWithoutSeries: json['titleWithoutSeries'] as String,
-    imageUrl: json['imageUrl'] as String,
-    smallImageUrl: json['smallImageUrl'] as String,
-    largeImageUrl: json['largeImageUrl'] as String,
+    titleWithoutSeries: json['title_without_series'] as String,
+    imageUrl: json['image_url'] as String,
+    smallImageUrl: json['small_image_url'] as String,
     link: json['link'] as String,
-    numPages: json['numPages'] as String,
-    format: json['format'] as String,
-    editionInformation: json['editionInformation'] as String,
-    publisher: json['publisher'] as String,
-    publicationDay: json['publicationDay'] as String,
-    publicationYear: json['publicationYear'] as String,
-    publicationMonth: json['publicationMonth'] as String,
-    averageRating: json['averageRating'] as String,
-    ratingsCount: json['ratingsCount'] as String,
+    numPages: json['num_pages'],
+    format: json['format'],
+    editionInformation: json['edition_information'],
+    publisher: json['publisher'],
+    publicationDay: json['publication_day'],
+    publicationYear: json['publication_year'],
+    publicationMonth: json['publication_month'],
+    averageRating: json['average_rating'] as String,
+    ratingsCount: json['ratings_count'] as String,
     description: json['description'] as String,
     authors: json['authors'] == null
         ? null
         : Authors.fromJson(json['authors'] as Map<String, dynamic>),
-    published: json['published'] as String,
+    published: json['published'],
     work: json['work'] == null
         ? null
         : Work.fromJson(json['work'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$_$_BookToJson(_$_Book instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_BookBookToJson(_$_BookBook instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'isbn': instance.isbn,
       'isbn13': instance.isbn13,
-      'textReviewsCount': instance.textReviewsCount,
+      'text_reviews_count': instance.textReviewsCount,
       'uri': instance.uri,
       'title': instance.title,
-      'titleWithoutSeries': instance.titleWithoutSeries,
-      'imageUrl': instance.imageUrl,
-      'smallImageUrl': instance.smallImageUrl,
-      'largeImageUrl': instance.largeImageUrl,
+      'title_without_series': instance.titleWithoutSeries,
+      'image_url': instance.imageUrl,
+      'small_image_url': instance.smallImageUrl,
       'link': instance.link,
-      'numPages': instance.numPages,
+      'num_pages': instance.numPages,
       'format': instance.format,
-      'editionInformation': instance.editionInformation,
+      'edition_information': instance.editionInformation,
       'publisher': instance.publisher,
-      'publicationDay': instance.publicationDay,
-      'publicationYear': instance.publicationYear,
-      'publicationMonth': instance.publicationMonth,
-      'averageRating': instance.averageRating,
-      'ratingsCount': instance.ratingsCount,
+      'publication_day': instance.publicationDay,
+      'publication_year': instance.publicationYear,
+      'publication_month': instance.publicationMonth,
+      'average_rating': instance.averageRating,
+      'ratings_count': instance.ratingsCount,
       'description': instance.description,
       'authors': instance.authors,
       'published': instance.published,
@@ -138,17 +203,19 @@ _$_Author _$_$_AuthorFromJson(Map<String, dynamic> json) {
   return _$_Author(
     id: json['id'] as String,
     name: json['name'] as String,
-    role: json['role'] as String,
-    imageUrl: json['imageUrl'] == null
+    role: json['role'],
+    imageUrl: json['image_url'] == null
         ? null
-        : ImageUrl.fromJson(json['imageUrl'] as Map<String, dynamic>),
-    smallImageUrl: json['smallImageUrl'] == null
+        : Body.fromJson(json['image_url'] as Map<String, dynamic>),
+    smallImageUrl: json['small_image_url'] == null
         ? null
-        : ImageUrl.fromJson(json['smallImageUrl'] as Map<String, dynamic>),
-    link: json['link'] as String,
-    averageRating: json['averageRating'] as String,
-    ratingsCount: json['ratingsCount'] as String,
-    textReviewsCount: json['textReviewsCount'] as String,
+        : Body.fromJson(json['small_image_url'] as Map<String, dynamic>),
+    link: json['link'] == null
+        ? null
+        : Body.fromJson(json['link'] as Map<String, dynamic>),
+    averageRating: json['average_rating'] as String,
+    ratingsCount: json['ratings_count'] as String,
+    textReviewsCount: json['text_reviews_count'] as String,
   );
 }
 
@@ -156,37 +223,12 @@ Map<String, dynamic> _$_$_AuthorToJson(_$_Author instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'role': instance.role,
-      'imageUrl': instance.imageUrl,
-      'smallImageUrl': instance.smallImageUrl,
+      'image_url': instance.imageUrl,
+      'small_image_url': instance.smallImageUrl,
       'link': instance.link,
-      'averageRating': instance.averageRating,
-      'ratingsCount': instance.ratingsCount,
-      'textReviewsCount': instance.textReviewsCount,
-    };
-
-_$_ImageUrl _$_$_ImageUrlFromJson(Map<String, dynamic> json) {
-  return _$_ImageUrl(
-    empty: json['empty'] as String,
-    nophoto: json['nophoto'] as String,
-  );
-}
-
-Map<String, dynamic> _$_$_ImageUrlToJson(_$_ImageUrl instance) =>
-    <String, dynamic>{
-      'empty': instance.empty,
-      'nophoto': instance.nophoto,
-    };
-
-_$_Id _$_$_IdFromJson(Map<String, dynamic> json) {
-  return _$_Id(
-    empty: json['empty'] as String,
-    type: json['type'] as String,
-  );
-}
-
-Map<String, dynamic> _$_$_IdToJson(_$_Id instance) => <String, dynamic>{
-      'empty': instance.empty,
-      'type': instance.type,
+      'average_rating': instance.averageRating,
+      'ratings_count': instance.ratingsCount,
+      'text_reviews_count': instance.textReviewsCount,
     };
 
 _$_Work _$_$_WorkFromJson(Map<String, dynamic> json) {
@@ -199,4 +241,15 @@ _$_Work _$_$_WorkFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$_$_WorkToJson(_$_Work instance) => <String, dynamic>{
       'id': instance.id,
       'uri': instance.uri,
+    };
+
+_$_Shelves _$_$_ShelvesFromJson(Map<String, dynamic> json) {
+  return _$_Shelves(
+    shelf: json['shelf'],
+  );
+}
+
+Map<String, dynamic> _$_$_ShelvesToJson(_$_Shelves instance) =>
+    <String, dynamic>{
+      'shelf': instance.shelf,
     };

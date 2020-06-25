@@ -31,10 +31,12 @@ class MyBooksBloc extends Bloc<MyBooksEvent, MyBooksState>
       yield MyBooksLoadingState();
       try {
         final userId = appRepository.userId;
-        final response = await booksRepository.getCurrentlyReadingBooks(userId);
+        final response = await booksRepository.getUserBooks(userId);
         final viewModel = MyBooksViewModel.fromBookResponse(response);
         yield MyBooksLoadedState(viewModel);
-      } on MyBooksError catch (_) {
+      } on MyBooksError catch (e) {
+        print("Error in my book list:");
+        print(e.stackTrace);
         yield MyBooksErrorState();
       }
     }

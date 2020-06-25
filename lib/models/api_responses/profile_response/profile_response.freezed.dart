@@ -45,6 +45,8 @@ abstract class $ProfileResponseCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'success') bool success,
       @JsonKey(name: 'result') Result result});
+
+  $ResultCopyWith<$Res> get result;
 }
 
 class _$ProfileResponseCopyWithImpl<$Res>
@@ -65,6 +67,16 @@ class _$ProfileResponseCopyWithImpl<$Res>
       result: result == freezed ? _value.result : result as Result,
     ));
   }
+
+  @override
+  $ResultCopyWith<$Res> get result {
+    if (_value.result == null) {
+      return null;
+    }
+    return $ResultCopyWith<$Res>(_value.result, (value) {
+      return _then(_value.copyWith(result: value));
+    });
+  }
 }
 
 abstract class _$ProfileResponseCopyWith<$Res>
@@ -76,6 +88,9 @@ abstract class _$ProfileResponseCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'success') bool success,
       @JsonKey(name: 'result') Result result});
+
+  @override
+  $ResultCopyWith<$Res> get result;
 }
 
 class __$ProfileResponseCopyWithImpl<$Res>

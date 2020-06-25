@@ -60,7 +60,7 @@ class _MyBooksScreenState extends State<MyBooksScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("Currently Reading: ${state.viewModel.books.length}"),
+          Text("Categories: ${state.viewModel.shelves.length}"),
           SizedBox(height: 120),
         ],
       ),

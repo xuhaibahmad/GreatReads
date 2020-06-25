@@ -12,9 +12,9 @@ T _$identity<T>(T value) => value;
 class _$MyBooksViewModelTearOff {
   const _$MyBooksViewModelTearOff();
 
-  _MyBooksViewModel call({List<Book> books}) {
+  _MyBooksViewModel call({List<UserShelf> shelves}) {
     return _MyBooksViewModel(
-      books: books,
+      shelves: shelves,
     );
   }
 }
@@ -23,7 +23,7 @@ class _$MyBooksViewModelTearOff {
 const $MyBooksViewModel = _$MyBooksViewModelTearOff();
 
 mixin _$MyBooksViewModel {
-  List<Book> get books;
+  List<UserShelf> get shelves;
 
   $MyBooksViewModelCopyWith<MyBooksViewModel> get copyWith;
 }
@@ -32,7 +32,7 @@ abstract class $MyBooksViewModelCopyWith<$Res> {
   factory $MyBooksViewModelCopyWith(
           MyBooksViewModel value, $Res Function(MyBooksViewModel) then) =
       _$MyBooksViewModelCopyWithImpl<$Res>;
-  $Res call({List<Book> books});
+  $Res call({List<UserShelf> shelves});
 }
 
 class _$MyBooksViewModelCopyWithImpl<$Res>
@@ -45,10 +45,10 @@ class _$MyBooksViewModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object books = freezed,
+    Object shelves = freezed,
   }) {
     return _then(_value.copyWith(
-      books: books == freezed ? _value.books : books as List<Book>,
+      shelves: shelves == freezed ? _value.shelves : shelves as List<UserShelf>,
     ));
   }
 }
@@ -59,7 +59,7 @@ abstract class _$MyBooksViewModelCopyWith<$Res>
           _MyBooksViewModel value, $Res Function(_MyBooksViewModel) then) =
       __$MyBooksViewModelCopyWithImpl<$Res>;
   @override
-  $Res call({List<Book> books});
+  $Res call({List<UserShelf> shelves});
 }
 
 class __$MyBooksViewModelCopyWithImpl<$Res>
@@ -74,36 +74,36 @@ class __$MyBooksViewModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object books = freezed,
+    Object shelves = freezed,
   }) {
     return _then(_MyBooksViewModel(
-      books: books == freezed ? _value.books : books as List<Book>,
+      shelves: shelves == freezed ? _value.shelves : shelves as List<UserShelf>,
     ));
   }
 }
 
 class _$_MyBooksViewModel implements _MyBooksViewModel {
-  _$_MyBooksViewModel({this.books});
+  _$_MyBooksViewModel({this.shelves});
 
   @override
-  final List<Book> books;
+  final List<UserShelf> shelves;
 
   @override
   String toString() {
-    return 'MyBooksViewModel(books: $books)';
+    return 'MyBooksViewModel(shelves: $shelves)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _MyBooksViewModel &&
-            (identical(other.books, books) ||
-                const DeepCollectionEquality().equals(other.books, books)));
+            (identical(other.shelves, shelves) ||
+                const DeepCollectionEquality().equals(other.shelves, shelves)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(books);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(shelves);
 
   @override
   _$MyBooksViewModelCopyWith<_MyBooksViewModel> get copyWith =>
@@ -111,10 +111,10 @@ class _$_MyBooksViewModel implements _MyBooksViewModel {
 }
 
 abstract class _MyBooksViewModel implements MyBooksViewModel {
-  factory _MyBooksViewModel({List<Book> books}) = _$_MyBooksViewModel;
+  factory _MyBooksViewModel({List<UserShelf> shelves}) = _$_MyBooksViewModel;
 
   @override
-  List<Book> get books;
+  List<UserShelf> get shelves;
   @override
   _$MyBooksViewModelCopyWith<_MyBooksViewModel> get copyWith;
 }

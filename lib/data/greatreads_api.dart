@@ -16,9 +16,8 @@ abstract class GreatreadsApi extends ChopperService {
   @Get(path: "/featured-books")
   Future<Response<BookListResponse>> getFeaturedBooks();
 
-  @Get(path: "/currently-reading-books")
-  Future<Response<MyBooksResponse>> getCurrentlyReadingBooks(
-      @Query() String userId);
+  @Get(path: "/user-books")
+  Future<Response<MyBooksResponse>> getUserBooks(@Query() String userId);
 
   @Get(path: "/user")
   Future<Response<ProfileResponse>> getUserProfile(@Query() String userId);

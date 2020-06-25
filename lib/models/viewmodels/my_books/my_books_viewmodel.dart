@@ -5,11 +5,11 @@ part 'my_books_viewmodel.freezed.dart';
 
 @freezed
 abstract class MyBooksViewModel with _$MyBooksViewModel {
-  factory MyBooksViewModel({List<Book> books}) = _MyBooksViewModel;
+  factory MyBooksViewModel({List<UserShelf> shelves}) = _MyBooksViewModel;
 
   factory MyBooksViewModel.fromBookResponse(MyBooksResponse response) {
     return MyBooksViewModel(
-      books: response.result.books.book,
+      shelves: response.result.userShelf,
     );
   }
 }

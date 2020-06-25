@@ -14,7 +14,7 @@ class BooksRepository {
   final GreatreadsApi greatreadsApi;
 
   final featuredBooksMemCache = HashMap<String, BookListResponse>();
-  final currentReadingBooksMemCache = HashMap<String, MyBooksResponse>();
+  final userBooksMemCache = HashMap<String, MyBooksResponse>();
   final userProfileMemCache = HashMap<String, ProfileResponse>();
   final _today = DateFormat(DateFormat.ABBR_MONTH_DAY).format(DateTime.now());
 
@@ -34,17 +34,17 @@ class BooksRepository {
     }
   }
 
-  Future<MyBooksResponse> getCurrentlyReadingBooks(String userId) async {
+  Future<MyBooksResponse> getUserBooks(String userId) async {
     try {
       final Response<MyBooksResponse> response =
-          currentReadingBooksMemCache.containsKey(_today)
-              ? currentReadingBooksMemCache[_today]
-              : await greatreadsApi.getCurrentlyReadingBooks(userId);
+          userBooksMemCache.containsKey(_today)
+              ? userBooksMemCache[_today]
+              : await greatreadsApi.getUserBooks(userId);
       final result = response.body;
-      currentReadingBooksMemCache[_today] = result;
+      userBooksMemCache[_today] = result;
       return result;
     } catch (e) {
-      return Future.error(BookListError());
+      return Future.error(MyBooksError());
     }
   }
 

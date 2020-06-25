@@ -24,8 +24,8 @@ class _$GreatreadsApi extends GreatreadsApi {
   }
 
   @override
-  Future<Response<MyBooksResponse>> getCurrentlyReadingBooks(String userId) {
-    final $url = 'https://greatreads-api.herokuapp.com/currently-reading-books';
+  Future<Response<MyBooksResponse>> getUserBooks(String userId) {
+    final $url = 'https://greatreads-api.herokuapp.com/user-books';
     final $params = <String, dynamic>{'userId': userId};
     final $request = Request('GET', $url, client.baseUrl, parameters: $params);
     return client.send<MyBooksResponse, MyBooksResponse>($request);

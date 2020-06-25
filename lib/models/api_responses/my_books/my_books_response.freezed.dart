@@ -9,16 +9,16 @@ part of 'my_books_response.dart';
 
 T _$identity<T>(T value) => value;
 MyBooksResponse _$MyBooksResponseFromJson(Map<String, dynamic> json) {
-  return _MyBooksResponse.fromJson(json);
+  return _MyBooksResponseResponse.fromJson(json);
 }
 
 class _$MyBooksResponseTearOff {
   const _$MyBooksResponseTearOff();
 
-  _MyBooksResponse call(
+  _MyBooksResponseResponse call(
       {@JsonKey(name: 'success') bool success,
       @JsonKey(name: 'result') Result result}) {
-    return _MyBooksResponse(
+    return _MyBooksResponseResponse(
       success: success,
       result: result,
     );
@@ -45,8 +45,6 @@ abstract class $MyBooksResponseCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'success') bool success,
       @JsonKey(name: 'result') Result result});
-
-  $ResultCopyWith<$Res> get result;
 }
 
 class _$MyBooksResponseCopyWithImpl<$Res>
@@ -67,48 +65,36 @@ class _$MyBooksResponseCopyWithImpl<$Res>
       result: result == freezed ? _value.result : result as Result,
     ));
   }
-
-  @override
-  $ResultCopyWith<$Res> get result {
-    if (_value.result == null) {
-      return null;
-    }
-    return $ResultCopyWith<$Res>(_value.result, (value) {
-      return _then(_value.copyWith(result: value));
-    });
-  }
 }
 
-abstract class _$MyBooksResponseCopyWith<$Res>
+abstract class _$MyBooksResponseResponseCopyWith<$Res>
     implements $MyBooksResponseCopyWith<$Res> {
-  factory _$MyBooksResponseCopyWith(
-          _MyBooksResponse value, $Res Function(_MyBooksResponse) then) =
-      __$MyBooksResponseCopyWithImpl<$Res>;
+  factory _$MyBooksResponseResponseCopyWith(_MyBooksResponseResponse value,
+          $Res Function(_MyBooksResponseResponse) then) =
+      __$MyBooksResponseResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'success') bool success,
       @JsonKey(name: 'result') Result result});
-
-  @override
-  $ResultCopyWith<$Res> get result;
 }
 
-class __$MyBooksResponseCopyWithImpl<$Res>
+class __$MyBooksResponseResponseCopyWithImpl<$Res>
     extends _$MyBooksResponseCopyWithImpl<$Res>
-    implements _$MyBooksResponseCopyWith<$Res> {
-  __$MyBooksResponseCopyWithImpl(
-      _MyBooksResponse _value, $Res Function(_MyBooksResponse) _then)
-      : super(_value, (v) => _then(v as _MyBooksResponse));
+    implements _$MyBooksResponseResponseCopyWith<$Res> {
+  __$MyBooksResponseResponseCopyWithImpl(_MyBooksResponseResponse _value,
+      $Res Function(_MyBooksResponseResponse) _then)
+      : super(_value, (v) => _then(v as _MyBooksResponseResponse));
 
   @override
-  _MyBooksResponse get _value => super._value as _MyBooksResponse;
+  _MyBooksResponseResponse get _value =>
+      super._value as _MyBooksResponseResponse;
 
   @override
   $Res call({
     Object success = freezed,
     Object result = freezed,
   }) {
-    return _then(_MyBooksResponse(
+    return _then(_MyBooksResponseResponse(
       success: success == freezed ? _value.success : success as bool,
       result: result == freezed ? _value.result : result as Result,
     ));
@@ -116,13 +102,13 @@ class __$MyBooksResponseCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-class _$_MyBooksResponse implements _MyBooksResponse {
-  _$_MyBooksResponse(
+class _$_MyBooksResponseResponse implements _MyBooksResponseResponse {
+  _$_MyBooksResponseResponse(
       {@JsonKey(name: 'success') this.success,
       @JsonKey(name: 'result') this.result});
 
-  factory _$_MyBooksResponse.fromJson(Map<String, dynamic> json) =>
-      _$_$_MyBooksResponseFromJson(json);
+  factory _$_MyBooksResponseResponse.fromJson(Map<String, dynamic> json) =>
+      _$_$_MyBooksResponseResponseFromJson(json);
 
   @override
   @JsonKey(name: 'success')
@@ -139,7 +125,7 @@ class _$_MyBooksResponse implements _MyBooksResponse {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _MyBooksResponse &&
+        (other is _MyBooksResponseResponse &&
             (identical(other.success, success) ||
                 const DeepCollectionEquality()
                     .equals(other.success, success)) &&
@@ -154,22 +140,23 @@ class _$_MyBooksResponse implements _MyBooksResponse {
       const DeepCollectionEquality().hash(result);
 
   @override
-  _$MyBooksResponseCopyWith<_MyBooksResponse> get copyWith =>
-      __$MyBooksResponseCopyWithImpl<_MyBooksResponse>(this, _$identity);
+  _$MyBooksResponseResponseCopyWith<_MyBooksResponseResponse> get copyWith =>
+      __$MyBooksResponseResponseCopyWithImpl<_MyBooksResponseResponse>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_MyBooksResponseToJson(this);
+    return _$_$_MyBooksResponseResponseToJson(this);
   }
 }
 
-abstract class _MyBooksResponse implements MyBooksResponse {
-  factory _MyBooksResponse(
+abstract class _MyBooksResponseResponse implements MyBooksResponse {
+  factory _MyBooksResponseResponse(
       {@JsonKey(name: 'success') bool success,
-      @JsonKey(name: 'result') Result result}) = _$_MyBooksResponse;
+      @JsonKey(name: 'result') Result result}) = _$_MyBooksResponseResponse;
 
-  factory _MyBooksResponse.fromJson(Map<String, dynamic> json) =
-      _$_MyBooksResponse.fromJson;
+  factory _MyBooksResponseResponse.fromJson(Map<String, dynamic> json) =
+      _$_MyBooksResponseResponse.fromJson;
 
   @override
   @JsonKey(name: 'success')
@@ -178,7 +165,7 @@ abstract class _MyBooksResponse implements MyBooksResponse {
   @JsonKey(name: 'result')
   Result get result;
   @override
-  _$MyBooksResponseCopyWith<_MyBooksResponse> get copyWith;
+  _$MyBooksResponseResponseCopyWith<_MyBooksResponseResponse> get copyWith;
 }
 
 Result _$ResultFromJson(Map<String, dynamic> json) {
@@ -188,9 +175,9 @@ Result _$ResultFromJson(Map<String, dynamic> json) {
 class _$ResultTearOff {
   const _$ResultTearOff();
 
-  _Result call({@JsonKey(name: 'books') BooksViewModel books}) {
+  _Result call({@JsonKey(name: 'user_shelf') List<UserShelf> userShelf}) {
     return _Result(
-      books: books,
+      userShelf: userShelf,
     );
   }
 }
@@ -199,8 +186,8 @@ class _$ResultTearOff {
 const $Result = _$ResultTearOff();
 
 mixin _$Result {
-  @JsonKey(name: 'books')
-  BooksViewModel get books;
+  @JsonKey(name: 'user_shelf')
+  List<UserShelf> get userShelf;
 
   Map<String, dynamic> toJson();
   $ResultCopyWith<Result> get copyWith;
@@ -209,9 +196,7 @@ mixin _$Result {
 abstract class $ResultCopyWith<$Res> {
   factory $ResultCopyWith(Result value, $Res Function(Result) then) =
       _$ResultCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: 'books') BooksViewModel books});
-
-  $BooksViewModelCopyWith<$Res> get books;
+  $Res call({@JsonKey(name: 'user_shelf') List<UserShelf> userShelf});
 }
 
 class _$ResultCopyWithImpl<$Res> implements $ResultCopyWith<$Res> {
@@ -223,21 +208,13 @@ class _$ResultCopyWithImpl<$Res> implements $ResultCopyWith<$Res> {
 
   @override
   $Res call({
-    Object books = freezed,
+    Object userShelf = freezed,
   }) {
     return _then(_value.copyWith(
-      books: books == freezed ? _value.books : books as BooksViewModel,
+      userShelf: userShelf == freezed
+          ? _value.userShelf
+          : userShelf as List<UserShelf>,
     ));
-  }
-
-  @override
-  $BooksViewModelCopyWith<$Res> get books {
-    if (_value.books == null) {
-      return null;
-    }
-    return $BooksViewModelCopyWith<$Res>(_value.books, (value) {
-      return _then(_value.copyWith(books: value));
-    });
   }
 }
 
@@ -245,10 +222,7 @@ abstract class _$ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
   factory _$ResultCopyWith(_Result value, $Res Function(_Result) then) =
       __$ResultCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: 'books') BooksViewModel books});
-
-  @override
-  $BooksViewModelCopyWith<$Res> get books;
+  $Res call({@JsonKey(name: 'user_shelf') List<UserShelf> userShelf});
 }
 
 class __$ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res>
@@ -261,41 +235,44 @@ class __$ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object books = freezed,
+    Object userShelf = freezed,
   }) {
     return _then(_Result(
-      books: books == freezed ? _value.books : books as BooksViewModel,
+      userShelf: userShelf == freezed
+          ? _value.userShelf
+          : userShelf as List<UserShelf>,
     ));
   }
 }
 
 @JsonSerializable()
 class _$_Result implements _Result {
-  _$_Result({@JsonKey(name: 'books') this.books});
+  _$_Result({@JsonKey(name: 'user_shelf') this.userShelf});
 
   factory _$_Result.fromJson(Map<String, dynamic> json) =>
       _$_$_ResultFromJson(json);
 
   @override
-  @JsonKey(name: 'books')
-  final BooksViewModel books;
+  @JsonKey(name: 'user_shelf')
+  final List<UserShelf> userShelf;
 
   @override
   String toString() {
-    return 'Result(books: $books)';
+    return 'Result(userShelf: $userShelf)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Result &&
-            (identical(other.books, books) ||
-                const DeepCollectionEquality().equals(other.books, books)));
+            (identical(other.userShelf, userShelf) ||
+                const DeepCollectionEquality()
+                    .equals(other.userShelf, userShelf)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(books);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(userShelf);
 
   @override
   _$ResultCopyWith<_Result> get copyWith =>
@@ -308,295 +285,1020 @@ class _$_Result implements _Result {
 }
 
 abstract class _Result implements Result {
-  factory _Result({@JsonKey(name: 'books') BooksViewModel books}) = _$_Result;
+  factory _Result({@JsonKey(name: 'user_shelf') List<UserShelf> userShelf}) =
+      _$_Result;
 
   factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
 
   @override
-  @JsonKey(name: 'books')
-  BooksViewModel get books;
+  @JsonKey(name: 'user_shelf')
+  List<UserShelf> get userShelf;
   @override
   _$ResultCopyWith<_Result> get copyWith;
 }
 
-BooksViewModel _$BooksViewModelFromJson(Map<String, dynamic> json) {
-  return _BooksViewModel.fromJson(json);
+UserShelf _$UserShelfFromJson(Map<String, dynamic> json) {
+  return _UserShelf.fromJson(json);
 }
 
-class _$BooksViewModelTearOff {
-  const _$BooksViewModelTearOff();
+class _$UserShelfTearOff {
+  const _$UserShelfTearOff();
 
-  _BooksViewModel call(
-      {@JsonKey(name: 'start') String start,
-      @JsonKey(name: 'end') String end,
-      @JsonKey(name: 'total') String total,
-      @JsonKey(name: 'numpages') String numpages,
-      @JsonKey(name: 'currentpage') String currentpage,
-      @JsonKey(name: 'book') List<Book> book}) {
-    return _BooksViewModel(
-      start: start,
-      end: end,
-      total: total,
-      numpages: numpages,
-      currentpage: currentpage,
-      book: book,
+  _UserShelf call(
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'book_count') String bookCount,
+      @JsonKey(name: 'exclusive_flag') String exclusiveFlag,
+      @JsonKey(name: 'order') dynamic order,
+      @JsonKey(name: 'featured') String featured,
+      @JsonKey(name: 'recommend_for') String recommendFor,
+      @JsonKey(name: 'books') List<BookElement> books}) {
+    return _UserShelf(
+      id: id,
+      name: name,
+      bookCount: bookCount,
+      exclusiveFlag: exclusiveFlag,
+      order: order,
+      featured: featured,
+      recommendFor: recommendFor,
+      books: books,
     );
   }
 }
 
 // ignore: unused_element
-const $BooksViewModel = _$BooksViewModelTearOff();
+const $UserShelf = _$UserShelfTearOff();
 
-mixin _$BooksViewModel {
-  @JsonKey(name: 'start')
-  String get start;
-  @JsonKey(name: 'end')
-  String get end;
-  @JsonKey(name: 'total')
-  String get total;
-  @JsonKey(name: 'numpages')
-  String get numpages;
-  @JsonKey(name: 'currentpage')
-  String get currentpage;
-  @JsonKey(name: 'book')
-  List<Book> get book;
+mixin _$UserShelf {
+  @JsonKey(name: 'id')
+  String get id;
+  @JsonKey(name: 'name')
+  String get name;
+  @JsonKey(name: 'book_count')
+  String get bookCount;
+  @JsonKey(name: 'exclusive_flag')
+  String get exclusiveFlag;
+  @JsonKey(name: 'order')
+  dynamic get order;
+  @JsonKey(name: 'featured')
+  String get featured;
+  @JsonKey(name: 'recommend_for')
+  String get recommendFor;
+  @JsonKey(name: 'books')
+  List<BookElement> get books;
 
   Map<String, dynamic> toJson();
-  $BooksViewModelCopyWith<BooksViewModel> get copyWith;
+  $UserShelfCopyWith<UserShelf> get copyWith;
 }
 
-abstract class $BooksViewModelCopyWith<$Res> {
-  factory $BooksViewModelCopyWith(
-          BooksViewModel value, $Res Function(BooksViewModel) then) =
-      _$BooksViewModelCopyWithImpl<$Res>;
+abstract class $UserShelfCopyWith<$Res> {
+  factory $UserShelfCopyWith(UserShelf value, $Res Function(UserShelf) then) =
+      _$UserShelfCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'start') String start,
-      @JsonKey(name: 'end') String end,
-      @JsonKey(name: 'total') String total,
-      @JsonKey(name: 'numpages') String numpages,
-      @JsonKey(name: 'currentpage') String currentpage,
-      @JsonKey(name: 'book') List<Book> book});
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'book_count') String bookCount,
+      @JsonKey(name: 'exclusive_flag') String exclusiveFlag,
+      @JsonKey(name: 'order') dynamic order,
+      @JsonKey(name: 'featured') String featured,
+      @JsonKey(name: 'recommend_for') String recommendFor,
+      @JsonKey(name: 'books') List<BookElement> books});
 }
 
-class _$BooksViewModelCopyWithImpl<$Res>
-    implements $BooksViewModelCopyWith<$Res> {
-  _$BooksViewModelCopyWithImpl(this._value, this._then);
+class _$UserShelfCopyWithImpl<$Res> implements $UserShelfCopyWith<$Res> {
+  _$UserShelfCopyWithImpl(this._value, this._then);
 
-  final BooksViewModel _value;
+  final UserShelf _value;
   // ignore: unused_field
-  final $Res Function(BooksViewModel) _then;
+  final $Res Function(UserShelf) _then;
 
   @override
   $Res call({
-    Object start = freezed,
-    Object end = freezed,
-    Object total = freezed,
-    Object numpages = freezed,
-    Object currentpage = freezed,
-    Object book = freezed,
+    Object id = freezed,
+    Object name = freezed,
+    Object bookCount = freezed,
+    Object exclusiveFlag = freezed,
+    Object order = freezed,
+    Object featured = freezed,
+    Object recommendFor = freezed,
+    Object books = freezed,
   }) {
     return _then(_value.copyWith(
-      start: start == freezed ? _value.start : start as String,
-      end: end == freezed ? _value.end : end as String,
-      total: total == freezed ? _value.total : total as String,
-      numpages: numpages == freezed ? _value.numpages : numpages as String,
-      currentpage:
-          currentpage == freezed ? _value.currentpage : currentpage as String,
-      book: book == freezed ? _value.book : book as List<Book>,
+      id: id == freezed ? _value.id : id as String,
+      name: name == freezed ? _value.name : name as String,
+      bookCount: bookCount == freezed ? _value.bookCount : bookCount as String,
+      exclusiveFlag: exclusiveFlag == freezed
+          ? _value.exclusiveFlag
+          : exclusiveFlag as String,
+      order: order == freezed ? _value.order : order as dynamic,
+      featured: featured == freezed ? _value.featured : featured as String,
+      recommendFor: recommendFor == freezed
+          ? _value.recommendFor
+          : recommendFor as String,
+      books: books == freezed ? _value.books : books as List<BookElement>,
     ));
   }
 }
 
-abstract class _$BooksViewModelCopyWith<$Res>
-    implements $BooksViewModelCopyWith<$Res> {
-  factory _$BooksViewModelCopyWith(
-          _BooksViewModel value, $Res Function(_BooksViewModel) then) =
-      __$BooksViewModelCopyWithImpl<$Res>;
+abstract class _$UserShelfCopyWith<$Res> implements $UserShelfCopyWith<$Res> {
+  factory _$UserShelfCopyWith(
+          _UserShelf value, $Res Function(_UserShelf) then) =
+      __$UserShelfCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'start') String start,
-      @JsonKey(name: 'end') String end,
-      @JsonKey(name: 'total') String total,
-      @JsonKey(name: 'numpages') String numpages,
-      @JsonKey(name: 'currentpage') String currentpage,
-      @JsonKey(name: 'book') List<Book> book});
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'book_count') String bookCount,
+      @JsonKey(name: 'exclusive_flag') String exclusiveFlag,
+      @JsonKey(name: 'order') dynamic order,
+      @JsonKey(name: 'featured') String featured,
+      @JsonKey(name: 'recommend_for') String recommendFor,
+      @JsonKey(name: 'books') List<BookElement> books});
 }
 
-class __$BooksViewModelCopyWithImpl<$Res>
-    extends _$BooksViewModelCopyWithImpl<$Res>
-    implements _$BooksViewModelCopyWith<$Res> {
-  __$BooksViewModelCopyWithImpl(
-      _BooksViewModel _value, $Res Function(_BooksViewModel) _then)
-      : super(_value, (v) => _then(v as _BooksViewModel));
+class __$UserShelfCopyWithImpl<$Res> extends _$UserShelfCopyWithImpl<$Res>
+    implements _$UserShelfCopyWith<$Res> {
+  __$UserShelfCopyWithImpl(_UserShelf _value, $Res Function(_UserShelf) _then)
+      : super(_value, (v) => _then(v as _UserShelf));
 
   @override
-  _BooksViewModel get _value => super._value as _BooksViewModel;
+  _UserShelf get _value => super._value as _UserShelf;
 
   @override
   $Res call({
-    Object start = freezed,
-    Object end = freezed,
-    Object total = freezed,
-    Object numpages = freezed,
-    Object currentpage = freezed,
-    Object book = freezed,
+    Object id = freezed,
+    Object name = freezed,
+    Object bookCount = freezed,
+    Object exclusiveFlag = freezed,
+    Object order = freezed,
+    Object featured = freezed,
+    Object recommendFor = freezed,
+    Object books = freezed,
   }) {
-    return _then(_BooksViewModel(
-      start: start == freezed ? _value.start : start as String,
-      end: end == freezed ? _value.end : end as String,
-      total: total == freezed ? _value.total : total as String,
-      numpages: numpages == freezed ? _value.numpages : numpages as String,
-      currentpage:
-          currentpage == freezed ? _value.currentpage : currentpage as String,
-      book: book == freezed ? _value.book : book as List<Book>,
+    return _then(_UserShelf(
+      id: id == freezed ? _value.id : id as String,
+      name: name == freezed ? _value.name : name as String,
+      bookCount: bookCount == freezed ? _value.bookCount : bookCount as String,
+      exclusiveFlag: exclusiveFlag == freezed
+          ? _value.exclusiveFlag
+          : exclusiveFlag as String,
+      order: order == freezed ? _value.order : order as dynamic,
+      featured: featured == freezed ? _value.featured : featured as String,
+      recommendFor: recommendFor == freezed
+          ? _value.recommendFor
+          : recommendFor as String,
+      books: books == freezed ? _value.books : books as List<BookElement>,
     ));
   }
 }
 
 @JsonSerializable()
-class _$_BooksViewModel implements _BooksViewModel {
-  _$_BooksViewModel(
-      {@JsonKey(name: 'start') this.start,
-      @JsonKey(name: 'end') this.end,
-      @JsonKey(name: 'total') this.total,
-      @JsonKey(name: 'numpages') this.numpages,
-      @JsonKey(name: 'currentpage') this.currentpage,
-      @JsonKey(name: 'book') this.book});
+class _$_UserShelf implements _UserShelf {
+  _$_UserShelf(
+      {@JsonKey(name: 'id') this.id,
+      @JsonKey(name: 'name') this.name,
+      @JsonKey(name: 'book_count') this.bookCount,
+      @JsonKey(name: 'exclusive_flag') this.exclusiveFlag,
+      @JsonKey(name: 'order') this.order,
+      @JsonKey(name: 'featured') this.featured,
+      @JsonKey(name: 'recommend_for') this.recommendFor,
+      @JsonKey(name: 'books') this.books});
 
-  factory _$_BooksViewModel.fromJson(Map<String, dynamic> json) =>
-      _$_$_BooksViewModelFromJson(json);
+  factory _$_UserShelf.fromJson(Map<String, dynamic> json) =>
+      _$_$_UserShelfFromJson(json);
 
   @override
-  @JsonKey(name: 'start')
-  final String start;
+  @JsonKey(name: 'id')
+  final String id;
   @override
-  @JsonKey(name: 'end')
-  final String end;
+  @JsonKey(name: 'name')
+  final String name;
   @override
-  @JsonKey(name: 'total')
-  final String total;
+  @JsonKey(name: 'book_count')
+  final String bookCount;
   @override
-  @JsonKey(name: 'numpages')
-  final String numpages;
+  @JsonKey(name: 'exclusive_flag')
+  final String exclusiveFlag;
   @override
-  @JsonKey(name: 'currentpage')
-  final String currentpage;
+  @JsonKey(name: 'order')
+  final dynamic order;
   @override
-  @JsonKey(name: 'book')
-  final List<Book> book;
+  @JsonKey(name: 'featured')
+  final String featured;
+  @override
+  @JsonKey(name: 'recommend_for')
+  final String recommendFor;
+  @override
+  @JsonKey(name: 'books')
+  final List<BookElement> books;
 
   @override
   String toString() {
-    return 'BooksViewModel(start: $start, end: $end, total: $total, numpages: $numpages, currentpage: $currentpage, book: $book)';
+    return 'UserShelf(id: $id, name: $name, bookCount: $bookCount, exclusiveFlag: $exclusiveFlag, order: $order, featured: $featured, recommendFor: $recommendFor, books: $books)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _BooksViewModel &&
-            (identical(other.start, start) ||
-                const DeepCollectionEquality().equals(other.start, start)) &&
-            (identical(other.end, end) ||
-                const DeepCollectionEquality().equals(other.end, end)) &&
-            (identical(other.total, total) ||
-                const DeepCollectionEquality().equals(other.total, total)) &&
-            (identical(other.numpages, numpages) ||
+        (other is _UserShelf &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.bookCount, bookCount) ||
                 const DeepCollectionEquality()
-                    .equals(other.numpages, numpages)) &&
-            (identical(other.currentpage, currentpage) ||
+                    .equals(other.bookCount, bookCount)) &&
+            (identical(other.exclusiveFlag, exclusiveFlag) ||
                 const DeepCollectionEquality()
-                    .equals(other.currentpage, currentpage)) &&
-            (identical(other.book, book) ||
-                const DeepCollectionEquality().equals(other.book, book)));
+                    .equals(other.exclusiveFlag, exclusiveFlag)) &&
+            (identical(other.order, order) ||
+                const DeepCollectionEquality().equals(other.order, order)) &&
+            (identical(other.featured, featured) ||
+                const DeepCollectionEquality()
+                    .equals(other.featured, featured)) &&
+            (identical(other.recommendFor, recommendFor) ||
+                const DeepCollectionEquality()
+                    .equals(other.recommendFor, recommendFor)) &&
+            (identical(other.books, books) ||
+                const DeepCollectionEquality().equals(other.books, books)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(start) ^
-      const DeepCollectionEquality().hash(end) ^
-      const DeepCollectionEquality().hash(total) ^
-      const DeepCollectionEquality().hash(numpages) ^
-      const DeepCollectionEquality().hash(currentpage) ^
-      const DeepCollectionEquality().hash(book);
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(bookCount) ^
+      const DeepCollectionEquality().hash(exclusiveFlag) ^
+      const DeepCollectionEquality().hash(order) ^
+      const DeepCollectionEquality().hash(featured) ^
+      const DeepCollectionEquality().hash(recommendFor) ^
+      const DeepCollectionEquality().hash(books);
 
   @override
-  _$BooksViewModelCopyWith<_BooksViewModel> get copyWith =>
-      __$BooksViewModelCopyWithImpl<_BooksViewModel>(this, _$identity);
+  _$UserShelfCopyWith<_UserShelf> get copyWith =>
+      __$UserShelfCopyWithImpl<_UserShelf>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_BooksViewModelToJson(this);
+    return _$_$_UserShelfToJson(this);
   }
 }
 
-abstract class _BooksViewModel implements BooksViewModel {
-  factory _BooksViewModel(
-      {@JsonKey(name: 'start') String start,
-      @JsonKey(name: 'end') String end,
-      @JsonKey(name: 'total') String total,
-      @JsonKey(name: 'numpages') String numpages,
-      @JsonKey(name: 'currentpage') String currentpage,
-      @JsonKey(name: 'book') List<Book> book}) = _$_BooksViewModel;
+abstract class _UserShelf implements UserShelf {
+  factory _UserShelf(
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'book_count') String bookCount,
+      @JsonKey(name: 'exclusive_flag') String exclusiveFlag,
+      @JsonKey(name: 'order') dynamic order,
+      @JsonKey(name: 'featured') String featured,
+      @JsonKey(name: 'recommend_for') String recommendFor,
+      @JsonKey(name: 'books') List<BookElement> books}) = _$_UserShelf;
 
-  factory _BooksViewModel.fromJson(Map<String, dynamic> json) =
-      _$_BooksViewModel.fromJson;
+  factory _UserShelf.fromJson(Map<String, dynamic> json) =
+      _$_UserShelf.fromJson;
 
   @override
-  @JsonKey(name: 'start')
-  String get start;
+  @JsonKey(name: 'id')
+  String get id;
   @override
-  @JsonKey(name: 'end')
-  String get end;
+  @JsonKey(name: 'name')
+  String get name;
   @override
-  @JsonKey(name: 'total')
-  String get total;
+  @JsonKey(name: 'book_count')
+  String get bookCount;
   @override
-  @JsonKey(name: 'numpages')
-  String get numpages;
+  @JsonKey(name: 'exclusive_flag')
+  String get exclusiveFlag;
   @override
-  @JsonKey(name: 'currentpage')
-  String get currentpage;
+  @JsonKey(name: 'order')
+  dynamic get order;
+  @override
+  @JsonKey(name: 'featured')
+  String get featured;
+  @override
+  @JsonKey(name: 'recommend_for')
+  String get recommendFor;
+  @override
+  @JsonKey(name: 'books')
+  List<BookElement> get books;
+  @override
+  _$UserShelfCopyWith<_UserShelf> get copyWith;
+}
+
+BookElement _$BookElementFromJson(Map<String, dynamic> json) {
+  return _BookElement.fromJson(json);
+}
+
+class _$BookElementTearOff {
+  const _$BookElementTearOff();
+
+  _BookElement call(
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'book') BookBook book,
+      @JsonKey(name: 'rating') String rating,
+      @JsonKey(name: 'votes') String votes,
+      @JsonKey(name: 'spoiler_flag') String spoilerFlag,
+      @JsonKey(name: 'spoilers_state') String spoilersState,
+      @JsonKey(name: 'shelves') Shelves shelves,
+      @JsonKey(name: 'started_at') dynamic startedAt,
+      @JsonKey(name: 'read_at') dynamic readAt,
+      @JsonKey(name: 'date_added') String dateAdded,
+      @JsonKey(name: 'date_updated') String dateUpdated,
+      @JsonKey(name: 'read_count') String readCount,
+      @JsonKey(name: 'body') Body body,
+      @JsonKey(name: 'comments_count') String commentsCount,
+      @JsonKey(name: 'url') Body url,
+      @JsonKey(name: 'link') Body link,
+      @JsonKey(name: 'owned') String owned}) {
+    return _BookElement(
+      id: id,
+      book: book,
+      rating: rating,
+      votes: votes,
+      spoilerFlag: spoilerFlag,
+      spoilersState: spoilersState,
+      shelves: shelves,
+      startedAt: startedAt,
+      readAt: readAt,
+      dateAdded: dateAdded,
+      dateUpdated: dateUpdated,
+      readCount: readCount,
+      body: body,
+      commentsCount: commentsCount,
+      url: url,
+      link: link,
+      owned: owned,
+    );
+  }
+}
+
+// ignore: unused_element
+const $BookElement = _$BookElementTearOff();
+
+mixin _$BookElement {
+  @JsonKey(name: 'id')
+  String get id;
+  @JsonKey(name: 'book')
+  BookBook get book;
+  @JsonKey(name: 'rating')
+  String get rating;
+  @JsonKey(name: 'votes')
+  String get votes;
+  @JsonKey(name: 'spoiler_flag')
+  String get spoilerFlag;
+  @JsonKey(name: 'spoilers_state')
+  String get spoilersState;
+  @JsonKey(name: 'shelves')
+  Shelves get shelves;
+  @JsonKey(name: 'started_at')
+  dynamic get startedAt;
+  @JsonKey(name: 'read_at')
+  dynamic get readAt;
+  @JsonKey(name: 'date_added')
+  String get dateAdded;
+  @JsonKey(name: 'date_updated')
+  String get dateUpdated;
+  @JsonKey(name: 'read_count')
+  String get readCount;
+  @JsonKey(name: 'body')
+  Body get body;
+  @JsonKey(name: 'comments_count')
+  String get commentsCount;
+  @JsonKey(name: 'url')
+  Body get url;
+  @JsonKey(name: 'link')
+  Body get link;
+  @JsonKey(name: 'owned')
+  String get owned;
+
+  Map<String, dynamic> toJson();
+  $BookElementCopyWith<BookElement> get copyWith;
+}
+
+abstract class $BookElementCopyWith<$Res> {
+  factory $BookElementCopyWith(
+          BookElement value, $Res Function(BookElement) then) =
+      _$BookElementCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'book') BookBook book,
+      @JsonKey(name: 'rating') String rating,
+      @JsonKey(name: 'votes') String votes,
+      @JsonKey(name: 'spoiler_flag') String spoilerFlag,
+      @JsonKey(name: 'spoilers_state') String spoilersState,
+      @JsonKey(name: 'shelves') Shelves shelves,
+      @JsonKey(name: 'started_at') dynamic startedAt,
+      @JsonKey(name: 'read_at') dynamic readAt,
+      @JsonKey(name: 'date_added') String dateAdded,
+      @JsonKey(name: 'date_updated') String dateUpdated,
+      @JsonKey(name: 'read_count') String readCount,
+      @JsonKey(name: 'body') Body body,
+      @JsonKey(name: 'comments_count') String commentsCount,
+      @JsonKey(name: 'url') Body url,
+      @JsonKey(name: 'link') Body link,
+      @JsonKey(name: 'owned') String owned});
+
+  $BookBookCopyWith<$Res> get book;
+  $ShelvesCopyWith<$Res> get shelves;
+  $BodyCopyWith<$Res> get body;
+  $BodyCopyWith<$Res> get url;
+  $BodyCopyWith<$Res> get link;
+}
+
+class _$BookElementCopyWithImpl<$Res> implements $BookElementCopyWith<$Res> {
+  _$BookElementCopyWithImpl(this._value, this._then);
+
+  final BookElement _value;
+  // ignore: unused_field
+  final $Res Function(BookElement) _then;
+
+  @override
+  $Res call({
+    Object id = freezed,
+    Object book = freezed,
+    Object rating = freezed,
+    Object votes = freezed,
+    Object spoilerFlag = freezed,
+    Object spoilersState = freezed,
+    Object shelves = freezed,
+    Object startedAt = freezed,
+    Object readAt = freezed,
+    Object dateAdded = freezed,
+    Object dateUpdated = freezed,
+    Object readCount = freezed,
+    Object body = freezed,
+    Object commentsCount = freezed,
+    Object url = freezed,
+    Object link = freezed,
+    Object owned = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: id == freezed ? _value.id : id as String,
+      book: book == freezed ? _value.book : book as BookBook,
+      rating: rating == freezed ? _value.rating : rating as String,
+      votes: votes == freezed ? _value.votes : votes as String,
+      spoilerFlag:
+          spoilerFlag == freezed ? _value.spoilerFlag : spoilerFlag as String,
+      spoilersState: spoilersState == freezed
+          ? _value.spoilersState
+          : spoilersState as String,
+      shelves: shelves == freezed ? _value.shelves : shelves as Shelves,
+      startedAt: startedAt == freezed ? _value.startedAt : startedAt as dynamic,
+      readAt: readAt == freezed ? _value.readAt : readAt as dynamic,
+      dateAdded: dateAdded == freezed ? _value.dateAdded : dateAdded as String,
+      dateUpdated:
+          dateUpdated == freezed ? _value.dateUpdated : dateUpdated as String,
+      readCount: readCount == freezed ? _value.readCount : readCount as String,
+      body: body == freezed ? _value.body : body as Body,
+      commentsCount: commentsCount == freezed
+          ? _value.commentsCount
+          : commentsCount as String,
+      url: url == freezed ? _value.url : url as Body,
+      link: link == freezed ? _value.link : link as Body,
+      owned: owned == freezed ? _value.owned : owned as String,
+    ));
+  }
+
+  @override
+  $BookBookCopyWith<$Res> get book {
+    if (_value.book == null) {
+      return null;
+    }
+    return $BookBookCopyWith<$Res>(_value.book, (value) {
+      return _then(_value.copyWith(book: value));
+    });
+  }
+
+  @override
+  $ShelvesCopyWith<$Res> get shelves {
+    if (_value.shelves == null) {
+      return null;
+    }
+    return $ShelvesCopyWith<$Res>(_value.shelves, (value) {
+      return _then(_value.copyWith(shelves: value));
+    });
+  }
+
+  @override
+  $BodyCopyWith<$Res> get body {
+    if (_value.body == null) {
+      return null;
+    }
+    return $BodyCopyWith<$Res>(_value.body, (value) {
+      return _then(_value.copyWith(body: value));
+    });
+  }
+
+  @override
+  $BodyCopyWith<$Res> get url {
+    if (_value.url == null) {
+      return null;
+    }
+    return $BodyCopyWith<$Res>(_value.url, (value) {
+      return _then(_value.copyWith(url: value));
+    });
+  }
+
+  @override
+  $BodyCopyWith<$Res> get link {
+    if (_value.link == null) {
+      return null;
+    }
+    return $BodyCopyWith<$Res>(_value.link, (value) {
+      return _then(_value.copyWith(link: value));
+    });
+  }
+}
+
+abstract class _$BookElementCopyWith<$Res>
+    implements $BookElementCopyWith<$Res> {
+  factory _$BookElementCopyWith(
+          _BookElement value, $Res Function(_BookElement) then) =
+      __$BookElementCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'book') BookBook book,
+      @JsonKey(name: 'rating') String rating,
+      @JsonKey(name: 'votes') String votes,
+      @JsonKey(name: 'spoiler_flag') String spoilerFlag,
+      @JsonKey(name: 'spoilers_state') String spoilersState,
+      @JsonKey(name: 'shelves') Shelves shelves,
+      @JsonKey(name: 'started_at') dynamic startedAt,
+      @JsonKey(name: 'read_at') dynamic readAt,
+      @JsonKey(name: 'date_added') String dateAdded,
+      @JsonKey(name: 'date_updated') String dateUpdated,
+      @JsonKey(name: 'read_count') String readCount,
+      @JsonKey(name: 'body') Body body,
+      @JsonKey(name: 'comments_count') String commentsCount,
+      @JsonKey(name: 'url') Body url,
+      @JsonKey(name: 'link') Body link,
+      @JsonKey(name: 'owned') String owned});
+
+  @override
+  $BookBookCopyWith<$Res> get book;
+  @override
+  $ShelvesCopyWith<$Res> get shelves;
+  @override
+  $BodyCopyWith<$Res> get body;
+  @override
+  $BodyCopyWith<$Res> get url;
+  @override
+  $BodyCopyWith<$Res> get link;
+}
+
+class __$BookElementCopyWithImpl<$Res> extends _$BookElementCopyWithImpl<$Res>
+    implements _$BookElementCopyWith<$Res> {
+  __$BookElementCopyWithImpl(
+      _BookElement _value, $Res Function(_BookElement) _then)
+      : super(_value, (v) => _then(v as _BookElement));
+
+  @override
+  _BookElement get _value => super._value as _BookElement;
+
+  @override
+  $Res call({
+    Object id = freezed,
+    Object book = freezed,
+    Object rating = freezed,
+    Object votes = freezed,
+    Object spoilerFlag = freezed,
+    Object spoilersState = freezed,
+    Object shelves = freezed,
+    Object startedAt = freezed,
+    Object readAt = freezed,
+    Object dateAdded = freezed,
+    Object dateUpdated = freezed,
+    Object readCount = freezed,
+    Object body = freezed,
+    Object commentsCount = freezed,
+    Object url = freezed,
+    Object link = freezed,
+    Object owned = freezed,
+  }) {
+    return _then(_BookElement(
+      id: id == freezed ? _value.id : id as String,
+      book: book == freezed ? _value.book : book as BookBook,
+      rating: rating == freezed ? _value.rating : rating as String,
+      votes: votes == freezed ? _value.votes : votes as String,
+      spoilerFlag:
+          spoilerFlag == freezed ? _value.spoilerFlag : spoilerFlag as String,
+      spoilersState: spoilersState == freezed
+          ? _value.spoilersState
+          : spoilersState as String,
+      shelves: shelves == freezed ? _value.shelves : shelves as Shelves,
+      startedAt: startedAt == freezed ? _value.startedAt : startedAt as dynamic,
+      readAt: readAt == freezed ? _value.readAt : readAt as dynamic,
+      dateAdded: dateAdded == freezed ? _value.dateAdded : dateAdded as String,
+      dateUpdated:
+          dateUpdated == freezed ? _value.dateUpdated : dateUpdated as String,
+      readCount: readCount == freezed ? _value.readCount : readCount as String,
+      body: body == freezed ? _value.body : body as Body,
+      commentsCount: commentsCount == freezed
+          ? _value.commentsCount
+          : commentsCount as String,
+      url: url == freezed ? _value.url : url as Body,
+      link: link == freezed ? _value.link : link as Body,
+      owned: owned == freezed ? _value.owned : owned as String,
+    ));
+  }
+}
+
+@JsonSerializable()
+class _$_BookElement implements _BookElement {
+  _$_BookElement(
+      {@JsonKey(name: 'id') this.id,
+      @JsonKey(name: 'book') this.book,
+      @JsonKey(name: 'rating') this.rating,
+      @JsonKey(name: 'votes') this.votes,
+      @JsonKey(name: 'spoiler_flag') this.spoilerFlag,
+      @JsonKey(name: 'spoilers_state') this.spoilersState,
+      @JsonKey(name: 'shelves') this.shelves,
+      @JsonKey(name: 'started_at') this.startedAt,
+      @JsonKey(name: 'read_at') this.readAt,
+      @JsonKey(name: 'date_added') this.dateAdded,
+      @JsonKey(name: 'date_updated') this.dateUpdated,
+      @JsonKey(name: 'read_count') this.readCount,
+      @JsonKey(name: 'body') this.body,
+      @JsonKey(name: 'comments_count') this.commentsCount,
+      @JsonKey(name: 'url') this.url,
+      @JsonKey(name: 'link') this.link,
+      @JsonKey(name: 'owned') this.owned});
+
+  factory _$_BookElement.fromJson(Map<String, dynamic> json) =>
+      _$_$_BookElementFromJson(json);
+
+  @override
+  @JsonKey(name: 'id')
+  final String id;
   @override
   @JsonKey(name: 'book')
-  List<Book> get book;
+  final BookBook book;
   @override
-  _$BooksViewModelCopyWith<_BooksViewModel> get copyWith;
+  @JsonKey(name: 'rating')
+  final String rating;
+  @override
+  @JsonKey(name: 'votes')
+  final String votes;
+  @override
+  @JsonKey(name: 'spoiler_flag')
+  final String spoilerFlag;
+  @override
+  @JsonKey(name: 'spoilers_state')
+  final String spoilersState;
+  @override
+  @JsonKey(name: 'shelves')
+  final Shelves shelves;
+  @override
+  @JsonKey(name: 'started_at')
+  final dynamic startedAt;
+  @override
+  @JsonKey(name: 'read_at')
+  final dynamic readAt;
+  @override
+  @JsonKey(name: 'date_added')
+  final String dateAdded;
+  @override
+  @JsonKey(name: 'date_updated')
+  final String dateUpdated;
+  @override
+  @JsonKey(name: 'read_count')
+  final String readCount;
+  @override
+  @JsonKey(name: 'body')
+  final Body body;
+  @override
+  @JsonKey(name: 'comments_count')
+  final String commentsCount;
+  @override
+  @JsonKey(name: 'url')
+  final Body url;
+  @override
+  @JsonKey(name: 'link')
+  final Body link;
+  @override
+  @JsonKey(name: 'owned')
+  final String owned;
+
+  @override
+  String toString() {
+    return 'BookElement(id: $id, book: $book, rating: $rating, votes: $votes, spoilerFlag: $spoilerFlag, spoilersState: $spoilersState, shelves: $shelves, startedAt: $startedAt, readAt: $readAt, dateAdded: $dateAdded, dateUpdated: $dateUpdated, readCount: $readCount, body: $body, commentsCount: $commentsCount, url: $url, link: $link, owned: $owned)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _BookElement &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.book, book) ||
+                const DeepCollectionEquality().equals(other.book, book)) &&
+            (identical(other.rating, rating) ||
+                const DeepCollectionEquality().equals(other.rating, rating)) &&
+            (identical(other.votes, votes) ||
+                const DeepCollectionEquality().equals(other.votes, votes)) &&
+            (identical(other.spoilerFlag, spoilerFlag) ||
+                const DeepCollectionEquality()
+                    .equals(other.spoilerFlag, spoilerFlag)) &&
+            (identical(other.spoilersState, spoilersState) ||
+                const DeepCollectionEquality()
+                    .equals(other.spoilersState, spoilersState)) &&
+            (identical(other.shelves, shelves) ||
+                const DeepCollectionEquality()
+                    .equals(other.shelves, shelves)) &&
+            (identical(other.startedAt, startedAt) ||
+                const DeepCollectionEquality()
+                    .equals(other.startedAt, startedAt)) &&
+            (identical(other.readAt, readAt) ||
+                const DeepCollectionEquality().equals(other.readAt, readAt)) &&
+            (identical(other.dateAdded, dateAdded) ||
+                const DeepCollectionEquality()
+                    .equals(other.dateAdded, dateAdded)) &&
+            (identical(other.dateUpdated, dateUpdated) ||
+                const DeepCollectionEquality()
+                    .equals(other.dateUpdated, dateUpdated)) &&
+            (identical(other.readCount, readCount) ||
+                const DeepCollectionEquality()
+                    .equals(other.readCount, readCount)) &&
+            (identical(other.body, body) ||
+                const DeepCollectionEquality().equals(other.body, body)) &&
+            (identical(other.commentsCount, commentsCount) ||
+                const DeepCollectionEquality()
+                    .equals(other.commentsCount, commentsCount)) &&
+            (identical(other.url, url) ||
+                const DeepCollectionEquality().equals(other.url, url)) &&
+            (identical(other.link, link) ||
+                const DeepCollectionEquality().equals(other.link, link)) &&
+            (identical(other.owned, owned) ||
+                const DeepCollectionEquality().equals(other.owned, owned)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(book) ^
+      const DeepCollectionEquality().hash(rating) ^
+      const DeepCollectionEquality().hash(votes) ^
+      const DeepCollectionEquality().hash(spoilerFlag) ^
+      const DeepCollectionEquality().hash(spoilersState) ^
+      const DeepCollectionEquality().hash(shelves) ^
+      const DeepCollectionEquality().hash(startedAt) ^
+      const DeepCollectionEquality().hash(readAt) ^
+      const DeepCollectionEquality().hash(dateAdded) ^
+      const DeepCollectionEquality().hash(dateUpdated) ^
+      const DeepCollectionEquality().hash(readCount) ^
+      const DeepCollectionEquality().hash(body) ^
+      const DeepCollectionEquality().hash(commentsCount) ^
+      const DeepCollectionEquality().hash(url) ^
+      const DeepCollectionEquality().hash(link) ^
+      const DeepCollectionEquality().hash(owned);
+
+  @override
+  _$BookElementCopyWith<_BookElement> get copyWith =>
+      __$BookElementCopyWithImpl<_BookElement>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_BookElementToJson(this);
+  }
 }
 
-Book _$BookFromJson(Map<String, dynamic> json) {
-  return _Book.fromJson(json);
+abstract class _BookElement implements BookElement {
+  factory _BookElement(
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'book') BookBook book,
+      @JsonKey(name: 'rating') String rating,
+      @JsonKey(name: 'votes') String votes,
+      @JsonKey(name: 'spoiler_flag') String spoilerFlag,
+      @JsonKey(name: 'spoilers_state') String spoilersState,
+      @JsonKey(name: 'shelves') Shelves shelves,
+      @JsonKey(name: 'started_at') dynamic startedAt,
+      @JsonKey(name: 'read_at') dynamic readAt,
+      @JsonKey(name: 'date_added') String dateAdded,
+      @JsonKey(name: 'date_updated') String dateUpdated,
+      @JsonKey(name: 'read_count') String readCount,
+      @JsonKey(name: 'body') Body body,
+      @JsonKey(name: 'comments_count') String commentsCount,
+      @JsonKey(name: 'url') Body url,
+      @JsonKey(name: 'link') Body link,
+      @JsonKey(name: 'owned') String owned}) = _$_BookElement;
+
+  factory _BookElement.fromJson(Map<String, dynamic> json) =
+      _$_BookElement.fromJson;
+
+  @override
+  @JsonKey(name: 'id')
+  String get id;
+  @override
+  @JsonKey(name: 'book')
+  BookBook get book;
+  @override
+  @JsonKey(name: 'rating')
+  String get rating;
+  @override
+  @JsonKey(name: 'votes')
+  String get votes;
+  @override
+  @JsonKey(name: 'spoiler_flag')
+  String get spoilerFlag;
+  @override
+  @JsonKey(name: 'spoilers_state')
+  String get spoilersState;
+  @override
+  @JsonKey(name: 'shelves')
+  Shelves get shelves;
+  @override
+  @JsonKey(name: 'started_at')
+  dynamic get startedAt;
+  @override
+  @JsonKey(name: 'read_at')
+  dynamic get readAt;
+  @override
+  @JsonKey(name: 'date_added')
+  String get dateAdded;
+  @override
+  @JsonKey(name: 'date_updated')
+  String get dateUpdated;
+  @override
+  @JsonKey(name: 'read_count')
+  String get readCount;
+  @override
+  @JsonKey(name: 'body')
+  Body get body;
+  @override
+  @JsonKey(name: 'comments_count')
+  String get commentsCount;
+  @override
+  @JsonKey(name: 'url')
+  Body get url;
+  @override
+  @JsonKey(name: 'link')
+  Body get link;
+  @override
+  @JsonKey(name: 'owned')
+  String get owned;
+  @override
+  _$BookElementCopyWith<_BookElement> get copyWith;
 }
 
-class _$BookTearOff {
-  const _$BookTearOff();
+Body _$BodyFromJson(Map<String, dynamic> json) {
+  return _Body.fromJson(json);
+}
 
-  _Book call(
-      {@JsonKey(name: 'id') Id id,
-      @JsonKey(name: 'isbn') String isbn,
-      @JsonKey(name: 'isbn13') String isbn13,
-      @JsonKey(name: 'textReviewsCount') Id textReviewsCount,
+class _$BodyTearOff {
+  const _$BodyTearOff();
+
+  _Body call({@JsonKey(name: '_cdata') String cdata}) {
+    return _Body(
+      cdata: cdata,
+    );
+  }
+}
+
+// ignore: unused_element
+const $Body = _$BodyTearOff();
+
+mixin _$Body {
+  @JsonKey(name: '_cdata')
+  String get cdata;
+
+  Map<String, dynamic> toJson();
+  $BodyCopyWith<Body> get copyWith;
+}
+
+abstract class $BodyCopyWith<$Res> {
+  factory $BodyCopyWith(Body value, $Res Function(Body) then) =
+      _$BodyCopyWithImpl<$Res>;
+  $Res call({@JsonKey(name: '_cdata') String cdata});
+}
+
+class _$BodyCopyWithImpl<$Res> implements $BodyCopyWith<$Res> {
+  _$BodyCopyWithImpl(this._value, this._then);
+
+  final Body _value;
+  // ignore: unused_field
+  final $Res Function(Body) _then;
+
+  @override
+  $Res call({
+    Object cdata = freezed,
+  }) {
+    return _then(_value.copyWith(
+      cdata: cdata == freezed ? _value.cdata : cdata as String,
+    ));
+  }
+}
+
+abstract class _$BodyCopyWith<$Res> implements $BodyCopyWith<$Res> {
+  factory _$BodyCopyWith(_Body value, $Res Function(_Body) then) =
+      __$BodyCopyWithImpl<$Res>;
+  @override
+  $Res call({@JsonKey(name: '_cdata') String cdata});
+}
+
+class __$BodyCopyWithImpl<$Res> extends _$BodyCopyWithImpl<$Res>
+    implements _$BodyCopyWith<$Res> {
+  __$BodyCopyWithImpl(_Body _value, $Res Function(_Body) _then)
+      : super(_value, (v) => _then(v as _Body));
+
+  @override
+  _Body get _value => super._value as _Body;
+
+  @override
+  $Res call({
+    Object cdata = freezed,
+  }) {
+    return _then(_Body(
+      cdata: cdata == freezed ? _value.cdata : cdata as String,
+    ));
+  }
+}
+
+@JsonSerializable()
+class _$_Body implements _Body {
+  _$_Body({@JsonKey(name: '_cdata') this.cdata});
+
+  factory _$_Body.fromJson(Map<String, dynamic> json) =>
+      _$_$_BodyFromJson(json);
+
+  @override
+  @JsonKey(name: '_cdata')
+  final String cdata;
+
+  @override
+  String toString() {
+    return 'Body(cdata: $cdata)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Body &&
+            (identical(other.cdata, cdata) ||
+                const DeepCollectionEquality().equals(other.cdata, cdata)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(cdata);
+
+  @override
+  _$BodyCopyWith<_Body> get copyWith =>
+      __$BodyCopyWithImpl<_Body>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_BodyToJson(this);
+  }
+}
+
+abstract class _Body implements Body {
+  factory _Body({@JsonKey(name: '_cdata') String cdata}) = _$_Body;
+
+  factory _Body.fromJson(Map<String, dynamic> json) = _$_Body.fromJson;
+
+  @override
+  @JsonKey(name: '_cdata')
+  String get cdata;
+  @override
+  _$BodyCopyWith<_Body> get copyWith;
+}
+
+BookBook _$BookBookFromJson(Map<String, dynamic> json) {
+  return _BookBook.fromJson(json);
+}
+
+class _$BookBookTearOff {
+  const _$BookBookTearOff();
+
+  _BookBook call(
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'isbn') dynamic isbn,
+      @JsonKey(name: 'isbn13') dynamic isbn13,
+      @JsonKey(name: 'text_reviews_count') String textReviewsCount,
       @JsonKey(name: 'uri') String uri,
       @JsonKey(name: 'title') String title,
-      @JsonKey(name: 'titleWithoutSeries') String titleWithoutSeries,
-      @JsonKey(name: 'imageUrl') String imageUrl,
-      @JsonKey(name: 'smallImageUrl') String smallImageUrl,
-      @JsonKey(name: 'largeImageUrl') String largeImageUrl,
+      @JsonKey(name: 'title_without_series') String titleWithoutSeries,
+      @JsonKey(name: 'image_url') String imageUrl,
+      @JsonKey(name: 'small_image_url') String smallImageUrl,
       @JsonKey(name: 'link') String link,
-      @JsonKey(name: 'numPages') String numPages,
-      @JsonKey(name: 'format') String format,
-      @JsonKey(name: 'editionInformation') String editionInformation,
-      @JsonKey(name: 'publisher') String publisher,
-      @JsonKey(name: 'publicationDay') String publicationDay,
-      @JsonKey(name: 'publicationYear') String publicationYear,
-      @JsonKey(name: 'publicationMonth') String publicationMonth,
-      @JsonKey(name: 'averageRating') String averageRating,
-      @JsonKey(name: 'ratingsCount') String ratingsCount,
+      @JsonKey(name: 'num_pages') dynamic numPages,
+      @JsonKey(name: 'format') dynamic format,
+      @JsonKey(name: 'edition_information') dynamic editionInformation,
+      @JsonKey(name: 'publisher') dynamic publisher,
+      @JsonKey(name: 'publication_day') dynamic publicationDay,
+      @JsonKey(name: 'publication_year') dynamic publicationYear,
+      @JsonKey(name: 'publication_month') dynamic publicationMonth,
+      @JsonKey(name: 'average_rating') String averageRating,
+      @JsonKey(name: 'ratings_count') String ratingsCount,
       @JsonKey(name: 'description') String description,
       @JsonKey(name: 'authors') Authors authors,
-      @JsonKey(name: 'published') String published,
+      @JsonKey(name: 'published') dynamic published,
       @JsonKey(name: 'work') Work work}) {
-    return _Book(
+    return _BookBook(
       id: id,
       isbn: isbn,
       isbn13: isbn13,
@@ -606,7 +1308,6 @@ class _$BookTearOff {
       titleWithoutSeries: titleWithoutSeries,
       imageUrl: imageUrl,
       smallImageUrl: smallImageUrl,
-      largeImageUrl: largeImageUrl,
       link: link,
       numPages: numPages,
       format: format,
@@ -626,103 +1327,98 @@ class _$BookTearOff {
 }
 
 // ignore: unused_element
-const $Book = _$BookTearOff();
+const $BookBook = _$BookBookTearOff();
 
-mixin _$Book {
+mixin _$BookBook {
   @JsonKey(name: 'id')
-  Id get id;
+  String get id;
   @JsonKey(name: 'isbn')
-  String get isbn;
+  dynamic get isbn;
   @JsonKey(name: 'isbn13')
-  String get isbn13;
-  @JsonKey(name: 'textReviewsCount')
-  Id get textReviewsCount;
+  dynamic get isbn13;
+  @JsonKey(name: 'text_reviews_count')
+  String get textReviewsCount;
   @JsonKey(name: 'uri')
   String get uri;
   @JsonKey(name: 'title')
   String get title;
-  @JsonKey(name: 'titleWithoutSeries')
+  @JsonKey(name: 'title_without_series')
   String get titleWithoutSeries;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'image_url')
   String get imageUrl;
-  @JsonKey(name: 'smallImageUrl')
+  @JsonKey(name: 'small_image_url')
   String get smallImageUrl;
-  @JsonKey(name: 'largeImageUrl')
-  String get largeImageUrl;
   @JsonKey(name: 'link')
   String get link;
-  @JsonKey(name: 'numPages')
-  String get numPages;
+  @JsonKey(name: 'num_pages')
+  dynamic get numPages;
   @JsonKey(name: 'format')
-  String get format;
-  @JsonKey(name: 'editionInformation')
-  String get editionInformation;
+  dynamic get format;
+  @JsonKey(name: 'edition_information')
+  dynamic get editionInformation;
   @JsonKey(name: 'publisher')
-  String get publisher;
-  @JsonKey(name: 'publicationDay')
-  String get publicationDay;
-  @JsonKey(name: 'publicationYear')
-  String get publicationYear;
-  @JsonKey(name: 'publicationMonth')
-  String get publicationMonth;
-  @JsonKey(name: 'averageRating')
+  dynamic get publisher;
+  @JsonKey(name: 'publication_day')
+  dynamic get publicationDay;
+  @JsonKey(name: 'publication_year')
+  dynamic get publicationYear;
+  @JsonKey(name: 'publication_month')
+  dynamic get publicationMonth;
+  @JsonKey(name: 'average_rating')
   String get averageRating;
-  @JsonKey(name: 'ratingsCount')
+  @JsonKey(name: 'ratings_count')
   String get ratingsCount;
   @JsonKey(name: 'description')
   String get description;
   @JsonKey(name: 'authors')
   Authors get authors;
   @JsonKey(name: 'published')
-  String get published;
+  dynamic get published;
   @JsonKey(name: 'work')
   Work get work;
 
   Map<String, dynamic> toJson();
-  $BookCopyWith<Book> get copyWith;
+  $BookBookCopyWith<BookBook> get copyWith;
 }
 
-abstract class $BookCopyWith<$Res> {
-  factory $BookCopyWith(Book value, $Res Function(Book) then) =
-      _$BookCopyWithImpl<$Res>;
+abstract class $BookBookCopyWith<$Res> {
+  factory $BookBookCopyWith(BookBook value, $Res Function(BookBook) then) =
+      _$BookBookCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'id') Id id,
-      @JsonKey(name: 'isbn') String isbn,
-      @JsonKey(name: 'isbn13') String isbn13,
-      @JsonKey(name: 'textReviewsCount') Id textReviewsCount,
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'isbn') dynamic isbn,
+      @JsonKey(name: 'isbn13') dynamic isbn13,
+      @JsonKey(name: 'text_reviews_count') String textReviewsCount,
       @JsonKey(name: 'uri') String uri,
       @JsonKey(name: 'title') String title,
-      @JsonKey(name: 'titleWithoutSeries') String titleWithoutSeries,
-      @JsonKey(name: 'imageUrl') String imageUrl,
-      @JsonKey(name: 'smallImageUrl') String smallImageUrl,
-      @JsonKey(name: 'largeImageUrl') String largeImageUrl,
+      @JsonKey(name: 'title_without_series') String titleWithoutSeries,
+      @JsonKey(name: 'image_url') String imageUrl,
+      @JsonKey(name: 'small_image_url') String smallImageUrl,
       @JsonKey(name: 'link') String link,
-      @JsonKey(name: 'numPages') String numPages,
-      @JsonKey(name: 'format') String format,
-      @JsonKey(name: 'editionInformation') String editionInformation,
-      @JsonKey(name: 'publisher') String publisher,
-      @JsonKey(name: 'publicationDay') String publicationDay,
-      @JsonKey(name: 'publicationYear') String publicationYear,
-      @JsonKey(name: 'publicationMonth') String publicationMonth,
-      @JsonKey(name: 'averageRating') String averageRating,
-      @JsonKey(name: 'ratingsCount') String ratingsCount,
+      @JsonKey(name: 'num_pages') dynamic numPages,
+      @JsonKey(name: 'format') dynamic format,
+      @JsonKey(name: 'edition_information') dynamic editionInformation,
+      @JsonKey(name: 'publisher') dynamic publisher,
+      @JsonKey(name: 'publication_day') dynamic publicationDay,
+      @JsonKey(name: 'publication_year') dynamic publicationYear,
+      @JsonKey(name: 'publication_month') dynamic publicationMonth,
+      @JsonKey(name: 'average_rating') String averageRating,
+      @JsonKey(name: 'ratings_count') String ratingsCount,
       @JsonKey(name: 'description') String description,
       @JsonKey(name: 'authors') Authors authors,
-      @JsonKey(name: 'published') String published,
+      @JsonKey(name: 'published') dynamic published,
       @JsonKey(name: 'work') Work work});
 
-  $IdCopyWith<$Res> get id;
-  $IdCopyWith<$Res> get textReviewsCount;
   $AuthorsCopyWith<$Res> get authors;
   $WorkCopyWith<$Res> get work;
 }
 
-class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
-  _$BookCopyWithImpl(this._value, this._then);
+class _$BookBookCopyWithImpl<$Res> implements $BookBookCopyWith<$Res> {
+  _$BookBookCopyWithImpl(this._value, this._then);
 
-  final Book _value;
+  final BookBook _value;
   // ignore: unused_field
-  final $Res Function(Book) _then;
+  final $Res Function(BookBook) _then;
 
   @override
   $Res call({
@@ -735,7 +1431,6 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
     Object titleWithoutSeries = freezed,
     Object imageUrl = freezed,
     Object smallImageUrl = freezed,
-    Object largeImageUrl = freezed,
     Object link = freezed,
     Object numPages = freezed,
     Object format = freezed,
@@ -752,12 +1447,12 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
     Object work = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as Id,
-      isbn: isbn == freezed ? _value.isbn : isbn as String,
-      isbn13: isbn13 == freezed ? _value.isbn13 : isbn13 as String,
+      id: id == freezed ? _value.id : id as String,
+      isbn: isbn == freezed ? _value.isbn : isbn as dynamic,
+      isbn13: isbn13 == freezed ? _value.isbn13 : isbn13 as dynamic,
       textReviewsCount: textReviewsCount == freezed
           ? _value.textReviewsCount
-          : textReviewsCount as Id,
+          : textReviewsCount as String,
       uri: uri == freezed ? _value.uri : uri as String,
       title: title == freezed ? _value.title : title as String,
       titleWithoutSeries: titleWithoutSeries == freezed
@@ -767,25 +1462,22 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
       smallImageUrl: smallImageUrl == freezed
           ? _value.smallImageUrl
           : smallImageUrl as String,
-      largeImageUrl: largeImageUrl == freezed
-          ? _value.largeImageUrl
-          : largeImageUrl as String,
       link: link == freezed ? _value.link : link as String,
-      numPages: numPages == freezed ? _value.numPages : numPages as String,
-      format: format == freezed ? _value.format : format as String,
+      numPages: numPages == freezed ? _value.numPages : numPages as dynamic,
+      format: format == freezed ? _value.format : format as dynamic,
       editionInformation: editionInformation == freezed
           ? _value.editionInformation
-          : editionInformation as String,
-      publisher: publisher == freezed ? _value.publisher : publisher as String,
+          : editionInformation as dynamic,
+      publisher: publisher == freezed ? _value.publisher : publisher as dynamic,
       publicationDay: publicationDay == freezed
           ? _value.publicationDay
-          : publicationDay as String,
+          : publicationDay as dynamic,
       publicationYear: publicationYear == freezed
           ? _value.publicationYear
-          : publicationYear as String,
+          : publicationYear as dynamic,
       publicationMonth: publicationMonth == freezed
           ? _value.publicationMonth
-          : publicationMonth as String,
+          : publicationMonth as dynamic,
       averageRating: averageRating == freezed
           ? _value.averageRating
           : averageRating as String,
@@ -795,29 +1487,9 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
       description:
           description == freezed ? _value.description : description as String,
       authors: authors == freezed ? _value.authors : authors as Authors,
-      published: published == freezed ? _value.published : published as String,
+      published: published == freezed ? _value.published : published as dynamic,
       work: work == freezed ? _value.work : work as Work,
     ));
-  }
-
-  @override
-  $IdCopyWith<$Res> get id {
-    if (_value.id == null) {
-      return null;
-    }
-    return $IdCopyWith<$Res>(_value.id, (value) {
-      return _then(_value.copyWith(id: value));
-    });
-  }
-
-  @override
-  $IdCopyWith<$Res> get textReviewsCount {
-    if (_value.textReviewsCount == null) {
-      return null;
-    }
-    return $IdCopyWith<$Res>(_value.textReviewsCount, (value) {
-      return _then(_value.copyWith(textReviewsCount: value));
-    });
   }
 
   @override
@@ -841,53 +1513,48 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
   }
 }
 
-abstract class _$BookCopyWith<$Res> implements $BookCopyWith<$Res> {
-  factory _$BookCopyWith(_Book value, $Res Function(_Book) then) =
-      __$BookCopyWithImpl<$Res>;
+abstract class _$BookBookCopyWith<$Res> implements $BookBookCopyWith<$Res> {
+  factory _$BookBookCopyWith(_BookBook value, $Res Function(_BookBook) then) =
+      __$BookBookCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'id') Id id,
-      @JsonKey(name: 'isbn') String isbn,
-      @JsonKey(name: 'isbn13') String isbn13,
-      @JsonKey(name: 'textReviewsCount') Id textReviewsCount,
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'isbn') dynamic isbn,
+      @JsonKey(name: 'isbn13') dynamic isbn13,
+      @JsonKey(name: 'text_reviews_count') String textReviewsCount,
       @JsonKey(name: 'uri') String uri,
       @JsonKey(name: 'title') String title,
-      @JsonKey(name: 'titleWithoutSeries') String titleWithoutSeries,
-      @JsonKey(name: 'imageUrl') String imageUrl,
-      @JsonKey(name: 'smallImageUrl') String smallImageUrl,
-      @JsonKey(name: 'largeImageUrl') String largeImageUrl,
+      @JsonKey(name: 'title_without_series') String titleWithoutSeries,
+      @JsonKey(name: 'image_url') String imageUrl,
+      @JsonKey(name: 'small_image_url') String smallImageUrl,
       @JsonKey(name: 'link') String link,
-      @JsonKey(name: 'numPages') String numPages,
-      @JsonKey(name: 'format') String format,
-      @JsonKey(name: 'editionInformation') String editionInformation,
-      @JsonKey(name: 'publisher') String publisher,
-      @JsonKey(name: 'publicationDay') String publicationDay,
-      @JsonKey(name: 'publicationYear') String publicationYear,
-      @JsonKey(name: 'publicationMonth') String publicationMonth,
-      @JsonKey(name: 'averageRating') String averageRating,
-      @JsonKey(name: 'ratingsCount') String ratingsCount,
+      @JsonKey(name: 'num_pages') dynamic numPages,
+      @JsonKey(name: 'format') dynamic format,
+      @JsonKey(name: 'edition_information') dynamic editionInformation,
+      @JsonKey(name: 'publisher') dynamic publisher,
+      @JsonKey(name: 'publication_day') dynamic publicationDay,
+      @JsonKey(name: 'publication_year') dynamic publicationYear,
+      @JsonKey(name: 'publication_month') dynamic publicationMonth,
+      @JsonKey(name: 'average_rating') String averageRating,
+      @JsonKey(name: 'ratings_count') String ratingsCount,
       @JsonKey(name: 'description') String description,
       @JsonKey(name: 'authors') Authors authors,
-      @JsonKey(name: 'published') String published,
+      @JsonKey(name: 'published') dynamic published,
       @JsonKey(name: 'work') Work work});
 
-  @override
-  $IdCopyWith<$Res> get id;
-  @override
-  $IdCopyWith<$Res> get textReviewsCount;
   @override
   $AuthorsCopyWith<$Res> get authors;
   @override
   $WorkCopyWith<$Res> get work;
 }
 
-class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
-    implements _$BookCopyWith<$Res> {
-  __$BookCopyWithImpl(_Book _value, $Res Function(_Book) _then)
-      : super(_value, (v) => _then(v as _Book));
+class __$BookBookCopyWithImpl<$Res> extends _$BookBookCopyWithImpl<$Res>
+    implements _$BookBookCopyWith<$Res> {
+  __$BookBookCopyWithImpl(_BookBook _value, $Res Function(_BookBook) _then)
+      : super(_value, (v) => _then(v as _BookBook));
 
   @override
-  _Book get _value => super._value as _Book;
+  _BookBook get _value => super._value as _BookBook;
 
   @override
   $Res call({
@@ -900,7 +1567,6 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
     Object titleWithoutSeries = freezed,
     Object imageUrl = freezed,
     Object smallImageUrl = freezed,
-    Object largeImageUrl = freezed,
     Object link = freezed,
     Object numPages = freezed,
     Object format = freezed,
@@ -916,13 +1582,13 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
     Object published = freezed,
     Object work = freezed,
   }) {
-    return _then(_Book(
-      id: id == freezed ? _value.id : id as Id,
-      isbn: isbn == freezed ? _value.isbn : isbn as String,
-      isbn13: isbn13 == freezed ? _value.isbn13 : isbn13 as String,
+    return _then(_BookBook(
+      id: id == freezed ? _value.id : id as String,
+      isbn: isbn == freezed ? _value.isbn : isbn as dynamic,
+      isbn13: isbn13 == freezed ? _value.isbn13 : isbn13 as dynamic,
       textReviewsCount: textReviewsCount == freezed
           ? _value.textReviewsCount
-          : textReviewsCount as Id,
+          : textReviewsCount as String,
       uri: uri == freezed ? _value.uri : uri as String,
       title: title == freezed ? _value.title : title as String,
       titleWithoutSeries: titleWithoutSeries == freezed
@@ -932,25 +1598,22 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
       smallImageUrl: smallImageUrl == freezed
           ? _value.smallImageUrl
           : smallImageUrl as String,
-      largeImageUrl: largeImageUrl == freezed
-          ? _value.largeImageUrl
-          : largeImageUrl as String,
       link: link == freezed ? _value.link : link as String,
-      numPages: numPages == freezed ? _value.numPages : numPages as String,
-      format: format == freezed ? _value.format : format as String,
+      numPages: numPages == freezed ? _value.numPages : numPages as dynamic,
+      format: format == freezed ? _value.format : format as dynamic,
       editionInformation: editionInformation == freezed
           ? _value.editionInformation
-          : editionInformation as String,
-      publisher: publisher == freezed ? _value.publisher : publisher as String,
+          : editionInformation as dynamic,
+      publisher: publisher == freezed ? _value.publisher : publisher as dynamic,
       publicationDay: publicationDay == freezed
           ? _value.publicationDay
-          : publicationDay as String,
+          : publicationDay as dynamic,
       publicationYear: publicationYear == freezed
           ? _value.publicationYear
-          : publicationYear as String,
+          : publicationYear as dynamic,
       publicationMonth: publicationMonth == freezed
           ? _value.publicationMonth
-          : publicationMonth as String,
+          : publicationMonth as dynamic,
       averageRating: averageRating == freezed
           ? _value.averageRating
           : averageRating as String,
@@ -960,55 +1623,54 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
       description:
           description == freezed ? _value.description : description as String,
       authors: authors == freezed ? _value.authors : authors as Authors,
-      published: published == freezed ? _value.published : published as String,
+      published: published == freezed ? _value.published : published as dynamic,
       work: work == freezed ? _value.work : work as Work,
     ));
   }
 }
 
 @JsonSerializable()
-class _$_Book implements _Book {
-  _$_Book(
+class _$_BookBook implements _BookBook {
+  _$_BookBook(
       {@JsonKey(name: 'id') this.id,
       @JsonKey(name: 'isbn') this.isbn,
       @JsonKey(name: 'isbn13') this.isbn13,
-      @JsonKey(name: 'textReviewsCount') this.textReviewsCount,
+      @JsonKey(name: 'text_reviews_count') this.textReviewsCount,
       @JsonKey(name: 'uri') this.uri,
       @JsonKey(name: 'title') this.title,
-      @JsonKey(name: 'titleWithoutSeries') this.titleWithoutSeries,
-      @JsonKey(name: 'imageUrl') this.imageUrl,
-      @JsonKey(name: 'smallImageUrl') this.smallImageUrl,
-      @JsonKey(name: 'largeImageUrl') this.largeImageUrl,
+      @JsonKey(name: 'title_without_series') this.titleWithoutSeries,
+      @JsonKey(name: 'image_url') this.imageUrl,
+      @JsonKey(name: 'small_image_url') this.smallImageUrl,
       @JsonKey(name: 'link') this.link,
-      @JsonKey(name: 'numPages') this.numPages,
+      @JsonKey(name: 'num_pages') this.numPages,
       @JsonKey(name: 'format') this.format,
-      @JsonKey(name: 'editionInformation') this.editionInformation,
+      @JsonKey(name: 'edition_information') this.editionInformation,
       @JsonKey(name: 'publisher') this.publisher,
-      @JsonKey(name: 'publicationDay') this.publicationDay,
-      @JsonKey(name: 'publicationYear') this.publicationYear,
-      @JsonKey(name: 'publicationMonth') this.publicationMonth,
-      @JsonKey(name: 'averageRating') this.averageRating,
-      @JsonKey(name: 'ratingsCount') this.ratingsCount,
+      @JsonKey(name: 'publication_day') this.publicationDay,
+      @JsonKey(name: 'publication_year') this.publicationYear,
+      @JsonKey(name: 'publication_month') this.publicationMonth,
+      @JsonKey(name: 'average_rating') this.averageRating,
+      @JsonKey(name: 'ratings_count') this.ratingsCount,
       @JsonKey(name: 'description') this.description,
       @JsonKey(name: 'authors') this.authors,
       @JsonKey(name: 'published') this.published,
       @JsonKey(name: 'work') this.work});
 
-  factory _$_Book.fromJson(Map<String, dynamic> json) =>
-      _$_$_BookFromJson(json);
+  factory _$_BookBook.fromJson(Map<String, dynamic> json) =>
+      _$_$_BookBookFromJson(json);
 
   @override
   @JsonKey(name: 'id')
-  final Id id;
+  final String id;
   @override
   @JsonKey(name: 'isbn')
-  final String isbn;
+  final dynamic isbn;
   @override
   @JsonKey(name: 'isbn13')
-  final String isbn13;
+  final dynamic isbn13;
   @override
-  @JsonKey(name: 'textReviewsCount')
-  final Id textReviewsCount;
+  @JsonKey(name: 'text_reviews_count')
+  final String textReviewsCount;
   @override
   @JsonKey(name: 'uri')
   final String uri;
@@ -1016,46 +1678,43 @@ class _$_Book implements _Book {
   @JsonKey(name: 'title')
   final String title;
   @override
-  @JsonKey(name: 'titleWithoutSeries')
+  @JsonKey(name: 'title_without_series')
   final String titleWithoutSeries;
   @override
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'image_url')
   final String imageUrl;
   @override
-  @JsonKey(name: 'smallImageUrl')
+  @JsonKey(name: 'small_image_url')
   final String smallImageUrl;
-  @override
-  @JsonKey(name: 'largeImageUrl')
-  final String largeImageUrl;
   @override
   @JsonKey(name: 'link')
   final String link;
   @override
-  @JsonKey(name: 'numPages')
-  final String numPages;
+  @JsonKey(name: 'num_pages')
+  final dynamic numPages;
   @override
   @JsonKey(name: 'format')
-  final String format;
+  final dynamic format;
   @override
-  @JsonKey(name: 'editionInformation')
-  final String editionInformation;
+  @JsonKey(name: 'edition_information')
+  final dynamic editionInformation;
   @override
   @JsonKey(name: 'publisher')
-  final String publisher;
+  final dynamic publisher;
   @override
-  @JsonKey(name: 'publicationDay')
-  final String publicationDay;
+  @JsonKey(name: 'publication_day')
+  final dynamic publicationDay;
   @override
-  @JsonKey(name: 'publicationYear')
-  final String publicationYear;
+  @JsonKey(name: 'publication_year')
+  final dynamic publicationYear;
   @override
-  @JsonKey(name: 'publicationMonth')
-  final String publicationMonth;
+  @JsonKey(name: 'publication_month')
+  final dynamic publicationMonth;
   @override
-  @JsonKey(name: 'averageRating')
+  @JsonKey(name: 'average_rating')
   final String averageRating;
   @override
-  @JsonKey(name: 'ratingsCount')
+  @JsonKey(name: 'ratings_count')
   final String ratingsCount;
   @override
   @JsonKey(name: 'description')
@@ -1065,20 +1724,20 @@ class _$_Book implements _Book {
   final Authors authors;
   @override
   @JsonKey(name: 'published')
-  final String published;
+  final dynamic published;
   @override
   @JsonKey(name: 'work')
   final Work work;
 
   @override
   String toString() {
-    return 'Book(id: $id, isbn: $isbn, isbn13: $isbn13, textReviewsCount: $textReviewsCount, uri: $uri, title: $title, titleWithoutSeries: $titleWithoutSeries, imageUrl: $imageUrl, smallImageUrl: $smallImageUrl, largeImageUrl: $largeImageUrl, link: $link, numPages: $numPages, format: $format, editionInformation: $editionInformation, publisher: $publisher, publicationDay: $publicationDay, publicationYear: $publicationYear, publicationMonth: $publicationMonth, averageRating: $averageRating, ratingsCount: $ratingsCount, description: $description, authors: $authors, published: $published, work: $work)';
+    return 'BookBook(id: $id, isbn: $isbn, isbn13: $isbn13, textReviewsCount: $textReviewsCount, uri: $uri, title: $title, titleWithoutSeries: $titleWithoutSeries, imageUrl: $imageUrl, smallImageUrl: $smallImageUrl, link: $link, numPages: $numPages, format: $format, editionInformation: $editionInformation, publisher: $publisher, publicationDay: $publicationDay, publicationYear: $publicationYear, publicationMonth: $publicationMonth, averageRating: $averageRating, ratingsCount: $ratingsCount, description: $description, authors: $authors, published: $published, work: $work)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Book &&
+        (other is _BookBook &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.isbn, isbn) ||
@@ -1101,9 +1760,6 @@ class _$_Book implements _Book {
             (identical(other.smallImageUrl, smallImageUrl) ||
                 const DeepCollectionEquality()
                     .equals(other.smallImageUrl, smallImageUrl)) &&
-            (identical(other.largeImageUrl, largeImageUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.largeImageUrl, largeImageUrl)) &&
             (identical(other.link, link) ||
                 const DeepCollectionEquality().equals(other.link, link)) &&
             (identical(other.numPages, numPages) ||
@@ -1157,7 +1813,6 @@ class _$_Book implements _Book {
       const DeepCollectionEquality().hash(titleWithoutSeries) ^
       const DeepCollectionEquality().hash(imageUrl) ^
       const DeepCollectionEquality().hash(smallImageUrl) ^
-      const DeepCollectionEquality().hash(largeImageUrl) ^
       const DeepCollectionEquality().hash(link) ^
       const DeepCollectionEquality().hash(numPages) ^
       const DeepCollectionEquality().hash(format) ^
@@ -1174,56 +1829,55 @@ class _$_Book implements _Book {
       const DeepCollectionEquality().hash(work);
 
   @override
-  _$BookCopyWith<_Book> get copyWith =>
-      __$BookCopyWithImpl<_Book>(this, _$identity);
+  _$BookBookCopyWith<_BookBook> get copyWith =>
+      __$BookBookCopyWithImpl<_BookBook>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_BookToJson(this);
+    return _$_$_BookBookToJson(this);
   }
 }
 
-abstract class _Book implements Book {
-  factory _Book(
-      {@JsonKey(name: 'id') Id id,
-      @JsonKey(name: 'isbn') String isbn,
-      @JsonKey(name: 'isbn13') String isbn13,
-      @JsonKey(name: 'textReviewsCount') Id textReviewsCount,
+abstract class _BookBook implements BookBook {
+  factory _BookBook(
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'isbn') dynamic isbn,
+      @JsonKey(name: 'isbn13') dynamic isbn13,
+      @JsonKey(name: 'text_reviews_count') String textReviewsCount,
       @JsonKey(name: 'uri') String uri,
       @JsonKey(name: 'title') String title,
-      @JsonKey(name: 'titleWithoutSeries') String titleWithoutSeries,
-      @JsonKey(name: 'imageUrl') String imageUrl,
-      @JsonKey(name: 'smallImageUrl') String smallImageUrl,
-      @JsonKey(name: 'largeImageUrl') String largeImageUrl,
+      @JsonKey(name: 'title_without_series') String titleWithoutSeries,
+      @JsonKey(name: 'image_url') String imageUrl,
+      @JsonKey(name: 'small_image_url') String smallImageUrl,
       @JsonKey(name: 'link') String link,
-      @JsonKey(name: 'numPages') String numPages,
-      @JsonKey(name: 'format') String format,
-      @JsonKey(name: 'editionInformation') String editionInformation,
-      @JsonKey(name: 'publisher') String publisher,
-      @JsonKey(name: 'publicationDay') String publicationDay,
-      @JsonKey(name: 'publicationYear') String publicationYear,
-      @JsonKey(name: 'publicationMonth') String publicationMonth,
-      @JsonKey(name: 'averageRating') String averageRating,
-      @JsonKey(name: 'ratingsCount') String ratingsCount,
+      @JsonKey(name: 'num_pages') dynamic numPages,
+      @JsonKey(name: 'format') dynamic format,
+      @JsonKey(name: 'edition_information') dynamic editionInformation,
+      @JsonKey(name: 'publisher') dynamic publisher,
+      @JsonKey(name: 'publication_day') dynamic publicationDay,
+      @JsonKey(name: 'publication_year') dynamic publicationYear,
+      @JsonKey(name: 'publication_month') dynamic publicationMonth,
+      @JsonKey(name: 'average_rating') String averageRating,
+      @JsonKey(name: 'ratings_count') String ratingsCount,
       @JsonKey(name: 'description') String description,
       @JsonKey(name: 'authors') Authors authors,
-      @JsonKey(name: 'published') String published,
-      @JsonKey(name: 'work') Work work}) = _$_Book;
+      @JsonKey(name: 'published') dynamic published,
+      @JsonKey(name: 'work') Work work}) = _$_BookBook;
 
-  factory _Book.fromJson(Map<String, dynamic> json) = _$_Book.fromJson;
+  factory _BookBook.fromJson(Map<String, dynamic> json) = _$_BookBook.fromJson;
 
   @override
   @JsonKey(name: 'id')
-  Id get id;
+  String get id;
   @override
   @JsonKey(name: 'isbn')
-  String get isbn;
+  dynamic get isbn;
   @override
   @JsonKey(name: 'isbn13')
-  String get isbn13;
+  dynamic get isbn13;
   @override
-  @JsonKey(name: 'textReviewsCount')
-  Id get textReviewsCount;
+  @JsonKey(name: 'text_reviews_count')
+  String get textReviewsCount;
   @override
   @JsonKey(name: 'uri')
   String get uri;
@@ -1231,46 +1885,43 @@ abstract class _Book implements Book {
   @JsonKey(name: 'title')
   String get title;
   @override
-  @JsonKey(name: 'titleWithoutSeries')
+  @JsonKey(name: 'title_without_series')
   String get titleWithoutSeries;
   @override
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'image_url')
   String get imageUrl;
   @override
-  @JsonKey(name: 'smallImageUrl')
+  @JsonKey(name: 'small_image_url')
   String get smallImageUrl;
-  @override
-  @JsonKey(name: 'largeImageUrl')
-  String get largeImageUrl;
   @override
   @JsonKey(name: 'link')
   String get link;
   @override
-  @JsonKey(name: 'numPages')
-  String get numPages;
+  @JsonKey(name: 'num_pages')
+  dynamic get numPages;
   @override
   @JsonKey(name: 'format')
-  String get format;
+  dynamic get format;
   @override
-  @JsonKey(name: 'editionInformation')
-  String get editionInformation;
+  @JsonKey(name: 'edition_information')
+  dynamic get editionInformation;
   @override
   @JsonKey(name: 'publisher')
-  String get publisher;
+  dynamic get publisher;
   @override
-  @JsonKey(name: 'publicationDay')
-  String get publicationDay;
+  @JsonKey(name: 'publication_day')
+  dynamic get publicationDay;
   @override
-  @JsonKey(name: 'publicationYear')
-  String get publicationYear;
+  @JsonKey(name: 'publication_year')
+  dynamic get publicationYear;
   @override
-  @JsonKey(name: 'publicationMonth')
-  String get publicationMonth;
+  @JsonKey(name: 'publication_month')
+  dynamic get publicationMonth;
   @override
-  @JsonKey(name: 'averageRating')
+  @JsonKey(name: 'average_rating')
   String get averageRating;
   @override
-  @JsonKey(name: 'ratingsCount')
+  @JsonKey(name: 'ratings_count')
   String get ratingsCount;
   @override
   @JsonKey(name: 'description')
@@ -1280,12 +1931,12 @@ abstract class _Book implements Book {
   Authors get authors;
   @override
   @JsonKey(name: 'published')
-  String get published;
+  dynamic get published;
   @override
   @JsonKey(name: 'work')
   Work get work;
   @override
-  _$BookCopyWith<_Book> get copyWith;
+  _$BookBookCopyWith<_BookBook> get copyWith;
 }
 
 Authors _$AuthorsFromJson(Map<String, dynamic> json) {
@@ -1436,13 +2087,13 @@ class _$AuthorTearOff {
   _Author call(
       {@JsonKey(name: 'id') String id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'role') String role,
-      @JsonKey(name: 'imageUrl') ImageUrl imageUrl,
-      @JsonKey(name: 'smallImageUrl') ImageUrl smallImageUrl,
-      @JsonKey(name: 'link') String link,
-      @JsonKey(name: 'averageRating') String averageRating,
-      @JsonKey(name: 'ratingsCount') String ratingsCount,
-      @JsonKey(name: 'textReviewsCount') String textReviewsCount}) {
+      @JsonKey(name: 'role') dynamic role,
+      @JsonKey(name: 'image_url') Body imageUrl,
+      @JsonKey(name: 'small_image_url') Body smallImageUrl,
+      @JsonKey(name: 'link') Body link,
+      @JsonKey(name: 'average_rating') String averageRating,
+      @JsonKey(name: 'ratings_count') String ratingsCount,
+      @JsonKey(name: 'text_reviews_count') String textReviewsCount}) {
     return _Author(
       id: id,
       name: name,
@@ -1466,18 +2117,18 @@ mixin _$Author {
   @JsonKey(name: 'name')
   String get name;
   @JsonKey(name: 'role')
-  String get role;
-  @JsonKey(name: 'imageUrl')
-  ImageUrl get imageUrl;
-  @JsonKey(name: 'smallImageUrl')
-  ImageUrl get smallImageUrl;
+  dynamic get role;
+  @JsonKey(name: 'image_url')
+  Body get imageUrl;
+  @JsonKey(name: 'small_image_url')
+  Body get smallImageUrl;
   @JsonKey(name: 'link')
-  String get link;
-  @JsonKey(name: 'averageRating')
+  Body get link;
+  @JsonKey(name: 'average_rating')
   String get averageRating;
-  @JsonKey(name: 'ratingsCount')
+  @JsonKey(name: 'ratings_count')
   String get ratingsCount;
-  @JsonKey(name: 'textReviewsCount')
+  @JsonKey(name: 'text_reviews_count')
   String get textReviewsCount;
 
   Map<String, dynamic> toJson();
@@ -1490,16 +2141,17 @@ abstract class $AuthorCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id') String id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'role') String role,
-      @JsonKey(name: 'imageUrl') ImageUrl imageUrl,
-      @JsonKey(name: 'smallImageUrl') ImageUrl smallImageUrl,
-      @JsonKey(name: 'link') String link,
-      @JsonKey(name: 'averageRating') String averageRating,
-      @JsonKey(name: 'ratingsCount') String ratingsCount,
-      @JsonKey(name: 'textReviewsCount') String textReviewsCount});
+      @JsonKey(name: 'role') dynamic role,
+      @JsonKey(name: 'image_url') Body imageUrl,
+      @JsonKey(name: 'small_image_url') Body smallImageUrl,
+      @JsonKey(name: 'link') Body link,
+      @JsonKey(name: 'average_rating') String averageRating,
+      @JsonKey(name: 'ratings_count') String ratingsCount,
+      @JsonKey(name: 'text_reviews_count') String textReviewsCount});
 
-  $ImageUrlCopyWith<$Res> get imageUrl;
-  $ImageUrlCopyWith<$Res> get smallImageUrl;
+  $BodyCopyWith<$Res> get imageUrl;
+  $BodyCopyWith<$Res> get smallImageUrl;
+  $BodyCopyWith<$Res> get link;
 }
 
 class _$AuthorCopyWithImpl<$Res> implements $AuthorCopyWith<$Res> {
@@ -1524,12 +2176,12 @@ class _$AuthorCopyWithImpl<$Res> implements $AuthorCopyWith<$Res> {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
-      role: role == freezed ? _value.role : role as String,
-      imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as ImageUrl,
+      role: role == freezed ? _value.role : role as dynamic,
+      imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as Body,
       smallImageUrl: smallImageUrl == freezed
           ? _value.smallImageUrl
-          : smallImageUrl as ImageUrl,
-      link: link == freezed ? _value.link : link as String,
+          : smallImageUrl as Body,
+      link: link == freezed ? _value.link : link as Body,
       averageRating: averageRating == freezed
           ? _value.averageRating
           : averageRating as String,
@@ -1543,22 +2195,32 @@ class _$AuthorCopyWithImpl<$Res> implements $AuthorCopyWith<$Res> {
   }
 
   @override
-  $ImageUrlCopyWith<$Res> get imageUrl {
+  $BodyCopyWith<$Res> get imageUrl {
     if (_value.imageUrl == null) {
       return null;
     }
-    return $ImageUrlCopyWith<$Res>(_value.imageUrl, (value) {
+    return $BodyCopyWith<$Res>(_value.imageUrl, (value) {
       return _then(_value.copyWith(imageUrl: value));
     });
   }
 
   @override
-  $ImageUrlCopyWith<$Res> get smallImageUrl {
+  $BodyCopyWith<$Res> get smallImageUrl {
     if (_value.smallImageUrl == null) {
       return null;
     }
-    return $ImageUrlCopyWith<$Res>(_value.smallImageUrl, (value) {
+    return $BodyCopyWith<$Res>(_value.smallImageUrl, (value) {
       return _then(_value.copyWith(smallImageUrl: value));
+    });
+  }
+
+  @override
+  $BodyCopyWith<$Res> get link {
+    if (_value.link == null) {
+      return null;
+    }
+    return $BodyCopyWith<$Res>(_value.link, (value) {
+      return _then(_value.copyWith(link: value));
     });
   }
 }
@@ -1570,18 +2232,20 @@ abstract class _$AuthorCopyWith<$Res> implements $AuthorCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id') String id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'role') String role,
-      @JsonKey(name: 'imageUrl') ImageUrl imageUrl,
-      @JsonKey(name: 'smallImageUrl') ImageUrl smallImageUrl,
-      @JsonKey(name: 'link') String link,
-      @JsonKey(name: 'averageRating') String averageRating,
-      @JsonKey(name: 'ratingsCount') String ratingsCount,
-      @JsonKey(name: 'textReviewsCount') String textReviewsCount});
+      @JsonKey(name: 'role') dynamic role,
+      @JsonKey(name: 'image_url') Body imageUrl,
+      @JsonKey(name: 'small_image_url') Body smallImageUrl,
+      @JsonKey(name: 'link') Body link,
+      @JsonKey(name: 'average_rating') String averageRating,
+      @JsonKey(name: 'ratings_count') String ratingsCount,
+      @JsonKey(name: 'text_reviews_count') String textReviewsCount});
 
   @override
-  $ImageUrlCopyWith<$Res> get imageUrl;
+  $BodyCopyWith<$Res> get imageUrl;
   @override
-  $ImageUrlCopyWith<$Res> get smallImageUrl;
+  $BodyCopyWith<$Res> get smallImageUrl;
+  @override
+  $BodyCopyWith<$Res> get link;
 }
 
 class __$AuthorCopyWithImpl<$Res> extends _$AuthorCopyWithImpl<$Res>
@@ -1607,12 +2271,12 @@ class __$AuthorCopyWithImpl<$Res> extends _$AuthorCopyWithImpl<$Res>
     return _then(_Author(
       id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
-      role: role == freezed ? _value.role : role as String,
-      imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as ImageUrl,
+      role: role == freezed ? _value.role : role as dynamic,
+      imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as Body,
       smallImageUrl: smallImageUrl == freezed
           ? _value.smallImageUrl
-          : smallImageUrl as ImageUrl,
-      link: link == freezed ? _value.link : link as String,
+          : smallImageUrl as Body,
+      link: link == freezed ? _value.link : link as Body,
       averageRating: averageRating == freezed
           ? _value.averageRating
           : averageRating as String,
@@ -1632,12 +2296,12 @@ class _$_Author implements _Author {
       {@JsonKey(name: 'id') this.id,
       @JsonKey(name: 'name') this.name,
       @JsonKey(name: 'role') this.role,
-      @JsonKey(name: 'imageUrl') this.imageUrl,
-      @JsonKey(name: 'smallImageUrl') this.smallImageUrl,
+      @JsonKey(name: 'image_url') this.imageUrl,
+      @JsonKey(name: 'small_image_url') this.smallImageUrl,
       @JsonKey(name: 'link') this.link,
-      @JsonKey(name: 'averageRating') this.averageRating,
-      @JsonKey(name: 'ratingsCount') this.ratingsCount,
-      @JsonKey(name: 'textReviewsCount') this.textReviewsCount});
+      @JsonKey(name: 'average_rating') this.averageRating,
+      @JsonKey(name: 'ratings_count') this.ratingsCount,
+      @JsonKey(name: 'text_reviews_count') this.textReviewsCount});
 
   factory _$_Author.fromJson(Map<String, dynamic> json) =>
       _$_$_AuthorFromJson(json);
@@ -1650,24 +2314,24 @@ class _$_Author implements _Author {
   final String name;
   @override
   @JsonKey(name: 'role')
-  final String role;
+  final dynamic role;
   @override
-  @JsonKey(name: 'imageUrl')
-  final ImageUrl imageUrl;
+  @JsonKey(name: 'image_url')
+  final Body imageUrl;
   @override
-  @JsonKey(name: 'smallImageUrl')
-  final ImageUrl smallImageUrl;
+  @JsonKey(name: 'small_image_url')
+  final Body smallImageUrl;
   @override
   @JsonKey(name: 'link')
-  final String link;
+  final Body link;
   @override
-  @JsonKey(name: 'averageRating')
+  @JsonKey(name: 'average_rating')
   final String averageRating;
   @override
-  @JsonKey(name: 'ratingsCount')
+  @JsonKey(name: 'ratings_count')
   final String ratingsCount;
   @override
-  @JsonKey(name: 'textReviewsCount')
+  @JsonKey(name: 'text_reviews_count')
   final String textReviewsCount;
 
   @override
@@ -1729,15 +2393,16 @@ class _$_Author implements _Author {
 
 abstract class _Author implements Author {
   factory _Author(
-      {@JsonKey(name: 'id') String id,
-      @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'role') String role,
-      @JsonKey(name: 'imageUrl') ImageUrl imageUrl,
-      @JsonKey(name: 'smallImageUrl') ImageUrl smallImageUrl,
-      @JsonKey(name: 'link') String link,
-      @JsonKey(name: 'averageRating') String averageRating,
-      @JsonKey(name: 'ratingsCount') String ratingsCount,
-      @JsonKey(name: 'textReviewsCount') String textReviewsCount}) = _$_Author;
+          {@JsonKey(name: 'id') String id,
+          @JsonKey(name: 'name') String name,
+          @JsonKey(name: 'role') dynamic role,
+          @JsonKey(name: 'image_url') Body imageUrl,
+          @JsonKey(name: 'small_image_url') Body smallImageUrl,
+          @JsonKey(name: 'link') Body link,
+          @JsonKey(name: 'average_rating') String averageRating,
+          @JsonKey(name: 'ratings_count') String ratingsCount,
+          @JsonKey(name: 'text_reviews_count') String textReviewsCount}) =
+      _$_Author;
 
   factory _Author.fromJson(Map<String, dynamic> json) = _$_Author.fromJson;
 
@@ -1749,323 +2414,27 @@ abstract class _Author implements Author {
   String get name;
   @override
   @JsonKey(name: 'role')
-  String get role;
+  dynamic get role;
   @override
-  @JsonKey(name: 'imageUrl')
-  ImageUrl get imageUrl;
+  @JsonKey(name: 'image_url')
+  Body get imageUrl;
   @override
-  @JsonKey(name: 'smallImageUrl')
-  ImageUrl get smallImageUrl;
+  @JsonKey(name: 'small_image_url')
+  Body get smallImageUrl;
   @override
   @JsonKey(name: 'link')
-  String get link;
+  Body get link;
   @override
-  @JsonKey(name: 'averageRating')
+  @JsonKey(name: 'average_rating')
   String get averageRating;
   @override
-  @JsonKey(name: 'ratingsCount')
+  @JsonKey(name: 'ratings_count')
   String get ratingsCount;
   @override
-  @JsonKey(name: 'textReviewsCount')
+  @JsonKey(name: 'text_reviews_count')
   String get textReviewsCount;
   @override
   _$AuthorCopyWith<_Author> get copyWith;
-}
-
-ImageUrl _$ImageUrlFromJson(Map<String, dynamic> json) {
-  return _ImageUrl.fromJson(json);
-}
-
-class _$ImageUrlTearOff {
-  const _$ImageUrlTearOff();
-
-  _ImageUrl call(
-      {@JsonKey(name: 'empty') String empty,
-      @JsonKey(name: 'nophoto') String nophoto}) {
-    return _ImageUrl(
-      empty: empty,
-      nophoto: nophoto,
-    );
-  }
-}
-
-// ignore: unused_element
-const $ImageUrl = _$ImageUrlTearOff();
-
-mixin _$ImageUrl {
-  @JsonKey(name: 'empty')
-  String get empty;
-  @JsonKey(name: 'nophoto')
-  String get nophoto;
-
-  Map<String, dynamic> toJson();
-  $ImageUrlCopyWith<ImageUrl> get copyWith;
-}
-
-abstract class $ImageUrlCopyWith<$Res> {
-  factory $ImageUrlCopyWith(ImageUrl value, $Res Function(ImageUrl) then) =
-      _$ImageUrlCopyWithImpl<$Res>;
-  $Res call(
-      {@JsonKey(name: 'empty') String empty,
-      @JsonKey(name: 'nophoto') String nophoto});
-}
-
-class _$ImageUrlCopyWithImpl<$Res> implements $ImageUrlCopyWith<$Res> {
-  _$ImageUrlCopyWithImpl(this._value, this._then);
-
-  final ImageUrl _value;
-  // ignore: unused_field
-  final $Res Function(ImageUrl) _then;
-
-  @override
-  $Res call({
-    Object empty = freezed,
-    Object nophoto = freezed,
-  }) {
-    return _then(_value.copyWith(
-      empty: empty == freezed ? _value.empty : empty as String,
-      nophoto: nophoto == freezed ? _value.nophoto : nophoto as String,
-    ));
-  }
-}
-
-abstract class _$ImageUrlCopyWith<$Res> implements $ImageUrlCopyWith<$Res> {
-  factory _$ImageUrlCopyWith(_ImageUrl value, $Res Function(_ImageUrl) then) =
-      __$ImageUrlCopyWithImpl<$Res>;
-  @override
-  $Res call(
-      {@JsonKey(name: 'empty') String empty,
-      @JsonKey(name: 'nophoto') String nophoto});
-}
-
-class __$ImageUrlCopyWithImpl<$Res> extends _$ImageUrlCopyWithImpl<$Res>
-    implements _$ImageUrlCopyWith<$Res> {
-  __$ImageUrlCopyWithImpl(_ImageUrl _value, $Res Function(_ImageUrl) _then)
-      : super(_value, (v) => _then(v as _ImageUrl));
-
-  @override
-  _ImageUrl get _value => super._value as _ImageUrl;
-
-  @override
-  $Res call({
-    Object empty = freezed,
-    Object nophoto = freezed,
-  }) {
-    return _then(_ImageUrl(
-      empty: empty == freezed ? _value.empty : empty as String,
-      nophoto: nophoto == freezed ? _value.nophoto : nophoto as String,
-    ));
-  }
-}
-
-@JsonSerializable()
-class _$_ImageUrl implements _ImageUrl {
-  _$_ImageUrl(
-      {@JsonKey(name: 'empty') this.empty,
-      @JsonKey(name: 'nophoto') this.nophoto});
-
-  factory _$_ImageUrl.fromJson(Map<String, dynamic> json) =>
-      _$_$_ImageUrlFromJson(json);
-
-  @override
-  @JsonKey(name: 'empty')
-  final String empty;
-  @override
-  @JsonKey(name: 'nophoto')
-  final String nophoto;
-
-  @override
-  String toString() {
-    return 'ImageUrl(empty: $empty, nophoto: $nophoto)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _ImageUrl &&
-            (identical(other.empty, empty) ||
-                const DeepCollectionEquality().equals(other.empty, empty)) &&
-            (identical(other.nophoto, nophoto) ||
-                const DeepCollectionEquality().equals(other.nophoto, nophoto)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(empty) ^
-      const DeepCollectionEquality().hash(nophoto);
-
-  @override
-  _$ImageUrlCopyWith<_ImageUrl> get copyWith =>
-      __$ImageUrlCopyWithImpl<_ImageUrl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_ImageUrlToJson(this);
-  }
-}
-
-abstract class _ImageUrl implements ImageUrl {
-  factory _ImageUrl(
-      {@JsonKey(name: 'empty') String empty,
-      @JsonKey(name: 'nophoto') String nophoto}) = _$_ImageUrl;
-
-  factory _ImageUrl.fromJson(Map<String, dynamic> json) = _$_ImageUrl.fromJson;
-
-  @override
-  @JsonKey(name: 'empty')
-  String get empty;
-  @override
-  @JsonKey(name: 'nophoto')
-  String get nophoto;
-  @override
-  _$ImageUrlCopyWith<_ImageUrl> get copyWith;
-}
-
-Id _$IdFromJson(Map<String, dynamic> json) {
-  return _Id.fromJson(json);
-}
-
-class _$IdTearOff {
-  const _$IdTearOff();
-
-  _Id call(
-      {@JsonKey(name: 'empty') String empty,
-      @JsonKey(name: 'type') String type}) {
-    return _Id(
-      empty: empty,
-      type: type,
-    );
-  }
-}
-
-// ignore: unused_element
-const $Id = _$IdTearOff();
-
-mixin _$Id {
-  @JsonKey(name: 'empty')
-  String get empty;
-  @JsonKey(name: 'type')
-  String get type;
-
-  Map<String, dynamic> toJson();
-  $IdCopyWith<Id> get copyWith;
-}
-
-abstract class $IdCopyWith<$Res> {
-  factory $IdCopyWith(Id value, $Res Function(Id) then) =
-      _$IdCopyWithImpl<$Res>;
-  $Res call(
-      {@JsonKey(name: 'empty') String empty,
-      @JsonKey(name: 'type') String type});
-}
-
-class _$IdCopyWithImpl<$Res> implements $IdCopyWith<$Res> {
-  _$IdCopyWithImpl(this._value, this._then);
-
-  final Id _value;
-  // ignore: unused_field
-  final $Res Function(Id) _then;
-
-  @override
-  $Res call({
-    Object empty = freezed,
-    Object type = freezed,
-  }) {
-    return _then(_value.copyWith(
-      empty: empty == freezed ? _value.empty : empty as String,
-      type: type == freezed ? _value.type : type as String,
-    ));
-  }
-}
-
-abstract class _$IdCopyWith<$Res> implements $IdCopyWith<$Res> {
-  factory _$IdCopyWith(_Id value, $Res Function(_Id) then) =
-      __$IdCopyWithImpl<$Res>;
-  @override
-  $Res call(
-      {@JsonKey(name: 'empty') String empty,
-      @JsonKey(name: 'type') String type});
-}
-
-class __$IdCopyWithImpl<$Res> extends _$IdCopyWithImpl<$Res>
-    implements _$IdCopyWith<$Res> {
-  __$IdCopyWithImpl(_Id _value, $Res Function(_Id) _then)
-      : super(_value, (v) => _then(v as _Id));
-
-  @override
-  _Id get _value => super._value as _Id;
-
-  @override
-  $Res call({
-    Object empty = freezed,
-    Object type = freezed,
-  }) {
-    return _then(_Id(
-      empty: empty == freezed ? _value.empty : empty as String,
-      type: type == freezed ? _value.type : type as String,
-    ));
-  }
-}
-
-@JsonSerializable()
-class _$_Id implements _Id {
-  _$_Id({@JsonKey(name: 'empty') this.empty, @JsonKey(name: 'type') this.type});
-
-  factory _$_Id.fromJson(Map<String, dynamic> json) => _$_$_IdFromJson(json);
-
-  @override
-  @JsonKey(name: 'empty')
-  final String empty;
-  @override
-  @JsonKey(name: 'type')
-  final String type;
-
-  @override
-  String toString() {
-    return 'Id(empty: $empty, type: $type)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _Id &&
-            (identical(other.empty, empty) ||
-                const DeepCollectionEquality().equals(other.empty, empty)) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(empty) ^
-      const DeepCollectionEquality().hash(type);
-
-  @override
-  _$IdCopyWith<_Id> get copyWith => __$IdCopyWithImpl<_Id>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_IdToJson(this);
-  }
-}
-
-abstract class _Id implements Id {
-  factory _Id(
-      {@JsonKey(name: 'empty') String empty,
-      @JsonKey(name: 'type') String type}) = _$_Id;
-
-  factory _Id.fromJson(Map<String, dynamic> json) = _$_Id.fromJson;
-
-  @override
-  @JsonKey(name: 'empty')
-  String get empty;
-  @override
-  @JsonKey(name: 'type')
-  String get type;
-  @override
-  _$IdCopyWith<_Id> get copyWith;
 }
 
 Work _$WorkFromJson(Map<String, dynamic> json) {
@@ -2209,4 +2578,127 @@ abstract class _Work implements Work {
   String get uri;
   @override
   _$WorkCopyWith<_Work> get copyWith;
+}
+
+Shelves _$ShelvesFromJson(Map<String, dynamic> json) {
+  return _Shelves.fromJson(json);
+}
+
+class _$ShelvesTearOff {
+  const _$ShelvesTearOff();
+
+  _Shelves call({@JsonKey(name: 'shelf') dynamic shelf}) {
+    return _Shelves(
+      shelf: shelf,
+    );
+  }
+}
+
+// ignore: unused_element
+const $Shelves = _$ShelvesTearOff();
+
+mixin _$Shelves {
+  @JsonKey(name: 'shelf')
+  dynamic get shelf;
+
+  Map<String, dynamic> toJson();
+  $ShelvesCopyWith<Shelves> get copyWith;
+}
+
+abstract class $ShelvesCopyWith<$Res> {
+  factory $ShelvesCopyWith(Shelves value, $Res Function(Shelves) then) =
+      _$ShelvesCopyWithImpl<$Res>;
+  $Res call({@JsonKey(name: 'shelf') dynamic shelf});
+}
+
+class _$ShelvesCopyWithImpl<$Res> implements $ShelvesCopyWith<$Res> {
+  _$ShelvesCopyWithImpl(this._value, this._then);
+
+  final Shelves _value;
+  // ignore: unused_field
+  final $Res Function(Shelves) _then;
+
+  @override
+  $Res call({
+    Object shelf = freezed,
+  }) {
+    return _then(_value.copyWith(
+      shelf: shelf == freezed ? _value.shelf : shelf as dynamic,
+    ));
+  }
+}
+
+abstract class _$ShelvesCopyWith<$Res> implements $ShelvesCopyWith<$Res> {
+  factory _$ShelvesCopyWith(_Shelves value, $Res Function(_Shelves) then) =
+      __$ShelvesCopyWithImpl<$Res>;
+  @override
+  $Res call({@JsonKey(name: 'shelf') dynamic shelf});
+}
+
+class __$ShelvesCopyWithImpl<$Res> extends _$ShelvesCopyWithImpl<$Res>
+    implements _$ShelvesCopyWith<$Res> {
+  __$ShelvesCopyWithImpl(_Shelves _value, $Res Function(_Shelves) _then)
+      : super(_value, (v) => _then(v as _Shelves));
+
+  @override
+  _Shelves get _value => super._value as _Shelves;
+
+  @override
+  $Res call({
+    Object shelf = freezed,
+  }) {
+    return _then(_Shelves(
+      shelf: shelf == freezed ? _value.shelf : shelf as dynamic,
+    ));
+  }
+}
+
+@JsonSerializable()
+class _$_Shelves implements _Shelves {
+  _$_Shelves({@JsonKey(name: 'shelf') this.shelf});
+
+  factory _$_Shelves.fromJson(Map<String, dynamic> json) =>
+      _$_$_ShelvesFromJson(json);
+
+  @override
+  @JsonKey(name: 'shelf')
+  final dynamic shelf;
+
+  @override
+  String toString() {
+    return 'Shelves(shelf: $shelf)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Shelves &&
+            (identical(other.shelf, shelf) ||
+                const DeepCollectionEquality().equals(other.shelf, shelf)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(shelf);
+
+  @override
+  _$ShelvesCopyWith<_Shelves> get copyWith =>
+      __$ShelvesCopyWithImpl<_Shelves>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_ShelvesToJson(this);
+  }
+}
+
+abstract class _Shelves implements Shelves {
+  factory _Shelves({@JsonKey(name: 'shelf') dynamic shelf}) = _$_Shelves;
+
+  factory _Shelves.fromJson(Map<String, dynamic> json) = _$_Shelves.fromJson;
+
+  @override
+  @JsonKey(name: 'shelf')
+  dynamic get shelf;
+  @override
+  _$ShelvesCopyWith<_Shelves> get copyWith;
 }
