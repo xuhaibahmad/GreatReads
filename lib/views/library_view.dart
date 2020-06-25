@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:goodreads_clone/utils/string_ext.dart';
 
 class LibraryViewModel {
@@ -18,8 +19,19 @@ class LibraryItem {
   final String imageUrl;
   final String title;
   final String subtitle;
+  final bool isMoreItem;
 
-  LibraryItem({this.imageUrl, this.title, this.subtitle});
+  LibraryItem({
+    this.imageUrl,
+    this.title,
+    this.subtitle,
+    this.isMoreItem = false,
+  });
+
+  factory LibraryItem.createMoreItem() {
+    return LibraryItem(
+        title: "See More", subtitle: "", imageUrl: "", isMoreItem: true);
+  }
 }
 
 class LibraryView extends StatelessWidget {
@@ -75,6 +87,12 @@ class LibraryView extends StatelessWidget {
   }
 
   Widget buildBookListItem(LibraryItem item) {
+    return item.isMoreItem
+        ? buildSeeMoreLibraryListItem(item)
+        : buildNormalLibraryListItem(item);
+  }
+
+  Widget buildNormalLibraryListItem(LibraryItem item) {
     return Container(
       width: 120,
       height: 140,
@@ -119,6 +137,43 @@ class LibraryView extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget buildSeeMoreLibraryListItem(LibraryItem item) {
+    return Container(
+      width: 145,
+      height: 100,
+      padding: EdgeInsets.symmetric(horizontal: 6),
+      margin: EdgeInsets.only(bottom: 40),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.0),
+        ),
+        elevation: 4,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(
+              FlutterIcons.book_open_page_variant_mco,
+              size: 40,
+              color: Colors.black26,
+            ),
+            SizedBox(height: 12),
+            Text(
+              "See More",
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.black87,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

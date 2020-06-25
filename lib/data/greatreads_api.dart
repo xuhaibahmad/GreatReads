@@ -9,6 +9,8 @@ part "greatreads_api.chopper.dart";
 
 const BASE_URL = "https://greatreads-api.herokuapp.com";
 
+const MAX_PER_PAGE_COUNT = 20;
+
 @singleton
 @preResolve
 @ChopperApi(baseUrl: BASE_URL)
